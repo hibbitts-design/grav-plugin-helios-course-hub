@@ -5,16 +5,26 @@ published: true
 
 # Grav Helios Course Hub Skeleton
 
-Give your course a clean, open home on the web – without building from scratch. This package, combined with the [Grav Premium Helios theme](https://getgrav.org/premium/helios), provides a ready-to-run companion site for one or more courses, with content you fully own and control. It includes [Grav CMS](https://getgrav.org), an open-source, flat-file CMS with no database required and a built-in browser-based Admin panel.
+Give your course a clean, open home on the web – without building from scratch. This package, combined with the [Grav Premium Helios theme](https://getgrav.org/premium/helios), provides a ready-to-run companion site for one or more courses, with content you fully control. It includes [Grav CMS](https://getgrav.org), an open-source, flat-file CMS with no database required and a built-in browser-based Admin panel.
 
 ## Who This Is For
 
 The Helios Course Hub is a **course companion site** – a place to organise and share course content, resources, schedules, and weekly materials alongside your existing LMS (Canvas, Moodle, Brightspace, etc.). It is not a learning management system and does not include enrolment, grade tracking, or student progress features.
 
-It is well suited for tech-curious or tech-savvy educators and teams, including:
+It is well suited for educators and teams who want full control over their content, structure, and hosting, including:
 - Individual educators wanting a clean, open companion site for one or more courses
 - Teams hosting shared course content, reference guides, or topic indexes
 - Anyone who wants full control over their content, structure, and hosting
+
+## Why the Helios Course Hub
+The Helios Course Hub gives you a modern, open, and fully controlled companion site that works alone or alongside any LMS – a dedicated home for your course content, resources, and schedules that you control completely.
+
+- Ready in minutes – a complete, pre-configured package with demo content included
+- Flexible – host one course or many from a single installation
+- Yours – host it anywhere PHP runs, customise freely, and keep every word you write
+- Open by design – optionally enable the built-in Git Sync and "Edit this Page" support
+- Flat-file simplicity – your content is just Markdown files you own and control
+- Support open source – your Grav Premium Helios theme purchase directly supports ongoing development of the open-source Grav CMS
 
 ## Quick Start
 
@@ -29,14 +39,14 @@ For a multi-course setup, see the [Multi-Course Setup](#multi-course-setup) sect
 
 ## Features
 
-- Ready-to-use course companion website with the clean Helios theme
+- Ready-to-use course companion website with the clean and modern Helios theme
 - Support for single or multiple courses from one site
 - Built-in shortcodes for embedding content (iFrames, Google Slides, PDFs, H5P, Embedly)
 - Responsive iframe/video containers with 16:9 aspect ratio
 - Embedly card support with automatic dark/light theme detection
 - Alphabetical topics index with auto-generated A–Z navigation
-- Git Sync plugin included for syncing site content with a GitHub or GitLab repository
-- Automatic "Edit this Page" link option provided by the Helios Theme
+- Git Sync plugin included for syncing site content with GitHub, Codeberg, or similar Git hosting service
+- Automatic "Edit this Page" link option provided by the Helios Theme, with support for both GitHub and Codeberg repositories
 - Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
 - Admin panel styling customizations (increased font sizes and toolbar icon scaling)
 
@@ -44,7 +54,7 @@ If you prefer not to write Markdown directly, the optional [Grav Premium Editor 
 
 ## Git Sync & Open Editing
 
-The skeleton includes the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), which keeps your site content automatically in sync with a GitHub or GitLab repository. This enables a full open-authoring workflow:
+The skeleton includes the [Git Sync plugin](https://github.com/trilbymedia/grav-plugin-git-sync), which keeps your site content automatically in sync with a GitHub or Codeberg repository. This enables a full open-authoring workflow:
 
 - Content editors can work directly in the Grav Admin or commit changes via Git
 - The Helios Theme's **"Edit this Page"** option adds a link on each page that takes readers directly to the corresponding source file in your repository for quick edits or contributions
@@ -147,13 +157,17 @@ Custom CSS, JavaScript and shortcodes for the Helios Course Hub theme, plus Admi
 
 ### Theme Detection
 
-If the Helios theme is not installed, the plugin automatically falls back to the Quark theme, redirects visitors to the Admin Themes page, and displays a warning banner prompting you to install Helios.
+If the Helios theme is not installed, the plugin automatically falls back to the Quark theme, redirects visitors to the License Manager page, and displays a warning banner prompting you to enter your Helios License key and install Helios.
+
+### Course Label Customization
+
+The Course dropdown label can be customized in the plugin's `languages.yaml` — English and French are included by default.
 
 ## Requirements
 
 - PHP >= 7.3.6
 - Grav CMS >= 1.7.0
-- [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license)); your purchase directly supports ongoing development of the open-source Grav CMS
+- [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license))
 - Shortcode Core plugin >= 5.0.0
 
 ## License
