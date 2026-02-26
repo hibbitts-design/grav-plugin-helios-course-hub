@@ -2,11 +2,11 @@
 
 Give your course a clean, open home on the web – without building from scratch. Designed for use with the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub), providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 
-![](screenshot-1.png)
-Figure 1. Example Grav Helios Course Hub website, with a single course.
+## Screenshots
 
-![](screenshot-2.png)
-Figure 2. Example Grav Helios Course Hub website, with multiple courses.
+<p float="left">
+  <a href="https://demo.hibbittsdesign.org/grav-helios-multi-course-hub/"><img alt="Grav Helios Course Hub, course list page" src="https://raw.githubusercontent.com/hibbitts-design/grav-skeleton-helios-course-hub/refs/heads/main/screenshot-1.png" width="49%"></a>&nbsp;<a href="https://demo.hibbittsdesign.org/grav-helios-multi-course-hub/cpt-363-1/home"><img alt="Grav Helios Course Hub, course page" src="https://raw.githubusercontent.com/hibbitts-design/grav-skeleton-helios-course-hub/refs/heads/main/screenshot-2.png" width="49%"></a>
+</p>
 
 ## Who This Is For
 
