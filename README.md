@@ -185,7 +185,7 @@ To customize the label or add a language, update the relevant block in `language
 - Grav CMS >= 1.7.0
 - [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license))
 
-## Support and Policies
+## Support
 
 ### Contact and Support
 - Follow [@hibbittsdesign@mastodon.social](https://mastodon.social/@hibbittsdesign) on Mastodon for updates
