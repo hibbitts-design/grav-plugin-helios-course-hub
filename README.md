@@ -249,6 +249,8 @@ The following settings are available in the Admin panel under **Plugins → Heli
 - PHP >= 7.3.6
 - Grav CMS >= 1.7.0
 - [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license))
+- [Shortcode Core plugin](https://github.com/getgrav/grav-plugin-shortcode-core) >= 5.0.0
+- [GitHub Markdown Alerts plugin](https://github.com/trilbymedia/grav-plugin-github-markdown-alerts) >= 1.0.0
 
 ## Support
 
