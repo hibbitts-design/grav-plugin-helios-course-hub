@@ -10,7 +10,7 @@
 1. [](#bugfix)
     * Updated blueprints.yaml version #
 
-    # v0.9.0
+# v0.9.0
 ## 03/04/2026
 
 1. [](#new)
