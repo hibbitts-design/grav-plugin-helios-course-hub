@@ -2,7 +2,7 @@
 ## 03/17/2026
 
 1. [](#bugfix)
-    * Updated blueprint version #
+    * Updated blueprints.yaml version #
 
     # v0.9.0
 ## 03/04/2026
