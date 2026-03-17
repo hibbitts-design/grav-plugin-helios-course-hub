@@ -1,7 +1,7 @@
 name: Helios Course Hub
 slug: helios-course-hub
 type: plugin
-version: 1.0.0
+version: 0.9.1
 description: Requires the Grav Premium Helios theme. Designed for use with the Grav Helios Course Hub skeleton, providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 icon: layer-group
 author:
