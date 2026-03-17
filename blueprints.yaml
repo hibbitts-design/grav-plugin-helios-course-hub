@@ -4,7 +4,7 @@ version: 0.9.2
 description: Requires the Grav Premium Helios theme. Designed for use with the Grav Helios Course Hub skeleton, providing custom CSS, JavaScript, shortcodes and enhanced Admin Panel readability.
 icon: layer-group
 author:
-  name: Hibbitts Design
+  name: HibbittsDesign.org
   email: paul@hibbittsdesign.org
   url: https://hibbittsdesign.org
 homepage: https://github.com/hibbitts-design/grav-plugin-helios-course-hub
