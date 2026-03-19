@@ -270,8 +270,13 @@ class HeliosCourseHubPlugin extends Plugin
                 }
             }
 
-            if ($courseLabel && $pageTitle && $siteTitle) {
-                $this->browserTitle = $pageTitle . ' | ' . $courseLabel . ' | ' . $siteTitle;
+            if ($courseLabel && $pageTitle) {
+                $courseCount = $versionInfo['count'] ?? count($filteredVersions);
+                if ($courseCount > 1 && $siteTitle) {
+                    $this->browserTitle = $pageTitle . ' | ' . $courseLabel . ' | ' . $siteTitle;
+                } else {
+                    $this->browserTitle = $pageTitle . ' | ' . $courseLabel;
+                }
             }
         }
     }
