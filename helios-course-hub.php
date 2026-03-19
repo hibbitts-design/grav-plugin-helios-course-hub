@@ -271,7 +271,7 @@ class HeliosCourseHubPlugin extends Plugin
             }
 
             if ($courseLabel && $pageTitle) {
-                $courseCount = $versionInfo['count'] ?? count($filteredVersions);
+                $courseCount = $versionInfo['count'];
                 if ($courseCount > 1 && $siteTitle) {
                     $this->browserTitle = $pageTitle . ' | ' . $courseLabel . ' | ' . $siteTitle;
                 } else {
