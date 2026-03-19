@@ -96,8 +96,13 @@ search:
 
 ## Installation
 
-1. Copy the `helios-course-hub` folder into `user/plugins/`
-2. The plugin is enabled by default via `helios-course-hub.yaml`
+Typically a plugin should be installed via [GPM](http://learn.getgrav.org/advanced/grav-gpm) (Grav Package Manager):
+
+```
+$ bin/gpm install helios-course-hub
+```
+
+Alternatively it can be installed via the [Admin Plugin](http://learn.getgrav.org/admin-panel/plugins)
 
 ## Features
 
