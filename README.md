@@ -27,12 +27,12 @@ Grav Helios Course Hub often works really well when you:
 - Want a visually refined, permanent companion site for one or more courses alongside your existing LMS and have access to a Web server
 - Want a fully designed, ready-to-use course site without custom design or coding work
 - Want to support multiple courses from a single installation with automatic course switching
-- Need context-aware search – automatically scoped to all courses from the Courses homepage, or narrowed to the current course when browsing within it
-- Want flexible editing options – browser-based Admin panel with Markdown by default and an optional visual block editor
+- Need context-aware search — automatically scoped to all courses from the Courses homepage, or narrowed to the current course when browsing within it
+- Want flexible editing options — browser-based Admin panel with Markdown by default and an optional visual block editor
 - Need multi-user editing with role-based access rights for team-managed course content
 - Need rich content embedding (H5P, iFrames, Google Slides, PDFs, Embedly) without coding
 - Value keeping content in portable Markdown files with full ownership and hosting control
-- Can optionally extend with custom branding – logos, colours, and styling – when a more distinctive look is needed
+- Can optionally extend with custom branding — logos, colours, and styling — when a more distinctive look is needed
 
 Other publishing tools might be better candidates when you:
 
@@ -42,7 +42,7 @@ Other publishing tools might be better candidates when you:
 - Need a large ecosystem of themes and plugins beyond what Grav currently offers
 - Prefer fully visual drag-and-drop page builders over Markdown-based editing
 
-Still unsure? Grav Helios Course Hub is designed for easy entry – install the skeleton package on almost any Web server, replace the demo content with your own, and your course site is ready. Your content stays in portable Markdown files you own completely. For quick, zero-setup publishing directly from a GitHub or Codeberg repository without a Web server, explore [Docsify-This](https://docsify-this.net).
+Still unsure? Grav Helios Course Hub is designed for easy entry — install the skeleton package on almost any Web server, replace the demo content with your own, and your course site is ready. Your content stays in portable Markdown files you own completely. For quick, zero-setup publishing directly from a GitHub or Codeberg repository without a Web server, explore [Docsify-This](https://docsify-this.net).
 
 ## Quick Start
 
@@ -130,7 +130,7 @@ Alternatively it can be installed via the [Admin Plugin](http://learn.getgrav.or
 
 ### Authoring & Customization
 - Git Sync plugin included for syncing site content with GitHub, Codeberg, or similar Git hosting service
-- Automatic "Edit this Page" link option provided by the Helios Theme, with support for both GitHub and Codeberg repositories – defaults to **View Page Markdown** (linking to the Markdown source file for open reuse and OER access) and optionally configurable to link directly to file editing for course authors and contributors
+- Automatic "Edit this Page" link option provided by the Helios Theme, with support for both GitHub and Codeberg repositories — defaults to **View Page Markdown** (linking to the Markdown source file for open reuse and OER access) and optionally configurable to link directly to file editing for course authors and contributors
 - Customizable CSS and JavaScript via the bundled Helios Course Hub plugin
 - Print stylesheet with page break control for images, lists, tables, and headings; absolute link URLs displayed inline; and consistent page margins across browsers
 - Admin panel styling customizations (increased font sizes and toolbar icon scaling)
@@ -155,7 +155,7 @@ The simplest convention is `course-1`, `course-2`, `course-3`, etc.
 In the Admin panel, open the course folder's root page (e.g. `cpt-363-2`) and set **Published** to **Yes** to show or **No** to hide the course.
 
 > [!TIP]
-> When multiple courses are published, the Course Dropdown is useful while building and testing content, but students may find the Courses homepage is sufficient. Once content is finalized, you can hide this dropdown by setting **Show Version Dropdown** to **No** in the Helios Theme settings.
+> If changes don't appear immediately after updating settings or publishing pages, clear the Grav cache via **Admin → Tools → Cache**.
 
 ### Courses Homepage
 
@@ -168,7 +168,7 @@ The `course-list.md` frontmatter controls the list layout and sets default value
 | Field | Default | Description |
 |-------|---------|-------------|
 | `cards_per_row` | `1` | Number of course cards per row (1–2) |
-| `card_icon` | – | Default icon for all course cards (Tabler icon path); also used as the sidebar course label icon when a course has no `icon` of its own |
+| `card_icon` | — | Default icon for all course cards (Tabler icon path); also used as the sidebar course label icon when a course has no `icon` of its own |
 | `card_image_layout` | `side` | Image layout: `side` (left thumbnail) or `top` (full-width above content) |
 | `card_description_lines` | `3` | Maximum description lines per card (2, 3, or 0 for no limit) |
 
@@ -235,10 +235,16 @@ The browser tab title is automatically formatted based on how many courses are v
 - **Single course:** `Page Title | Site Title`
 - **Multi-course:** `Page Title | Course Label | Site Title`
 
-For single-course sites, set the Site Title to the course name – it serves as the top-level identifier in the browser tab.
+For single-course sites, set the Site Title to the course name — it serves as the top-level identifier in the browser tab.
+
+> [!TIP]
+> For single-course sites, also consider setting **Single Course Site Logo Link** to **First Page of Only Listed Course** in the plugin settings — this takes visitors directly into the course rather than a one-card Courses homepage.
 
 ## Templates
 - **default-toc** – Content page template with a right-column Table of Contents. Set `template: default-toc` in any page's frontmatter to enable. Requires the page-toc plugin (included).
+
+> [!TIP]
+> The `default-toc` template works especially well for content-heavy pages such as syllabi and resources pages.
 
 ## Assets
 - **helios.css** – Theme styling (announcement blockquotes, heading typography, Font Awesome spacing, responsive containers)
@@ -263,6 +269,9 @@ For single-course sites, set the Site Title to the course name – it serves as 
 - `[announcement]...[/announcement]` – Styled announcement notice (default: Important/purple), supports Markdown content
 - `[announcement title="..." type="..."]...[/announcement]` – With optional custom title and type (`note`, `tip`, `important`, `warning`, `caution`)
 - `[markdownfile url="..."]` – Fetches and renders a remote Markdown file inline, stripping YAML front matter
+
+> [!TIP]
+> For simple notices, the standard Markdown callout `> [!IMPORTANT]` is a zero-friction alternative to the `[announcement]` shortcode.
 
 ## Plugin Settings
 
