@@ -4,7 +4,7 @@
 1. [](#improved)
     * Include dark-mode screenshots
     * Updated ReadMe
-    * Browser tab title now uses "Page Title | Site Label" for single-course sites
+    * Browser tab title now uses "Page Title | Site Title" for single-course sites
 
 # v0.9.2
 ## 03/17/2026
