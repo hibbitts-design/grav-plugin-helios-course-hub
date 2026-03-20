@@ -249,7 +249,7 @@ For single-course sites, set the Site Title to the course name – it serves as 
 - **default-toc** – Content page template with a right-column Table of Contents. Set `template: default-toc` in any page's frontmatter to enable. Requires the page-toc plugin (included).
 
 > [!TIP]
-> The `default-toc` template is ideal for standalone content-heavy pages that don't use a sidebar – pages like syllabi and resources already display a Table of Contents in their sidebar.
+> The `default-toc` template is ideal for standalone content-heavy pages that don't use a sidebar.
 
 ## Assets
 - **helios.css** – Theme styling (announcement blockquotes, heading typography, Font Awesome spacing, responsive containers)
