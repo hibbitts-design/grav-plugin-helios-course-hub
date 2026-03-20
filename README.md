@@ -16,7 +16,7 @@
 
 > _Example Grav Helios Course Hub website. Explore a [single course](https://demo.hibbittsdesign.org/grav-helios-single-course-hub/cpt-363-1/home) or [multiple course](https://demo.hibbittsdesign.org/grav-helios-course-hub/) demo site._
 
-Give your course a modern, open home on the web, without building from scratch. This plugin works with the [Grav Premium Helios theme](https://getgrav.org/premium/helios) on any Grav site, providing custom CSS, JavaScript, shortcodes, and enhanced Admin Panel readability; the easiest starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration. Your Helios purchase directly supports Grav's open-source development.
+Give your courses a modern, open home on the web, without building from scratch. This plugin works with the [Grav Premium Helios theme](https://getgrav.org/premium/helios) on any Grav site, providing custom CSS, JavaScript, shortcodes, and enhanced Admin Panel readability; the easiest starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration. Your Helios purchase directly supports Grav's open-source development.
 
 Helios Course Hub is the successor to the original [Open Course Hub](https://github.com/hibbitts-design/grav-skeleton-course-hub), bringing the same open-education goals to the premium Helios theme with a plugin-based approach.
 
