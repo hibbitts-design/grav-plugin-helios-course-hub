@@ -46,7 +46,7 @@ Still unsure? Install the skeleton package on almost any Web server, replace the
 
 ## Quick Start
 
-The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub/releases/latest), which includes this plugin, demo content, and all required configuration out of the box.
+The recommended starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub/releases/latest), which includes this plugin, demo content, and all required configuration.
 
 1. **Download and install** the [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub/releases/latest) package
 2. **Enter your licenses** – your Helios and complimentary SVG Icons license keys (or import an existing license file), then install and activate the theme
@@ -125,10 +125,10 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Build an alphabetical topics index with auto-generated A–Z navigation
 - Announcement shortcode: display a styled notice on any course page, with optional custom title and color type
 - MarkdownFile shortcode: fetch and render a remote Markdown file inline, with YAML front matter automatically stripped
-- Configurable chapter page description line limit – set the maximum number of lines shown per card description on Chapter template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
+- Configurable chapter page description line limit: set the maximum number of lines shown per card description on Chapter template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
 
 ### Embedding & Shortcodes
-- Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards – with responsive 16:9 layout and automatic dark/light theme detection
+- Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection
 
 ### Authoring & Customization
 - Git Sync plugin for syncing site content with GitHub, Codeberg, or similar Git hosting service
