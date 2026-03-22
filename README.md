@@ -239,7 +239,7 @@ The browser tab title is automatically formatted based on how many courses are v
 - **Single course:** `Page Title | Site Title`
 - **Multi-course:** `Page Title | Course Label | Site Title`
 
-For single-course sites, set the Site Title to the course name – it serves as the top-level identifier in the browser tab.
+For single-course sites, set the Site Title to the course name – it serves as the top-level identifier in the browser tab. The Courses homepage remains accessible directly at `/courses`.
 
 ## Templates
 - **course-list** – Courses homepage template that renders all visible courses as cards. Assigned automatically to the Courses homepage (`/courses`).
