@@ -61,10 +61,10 @@ form:
       type: select
       label: 'Single Course Site Logo Link'
       help: 'Choose where the site Logo Text and icon link navigates when only one course is listed.'
-      default: 'courses_list'
+      default: 'single_course'
       options:
-        courses_list: 'Courses Home Page (default)'
-        single_course: 'First Page of Only Listed Course'
+        courses_list: 'Courses Home Page'
+        single_course: 'First Page of Only Listed Course (default)'
 
     footer_section:
       type: section
