@@ -218,6 +218,20 @@ To display a card image, upload an image file to the course root page's media fo
 
 ### Course Label Customization
 
+#### Course Names
+
+The course name shown below the site name in the sidebar, in the sidebar course dropdown, and as the middle segment of the browser tab title (`Page | Course Label | Site Title`) comes from the `versioning.labels` setting in the Helios Theme config. These can be edited via **Admin → Themes → Helios → Versioning tab → Version Labels**, or directly in `user/config/themes/helios.yaml`:
+
+```yaml
+versioning:
+  labels:
+    cpt-363-1: CPT-363-1
+    cpt-363-2: CPT-363-2
+    cpt-363-3: CPT-363-3
+```
+
+#### Course Dropdown Label
+
 The Course dropdown label and its default fallback can be customized in `languages.yaml`. English and French are included:
 
 ```yaml
