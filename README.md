@@ -116,7 +116,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 ### Site Identity
 - Show or hide the site logo icon square next to the Logo Text in the header, with optional custom Tabler icon
 - Configurable single course site logo link targeting the Courses Home Page or First Page of Only Listed Course
-- Course label with optional icon automatically displayed in the sidebar when multiple courses are published, linking to the first page of the current course
+- Course label (drawn from the Helios Theme `versioning.labels` config) with optional icon automatically displayed in the sidebar below the site name when multiple courses are published, linking to the first page of the current course
 - Per-course favicon support: upload a `favicon.*` file to a course root page's media to override the site favicon for that course
 
 ### Course Cards
@@ -239,7 +239,7 @@ To customize the label or add a language, update the relevant block in `language
 The browser tab title is automatically formatted based on how many courses are visible:
 
 - **Single course:** `Page Title | Site Title`
-- **Multi-course:** `Page Title | Course Label | Site Title`
+- **Multi-course:** `Page Title | Course Label | Site Title` _(Course Label comes from `versioning.labels` in the Helios Theme config)_
 
 For single-course sites, set the Site Title to the course name – it serves as the top-level identifier in the browser tab. The Courses homepage remains accessible directly at `/courses`.
 
