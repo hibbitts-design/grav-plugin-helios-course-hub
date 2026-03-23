@@ -94,6 +94,8 @@ search:
   placeholder: 'Search course...'
 ```
 
+> **Note:** The `labels` values serve as the **course name** shown in three places: below the site name in the sidebar, in the sidebar course dropdown, and as the middle segment of the browser tab title (`Page | Course Label | Site Title`). These can be set directly in `user/config/themes/helios.yaml` or edited via **Admin → Themes → Helios → Versioning tab → Version Labels**.
+
 If disabling the plugin, manually restore the following Helios theme defaults in `user/config/themes/helios.yaml`:
 
 ```yaml
