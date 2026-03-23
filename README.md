@@ -153,12 +153,19 @@ Course folders must start with one or more letters, followed by a number. An opt
 
 The simplest convention is `course-1`, `course-2`, `course-3`, etc.
 
+> [!TIP]
+> After renaming a course folder, update `versioning.labels` in `user/config/themes/helios.yaml` (or via **Admin → Themes → Helios → Versioning → Version Labels**) to add the new folder name as a key — this sets the course name shown in the sidebar and browser tab title.
+
 ### Showing and Hiding Courses
 
 In the Admin panel, open the course folder itself (e.g. `cpt-363-2`) and set **Published** to **Yes** to show or **No** to hide the course.
 
 > [!TIP]
 > If changes don't appear immediately after updating settings or publishing pages, clear the Grav cache via **Admin → Tools → Cache**.
+
+### Adding a New Course
+
+To add a course beyond the three included demo folders, create a new folder in `user/pages/` following the naming rules above, copy a `course-card.md` file into it (from one of the existing demo courses), and add the new folder name as a key in `versioning.labels` in `user/config/themes/helios.yaml`. Then set **Published** to **Yes** in the Admin panel to make it visible on the Courses homepage.
 
 ### Courses Homepage
 
