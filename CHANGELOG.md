@@ -2,10 +2,10 @@
 ## XX/XX/2026
 
 1. [](#new)
-    * Added Helios-inspired Admin Styling toggle (rounded corners on inputs, buttons, badges, tabs and dropdowns; button hover transitions; improved typography)
+    * Added Helios-inspired Admin Styling toggle
 1. [](#improved)
     * Include dark-mode screenshots
-    * Updated README to reflect Helios-inspired Admin Styling feature and updated plugin description
+    * Updated README
     * Updated plugin description in blueprints.yaml
     * Browser tab title now uses "Page Title | Site Title" for single-course sites
 
