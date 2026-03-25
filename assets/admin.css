@@ -68,6 +68,13 @@ table tbody tr:hover {
     background-color: rgba(39, 39, 42, 0.04);
 }
 
+/* === Login page astronaut === */
+
+/* Make astronaut silhouette visible against dark zinc background */
+#admin-login h1 svg path:first-child {
+    fill: rgba(255, 255, 255, 0.10);
+}
+
 /* === Focus rings === */
 
 /* Keyboard-only focus rings on inputs and buttons (:focus-visible, not :focus) */

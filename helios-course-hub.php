@@ -70,6 +70,7 @@ class HeliosCourseHubPlugin extends Plugin
         $assets->addJs("$path/admin.js");
 
         $this->injectHeliosPreset();
+        $this->injectLoginCss();
 
         if ($this->themeMissing) {
             $heliosLicense = \Grav\Common\GPM\Licenses::get('helios');
@@ -138,6 +139,20 @@ class HeliosCourseHubPlugin extends Plugin
 YAML;
 
         $this->config->set('plugins.admin.whitelabel.custom_presets', $preset);
+    }
+
+    protected function injectLoginCss()
+    {
+        // Only inject if no custom_css is already defined by the user
+        $existing = $this->config->get('plugins.admin.whitelabel.custom_css');
+        if (!empty($existing)) {
+            return;
+        }
+
+        $this->config->set(
+            'plugins.admin.whitelabel.custom_css',
+            '#admin-login h1 svg path:first-child { fill: rgba(255, 255, 255, 0.10); }'
+        );
     }
 
     public function onGetPageBlueprints($event)
