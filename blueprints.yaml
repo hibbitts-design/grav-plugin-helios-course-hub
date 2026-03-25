@@ -1,7 +1,7 @@
 name: Helios Course Hub
 type: plugin
 version: 0.9.2
-description: Requires the Grav Premium Helios theme. Extends the Helios Course Hub skeleton with single or multiple course navigation enhancements, GitHub/Codeberg integration, shortcodes, and Admin Panel improvements.
+description: Requires the Grav Premium Helios theme. Designed for use with the Grav Helios Course Hub skeleton, providing custom CSS, JavaScript, shortcodes, and enhanced Admin Panel styling with improved readability.
 icon: th
 author:
   name: HibbittsDesign.org
@@ -27,6 +27,23 @@ form:
       label: PLUGIN_ADMIN.PLUGIN_STATUS
       highlight: 1
       default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    admin_panel_section:
+      type: section
+      title: 'Admin Panel'
+      underline: true
+
+    admin_styling_enhancements:
+      type: toggle
+      label: 'Helios-inspired Admin Styling'
+      help: 'Apply Helios-inspired styling enhancements to the Admin Panel (rounded corners, transitions, improved typography).'
+      highlight: 1
+      default: 1
       options:
         1: PLUGIN_ADMIN.ENABLED
         0: PLUGIN_ADMIN.DISABLED
