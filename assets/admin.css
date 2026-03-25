@@ -1,39 +1,6 @@
-/* Admin panel CSS customizations */
+/* Helios-inspired Admin Panel styling enhancements */
 
-/* CSS to increase the default font size of the Admin Panel */
-
-body {
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-form input, form select, form textarea, form button, form .selectize-input {
-    font-size: 1rem;
-}
-
-/* CSS to increase default font size of Admin Panel toolbar */
-
-.grav-editor-toolbar ul {
-    font-size: 1.1rem!important;
-}
-
-/* CSS to increase Editor Pro toolbar icon and text size */
-
-.editor-pro-toolbar button svg {
-    width: 20px;
-    height: 20px;
-}
-
-.editor-pro-dropdown-menu .dropdown-item-text {
-    font-size: 1rem;
-}
-
-.editor-pro-dropdown-menu .dropdown-item-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
-/* === Helios-inspired Admin Styling: rounded corners and transitions === */
+/* === Rounded corners and transitions === */
 
 /* Form inputs, textarea, select, selectize */
 form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
@@ -48,7 +15,7 @@ form .selectize-dropdown {
     border-radius: 0 0 6px 6px;
 }
 
-/* Buttons — bump from 4px and add transition */
+/* Buttons */
 .button,
 .button.secondary,
 .button.danger {
@@ -74,4 +41,47 @@ form .selectize-dropdown {
 /* Dropdown menus */
 .dropdown-menu {
     border-radius: 8px;
+}
+
+/* === Sidebar active state accent === */
+
+/* Left border accent on selected nav item via inset box-shadow — no layout shift */
+#admin-menu li.selected {
+    box-shadow: inset 3px 0 0 #3B82F6;
+}
+
+/* === Card/panel shadows === */
+
+/* Subtle elevation shadow on main content panels; dashboard items excluded */
+.admin-block {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* === Table row hover === */
+
+/* Subtle zinc highlight on table row hover */
+table tbody tr {
+    transition: background-color 0.1s ease;
+}
+
+table tbody tr:hover {
+    background-color: rgba(39, 39, 42, 0.04);
+}
+
+/* === Focus rings === */
+
+/* Keyboard-only focus rings on inputs and buttons (:focus-visible, not :focus) */
+form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible,
+form textarea:focus-visible,
+form select:focus-visible,
+form .selectize-input.focus {
+    outline: 2px solid rgba(37, 99, 235, 0.5);
+    outline-offset: 1px;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.button:focus-visible {
+    outline: 2px solid rgba(37, 99, 235, 0.5);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
 }

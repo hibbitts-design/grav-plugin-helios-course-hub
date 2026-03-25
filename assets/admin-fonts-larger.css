@@ -1,0 +1,31 @@
+/* Helios-inspired Admin Panel font size enhancements (Larger) */
+
+/* Increase default font size */
+body {
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+form input, form select, form textarea, form button, form .selectize-input {
+    font-size: 1.05rem;
+}
+
+/* Increase Admin Panel toolbar font size */
+.grav-editor-toolbar ul {
+    font-size: 1.15rem!important;
+}
+
+/* Increase Editor Pro toolbar icon and text size */
+.editor-pro-toolbar button svg {
+    width: 22px;
+    height: 22px;
+}
+
+.editor-pro-dropdown-menu .dropdown-item-text {
+    font-size: 1.05rem;
+}
+
+.editor-pro-dropdown-menu .dropdown-item-icon svg {
+    width: 22px;
+    height: 22px;
+}

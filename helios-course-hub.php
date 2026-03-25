@@ -58,7 +58,15 @@ class HeliosCourseHubPlugin extends Plugin
         $assets = $this->grav['assets'];
         $path = 'plugin://helios-course-hub/assets';
 
-        $assets->addCss("$path/admin.css");
+        if ($this->config->get('plugins.helios-course-hub.admin_styling_enhancements', true)) {
+            $assets->addCss("$path/admin.css");
+        }
+
+        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
+        if ($fontSize !== 'default') {
+            $assets->addCss("$path/admin-fonts-{$fontSize}.css");
+        }
+
         $assets->addJs("$path/admin.js");
 
         if ($this->themeMissing) {

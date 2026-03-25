@@ -41,7 +41,7 @@ form:
     admin_styling_enhancements:
       type: toggle
       label: 'Helios-inspired Admin Styling'
-      help: 'Apply Helios-inspired styling enhancements to the Admin Panel (rounded corners, transitions, improved typography).'
+      help: 'Apply Helios-inspired styling enhancements to the Admin Panel (rounded corners, transitions, shadows, focus rings, table row hover, sidebar accent).'
       highlight: 1
       default: 1
       options:
@@ -49,6 +49,16 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+
+    admin_font_size:
+      type: select
+      label: 'Admin Font Size'
+      help: 'Choose the font size scale for the Admin Panel body, form elements, toolbar, and Editor Pro.'
+      default: 'large'
+      options:
+        default: 'Default (admin built-in)'
+        large: 'Large'
+        larger: 'Larger'
 
     header_section:
       type: section
