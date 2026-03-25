@@ -12,9 +12,14 @@
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hibbitts-design/grav-plugin-helios-course-hub/refs/heads/main/screenshot-2-dark.png">
     <img alt="Grav Helios Course Hub, course page" src="https://raw.githubusercontent.com/hibbitts-design/grav-plugin-helios-course-hub/refs/heads/main/screenshot-2.png" width="49%">
   </picture>
+  <picture>
+    <img src="https://raw.githubusercontent.com/hibbitts-design/grav-plugin-helios-course-hub/refs/heads/main/screenshot-admin-1.png" width="49%">
+  </picture>&nbsp;<picture>
+    <img src="https://raw.githubusercontent.com/hibbitts-design/grav-plugin-helios-course-hub/refs/heads/main/screenshot-admin-2.png" width="49%">
+  </picture>
 </p>
 
-> _Example Grav Helios Course Hub website. Explore a [single course](https://demo.hibbittsdesign.org/grav-helios-single-course-hub/cpt-363-1/home) or [multiple course](https://demo.hibbittsdesign.org/grav-helios-course-hub/) demo site._
+> _Example Grav Helios Course Hub website and Admin Panel. Explore a [single course](https://demo.hibbittsdesign.org/grav-helios-single-course-hub/cpt-363-1/home) or [multiple course](https://demo.hibbittsdesign.org/grav-helios-course-hub/) demo site._
 
 Give your courses a modern, open home on the web, without building from scratch. This plugin works with the [Grav Premium Helios theme](https://getgrav.org/premium/helios) on any Grav site, providing custom CSS, JavaScript, shortcodes, and enhanced Admin Panel styling with improved readability; the easiest starting point is the pre-configured [Grav Helios Course Hub Skeleton](https://github.com/hibbitts-design/grav-skeleton-helios-course-hub), which includes this plugin, demo content, and all required configuration. Your Helios purchase directly supports Grav's open-source development.
 
