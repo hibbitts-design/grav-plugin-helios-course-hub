@@ -69,6 +69,8 @@ class HeliosCourseHubPlugin extends Plugin
 
         $assets->addJs("$path/admin.js");
 
+        $this->injectHeliosPreset();
+
         if ($this->themeMissing) {
             $heliosLicense = \Grav\Common\GPM\Licenses::get('helios');
             $targetRoute = $heliosLicense ? '/admin/themes' : '/admin/license-manager';
@@ -86,6 +88,56 @@ class HeliosCourseHubPlugin extends Plugin
                 return;
             }
         }
+    }
+
+    protected function injectHeliosPreset()
+    {
+        // Only inject if no custom presets are already defined by the user
+        $existing = $this->config->get('plugins.admin.whitelabel.custom_presets');
+        if (!empty($existing)) {
+            return;
+        }
+
+        $preset = <<<'YAML'
+- name: Helios
+  accents:
+    primary-accent: button
+    secondary-accent: notice
+    tertiary-accent: critical
+  colors:
+    logo-bg: '#18181B'
+    logo-link: '#FFFFFF'
+    nav-bg: '#27272A'
+    nav-text: '#9CA3AF'
+    nav-link: '#F9FAFB'
+    nav-selected-bg: '#18181B'
+    nav-selected-link: '#FFFFFF'
+    nav-hover-bg: '#3F3F46'
+    nav-hover-link: '#FFFFFF'
+    toolbar-bg: '#FFFFFF'
+    toolbar-text: '#1F2937'
+    page-bg: '#F4F4F5'
+    page-text: '#374151'
+    page-link: '#2563EB'
+    content-bg: '#FAFAFA'
+    content-text: '#374151'
+    content-link: '#2563EB'
+    content-link2: '#7A5EBD'
+    content-header: '#111827'
+    content-tabs-bg: '#E5E7EB'
+    content-tabs-text: '#4B5563'
+    content-highlight: '#ffffd7'
+    button-bg: '#2563EB'
+    button-text: '#FFFFFF'
+    notice-bg: '#059669'
+    notice-text: '#FFFFFF'
+    update-bg: '#7A5EBD'
+    update-text: '#FFFFFF'
+    critical-bg: '#DC2626'
+    critical-text: '#FFFFFF'
+YAML;
+
+        $this->config->set('plugins.admin.whitelabel.custom_presets', $preset);
     }
 
     public function onGetPageBlueprints($event)
