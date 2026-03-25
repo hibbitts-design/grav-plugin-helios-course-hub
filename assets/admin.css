@@ -32,3 +32,46 @@ form input, form select, form textarea, form button, form .selectize-input {
     width: 20px;
     height: 20px;
 }
+
+/* === Helios-inspired Admin Styling: rounded corners and transitions === */
+
+/* Form inputs, textarea, select, selectize */
+form input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="range"]),
+form textarea,
+form select,
+form .selectize-input,
+form .form-select-wrapper {
+    border-radius: 6px;
+}
+
+form .selectize-dropdown {
+    border-radius: 0 0 6px 6px;
+}
+
+/* Buttons — bump from 4px and add transition */
+.button,
+.button.secondary,
+.button.danger {
+    border-radius: 6px !important;
+    transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+/* Status labels and badges */
+.label {
+    border-radius: 4px;
+}
+
+.badge {
+    border-radius: 10px;
+}
+
+/* Tab bar — round top corners only */
+.tab-bar li a,
+.tab-bar li span {
+    border-radius: 6px 6px 0 0;
+}
+
+/* Dropdown menus */
+.dropdown-menu {
+    border-radius: 8px;
+}
