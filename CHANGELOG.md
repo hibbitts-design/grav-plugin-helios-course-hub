@@ -8,6 +8,7 @@
     * Updated README
     * Updated plugin description in blueprints.yaml
     * Browser tab title now uses "Page Title | Site Title" for single-course sites
+    * Moved Helios colour preset to `helios-preset.yaml` for easier maintenance
 
 # v0.9.2
 ## 03/17/2026
