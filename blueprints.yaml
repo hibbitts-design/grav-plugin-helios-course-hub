@@ -56,7 +56,7 @@ form:
       help: 'Choose the font size scale for the Admin Panel body, form elements, toolbar, and Editor Pro.'
       default: 'large'
       options:
-        default: 'Default (admin built-in)'
+        default: 'Default (no changes)'
         large: 'Large'
         larger: 'Larger'
 
