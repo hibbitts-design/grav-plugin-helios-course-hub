@@ -10,6 +10,7 @@
     * Browser tab title now uses "Page Title | Site Title" for single-course sites
     * Moved Helios colour preset to `helios-preset.yaml` for easier maintenance
     * Updated admin font size "default" option label to "Default (no changes)" for clarity
+    * Prefix search rFilter search results by course published status and regroup by breadcrumb with course name prefix.esult groups with course name using breadcrumb-based JS regrouping
 
 # v0.9.2
 ## 03/17/2026
