@@ -57,7 +57,7 @@ Grav Helios Course Hub is a strong fit when you:
 - Want a visually refined, permanent companion site for one or more courses alongside your existing LMS and have access to a Web server
 - Want a fully designed course site without custom design or coding work
 - Want to support multiple courses from a single installation with automatic course switching
-- Need context-aware search – automatically scoped to all courses from the Courses homepage, or narrowed to the current course when browsing within it
+- Need course-aware search – automatically scoped to all courses from the Courses homepage, or narrowed to the current course when browsing within it
 - Want flexible editing options – browser-based Admin panel with Markdown by default and an optional visual block editor
 - Need multi-user editing with role-based access rights for team-managed course content
 - Need rich content embedding (H5P, iFrames, Google Slides, PDFs, Embedly) without coding
