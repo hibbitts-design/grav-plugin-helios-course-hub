@@ -247,9 +247,12 @@ function searchComponent() {
                 this.resultCount = data.count || data.results.length;
 
                 // PLUGIN CHANGE 1: Re-group using breadcrumb, skipping the top-level container (e.g. "Pages")
+                // Decode HTML entities in breadcrumb for display (Twig auto-escapes > to &gt;)
+                const decodeEntities = str => str ? str.replace(/&gt;/g, '>').replace(/&lt;/g, '<').replace(/&amp;/g, '&') : '';
+                this.results.forEach(r => { r.breadcrumb = decodeEntities(r.breadcrumb); });
                 this.grouped = {};
                 for (const result of this.results) {
-                    const parts = result.breadcrumb ? result.breadcrumb.split(/\s+(?:>|&gt;)\s+/) : [];
+                    const parts = result.breadcrumb ? result.breadcrumb.split(/\s+>\s+/) : [];
                     const groupParts = parts.length > 1 ? parts.slice(1) : parts;
                     const group = groupParts.length > 0 ? groupParts.join(' ') : (result.parent || 'Documentation');
                     if (!this.grouped[group]) this.grouped[group] = [];
