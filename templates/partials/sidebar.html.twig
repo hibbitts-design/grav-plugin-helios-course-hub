@@ -6,6 +6,7 @@
  #   3. nav_items macro: active branch persisted to localStorage (search: PLUGIN CHANGE 2)
  #   4. Logo link uses logo_url to navigate to first page of only listed course (search: PLUGIN CHANGE 3)
  #   5. Course label links to first page of current course via course_label_url (search: PLUGIN CHANGE 5)
+ #   6. Course sidebar image banner shown above course label when course has card image (search: PLUGIN ADDITION)
  #}
 {% set theme_config = config.themes.helios %}
 {% set logo = theme_config.logo %}
@@ -58,6 +59,14 @@
         </button>
         {% endif %}
     </div>
+
+    {# PLUGIN ADDITION: Course sidebar image banner #}
+    {% if course_sidebar_image %}
+    <div class="shrink-0 border-b border-gray-200 dark:border-gray-800">
+        <img src="{{ course_sidebar_image }}" alt="" class="sidebar-course-image">
+    </div>
+    {% endif %}
+    {# END PLUGIN ADDITION #}
 
     {# PLUGIN ADDITION: Course label #}
     {% set show_dropdown = theme_config.versioning.enabled and theme_config.versioning.show_dropdown and helios_version_info is defined and helios_version_info.count > 1 %}

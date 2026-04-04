@@ -35,6 +35,15 @@ form:
               label: Card Image
               toggleable: true
               help: 'Image from this page''s media folder to display at the top of the course card on the Courses homepage.'
+            header.show_sidebar_image:
+              type: toggle
+              label: 'Show Card Image in Course Sidebar'
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              help: 'Show the course card image in the sidebar when browsing within this course. Only applies when a Card Image is selected above.'
             header.instructor:
               type: text
               label: Instructor(s)

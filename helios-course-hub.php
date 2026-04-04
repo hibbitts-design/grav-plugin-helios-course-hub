@@ -251,6 +251,7 @@ class HeliosCourseHubPlugin extends Plugin
 
             // Set course_label_url to the first child page of the current course version
             $twig->twig_vars['course_label_url'] = null;
+            $twig->twig_vars['course_sidebar_image'] = null;
             foreach ($filteredVersions as $version) {
                 $isCurrent = is_array($version) ? ($version['is_current'] ?? false) : ($version->is_current ?? false);
                 if ($isCurrent) {
@@ -269,6 +270,20 @@ class HeliosCourseHubPlugin extends Plugin
                                 if (strncmp($basename, 'favicon.', 8) === 0) {
                                     $this->courseFaviconUrl = $medium->url();
                                     break;
+                                }
+                            }
+
+                            // Check for course card image to show as sidebar banner
+                            // Respect show_sidebar_image toggle (default: show)
+                            $showSidebarImage = $versionPage->header()->show_sidebar_image ?? 1;
+                            $courseImage = $versionPage->header()->image ?? null;
+                            if ($showSidebarImage && $courseImage) {
+                                foreach ($versionPage->media()->all() as $filename => $medium) {
+                                    $basename = preg_replace('/^\d+_/', '', $filename);
+                                    if ($basename === $courseImage) {
+                                        $twig->twig_vars['course_sidebar_image'] = $medium->url();
+                                        break;
+                                    }
                                 }
                             }
                         }
