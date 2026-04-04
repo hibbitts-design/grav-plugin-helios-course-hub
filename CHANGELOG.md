@@ -13,6 +13,7 @@
     * Filter search results by course published status and regroup by breadcrumb with course name prefix
     * Remove ReadMe from Search results
     * Decode HTML entities in breadcrumbs for correct display in search results
+    * Add optional course sidebar image banner to course-card template
 
 # v0.9.2
 ## 03/17/2026
