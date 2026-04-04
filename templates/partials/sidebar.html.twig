@@ -63,7 +63,13 @@
     {# PLUGIN ADDITION: Course sidebar image banner #}
     {% if course_sidebar_image %}
     <div class="shrink-0 border-b border-gray-200 dark:border-gray-800">
+        {% if course_label_url %}
+        <a href="{{ course_label_url }}">
+            <img src="{{ course_sidebar_image }}" alt="" class="sidebar-course-image">
+        </a>
+        {% else %}
         <img src="{{ course_sidebar_image }}" alt="" class="sidebar-course-image">
+        {% endif %}
     </div>
     {% endif %}
     {# END PLUGIN ADDITION #}
