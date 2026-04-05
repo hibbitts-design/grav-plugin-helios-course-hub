@@ -274,8 +274,8 @@ class HeliosCourseHubPlugin extends Plugin
                             }
 
                             // Check for course card image to show as sidebar banner
-                            // Respect show_sidebar_image toggle (default: show)
-                            $showSidebarImage = $versionPage->header()->show_sidebar_image ?? 1;
+                            // Respect show_sidebar_image toggle (default: hide)
+                            $showSidebarImage = $versionPage->header()->show_sidebar_image ?? 0;
                             $courseImage = $versionPage->header()->image ?? null;
                             if ($showSidebarImage && $courseImage) {
                                 foreach ($versionPage->media()->all() as $filename => $medium) {
