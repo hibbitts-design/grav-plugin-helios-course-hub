@@ -220,8 +220,8 @@ footer .edit-page-link svg {
     height: 100%;
 }
 
-/* Equalise card heights in single-column grids only when at least one card has an image; not applied to 2-column grids to avoid stretching orphaned cards in the last row */
-.course-card-grid:not(.course-card-grid--cols-2):has(.course-card-has-image) {
+/* Equalise card heights in single-column grids only when at least one card has an image; not applied to 2- or 3-column grids to avoid stretching orphaned cards in the last row */
+.course-card-grid:not(.course-card-grid--cols-2):not(.course-card-grid--cols-3):has(.course-card-has-image) {
     grid-auto-rows: 1fr;
 }
 
@@ -240,10 +240,20 @@ footer .edit-page-link svg {
 /* Adjustments when cards are shown 2 per row (less horizontal space available) */
 @media (min-width: 640px) {
     .course-card-grid--cols-2 .course-card-side-image-container {
-        width: 10rem;
+        width: 8rem;
     }
     .course-card-grid--cols-2 .course-card-image-container {
         aspect-ratio: 2 / 1;
+    }
+}
+
+/* Adjustments when cards are shown 3 per row (even less horizontal space available) */
+@media (min-width: 1024px) {
+    .course-card-grid--cols-3 .course-card-side-image-container {
+        width: 5rem;
+    }
+    .course-card-grid--cols-3 .course-card-image-container {
+        aspect-ratio: 3 / 2;
     }
 }
 

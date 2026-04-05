@@ -30,6 +30,7 @@ form:
               options:
                 1: '1'
                 2: '2'
+                3: '3'
               help: Number of course cards displayed per row.
             header.card_image_layout:
               type: select
