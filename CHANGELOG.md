@@ -14,7 +14,8 @@
     * Remove ReadMe from Search results
     * Decode HTML entities in breadcrumbs for correct display in search results
     * Add optional course sidebar image banner to course-card template
-    * Rename 70.ux-techniques-guide to 70.guide in demo pages and update all README references.
+    * Rename 70.ux-techniques-guide to 70.guide in demo pages and update all README references
+    * Add support for 3 cards per row in course list (blueprint, template, CSS, and README updates)
 
 # v0.9.2
 ## 03/17/2026
