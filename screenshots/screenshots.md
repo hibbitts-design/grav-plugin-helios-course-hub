@@ -1,4 +1,4 @@
-# ☀️ Grav Helios Course Hub 
+# ☀️ Grav Helios Course Hub Plugin
 
 ### All Screenshots
 
