@@ -37,9 +37,9 @@ form:
               label: Card Image Layout
               default: side
               options:
-                side: 'Side (left thumbnail beside content)'
-                top: 'Top (full width above content)'
-              help: How course card images are displayed when an image is set.
+                side: 'Side (switches to top at 3 per row)'
+                top: 'Top'
+              help: How course card images are displayed when an image is set. At 3 cards per row, side images automatically switch to top layout for better readability.
             header.card_description_lines:
               type: select
               label: Description Line Limit
