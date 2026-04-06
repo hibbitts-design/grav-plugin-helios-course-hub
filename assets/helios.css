@@ -240,7 +240,7 @@ footer .edit-page-link svg {
 /* Adjustments when cards are shown 2 per row (less horizontal space available) */
 @media (min-width: 640px) {
     .course-card-grid--cols-2 .course-card-side-image-container {
-        width: 8rem;
+        width: 9rem;
     }
     .course-card-grid--cols-2 .course-card-image-container {
         aspect-ratio: 2 / 1;
