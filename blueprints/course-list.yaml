@@ -39,7 +39,7 @@ form:
               options:
                 side: 'Side (switches to top at 3 per row)'
                 top: 'Top'
-              help: How course card images are displayed when an image is set. At 3 cards per row, side images automatically switch to top layout for better readability.
+              help: How course card images are displayed when an image is set. Side images switch to top layout at 3 cards per row, to prevent the course image and text from being too narrow.
             header.card_description_lines:
               type: select
               label: Description Line Limit
