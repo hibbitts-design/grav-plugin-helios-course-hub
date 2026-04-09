@@ -1,3 +1,9 @@
+# v1.0.1
+## XX/XX/2026
+
+1. [](#improved)
+    * Support custom Grav summary delimiter in course-list content split
+
 # v1.0.0
 ## 04/09/2026
 
