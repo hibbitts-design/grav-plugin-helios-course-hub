@@ -2,7 +2,7 @@
 ## XX/XX/2026
 
 1. [](#improved)
-    * Support custom Grav summary delimiter in course-list content split
+   * Add Page Inject example to cpt-363-3 demonstrating shared content between courses
 
 # v1.0.0
 ## 04/09/2026
