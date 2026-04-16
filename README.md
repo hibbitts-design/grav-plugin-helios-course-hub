@@ -375,6 +375,8 @@ The following settings are available in the Admin panel under **Plugins → Heli
 
 > **Note:** To apply the Helios-inspired Admin Panel colour scheme (zinc nav, accessible blue links, muted purple accents), go to **Admin → Customization → Presets**, select **Helios**, and click **Save**.
 
+> **Note:** The Helios-inspired Admin Panel enhancements apply to the 1.7 Admin Panel.
+
 ## Requirements
 
 - PHP >= 7.3.6
