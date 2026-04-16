@@ -35,7 +35,7 @@ form:
 
     admin_panel_section:
       type: section
-      title: 'Admin Panel'
+      title: 'Admin Panel (Admin 1.7 only)'
       underline: true
 
     admin_styling_enhancements:
