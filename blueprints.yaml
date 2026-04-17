@@ -18,6 +18,12 @@ dependencies:
   - { name: grav, version: '>=1.7.0' }
   - { name: shortcode-core, version: '>=5.0.0' }
   - { name: github-markdown-alerts, version: '>=1.0.0' }
+  - external_links
+  - git-sync
+  - page-inject
+  - page-toc
+  - shortcode-core
+  - simplesearch
 
 form:
   validation: loose
