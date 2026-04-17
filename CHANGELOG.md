@@ -3,7 +3,7 @@
 
 1. [](#improved)
    * Updated README
-   * Admin 2 compatibility
+   * Added Grav 2.0 / Admin 2.0 compatibility
    * Support changing font size in Admin 2
    * Update blueprints with Admin 1.7 specific info
    * Additionally support fallback theme Quark2
