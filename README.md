@@ -203,14 +203,14 @@ In the Admin panel, open the course folder itself (e.g. `cpt-363-2`) and set **P
 Once you have set up your own courses, you can safely delete any unused demo course folders (e.g. `cpt-363-2/`, `cpt-363-3/`) from `user/pages/` via the Admin panel or FTP.
 
 > [!TIP]
-> If changes don't appear immediately after updating settings or publishing pages, clear the Grav cache via the **Clear Cache** button in the upper-right of the Admin Dashboard.
+> If changes don't appear immediately after updating settings or publishing pages, clear the Grav cache via the **Clear Cache** button in the Admin panel.
 
 ### Adding a New Course
 
 To add a course beyond the three included demo folders, duplicate an existing course folder (e.g. `cpt-363-1/`) via FTP or the Admin panel (when using the Admin panel, click the duplicate icon to open the **Copy Page** dialog — update the **Folder Name** field to a valid course ID (e.g. `course-101`) and remove the `-copy` suffix before saving), then ensure it follows the naming rules above, and add the new folder name as a key in `versioning.labels` in `user/config/themes/helios.yaml` (or via **Admin → Themes → Helios → Versioning → Version Labels**). Then set **Published** to **Yes** in the Admin panel to make it visible on the Courses homepage.
 
 > [!TIP]
-> After duplicating and renaming a course folder, clear the Grav cache via the **Clear Cache** button in the upper-right of the Admin Dashboard if the new course does not appear immediately.
+> After duplicating and renaming a course folder, clear the Grav cache via the **Clear Cache** button in the Admin panel if the new course does not appear immediately.
 
 ### Courses Homepage
 
@@ -374,8 +374,6 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | H5P Content Embed Source URL | `https://h5p.org/h5p/embed/` | Base URL for H5P embeds via Content ID (used with `[h5p id="..."]`) |
 
 > **Note:** To apply the Helios-inspired Admin Panel colour scheme (zinc nav, accessible blue links, muted purple accents), go to **Admin → Customization → Presets**, select **Helios**, and click **Save**.
-
-> **Note:** The Helios-inspired Admin Panel enhancements apply to the 1.7 Admin Panel.
 
 ## Requirements
 
