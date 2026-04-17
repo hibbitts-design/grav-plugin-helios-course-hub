@@ -42,6 +42,13 @@ class HeliosCourseHubPlugin extends Plugin
             'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
         ]);
 
+        if ($this->isAdmin2Route()) {
+            $this->enable([
+                'onPagesInitialized' => ['onPagesInitializedAdmin2', 1001],
+            ]);
+            return;
+        }
+
         if ($this->isAdmin()) {
             $this->enable([
                 'onPageInitialized'  => ['onPageInitialized', 0],
@@ -57,6 +64,39 @@ class HeliosCourseHubPlugin extends Plugin
             'onOutputGenerated'   => ['onOutputGenerated', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
+    }
+
+    private function isAdmin2Route(): bool
+    {
+        if (!$this->config->get('plugins.admin2.enabled', false)) {
+            return false;
+        }
+        $route = $this->config->get('plugins.admin2.route', '');
+        if (!$route) {
+            return false;
+        }
+        $base = '/' . trim($route, '/');
+        $current = $this->grav['uri']->route();
+        return $current === $base || str_starts_with($current, $base . '/');
+    }
+
+    public function onPagesInitializedAdmin2(): void
+    {
+        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
+        if ($fontSize === 'default') {
+            return;
+        }
+        $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
+        if (!file_exists($cssFile)) {
+            return;
+        }
+        $css = file_get_contents($cssFile);
+        ob_start(function (string $html) use ($css): string {
+            if (strpos($html, 'data-sveltekit-preload-data') === false) {
+                return $html;
+            }
+            return str_replace('</head>', '<style>' . $css . '</style></head>', $html);
+        });
     }
 
     public function onPageInitialized()
