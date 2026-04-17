@@ -5,6 +5,7 @@
    * Updated README
    * Admin 2 compatibility
    * Support changing font size in Admin 2
+   * Update blueprints with Admin 1.7 specific info
 
 # v1.0.2
 ## 04/17/2026
