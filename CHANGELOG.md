@@ -3,6 +3,7 @@
 
 1. [](#improved)
    * Updated README
+   * Updated plugin dependencies
 
 # v1.0.1
 ## 04/11/2026
