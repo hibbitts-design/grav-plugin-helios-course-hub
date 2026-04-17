@@ -4,6 +4,7 @@
 1. [](#improved)
    * Updated README
    * Admin 2 compatibility
+   * Support changing font size in Admin 2
 
 # v1.0.2
 ## 04/17/2026
