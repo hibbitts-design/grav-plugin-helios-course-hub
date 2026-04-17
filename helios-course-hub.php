@@ -36,10 +36,16 @@ class HeliosCourseHubPlugin extends Plugin
             $this->themeMissing = true;
         }
 
+        // Register page blueprints in every context so they are discoverable
+        // from admin, frontend, CLI, and API requests alike.
+        $this->enable([
+            'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
+        ]);
+
         if ($this->isAdmin()) {
             $this->enable([
-                'onPageInitialized' => ['onPageInitialized', 0],
-                'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
+                'onPageInitialized'  => ['onPageInitialized', 0],
+                'onOutputGenerated'  => ['onOutputGenerated', 0],
             ]);
             return;
         }
