@@ -26,13 +26,14 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onPluginsInitialized()
     {
-        // Check theme folder and active status directly, as admin may have switched to Quark
+        // Check theme folder and active status directly, as admin may have switched to Quark/Quark2
         $themeName = 'helios';
         $themePath = GRAV_ROOT . '/user/themes/' . $themeName;
         $themeActive = $this->config->get('system.pages.theme') === $themeName;
 
         if (!is_dir($themePath) || !$themeActive) {
-            $this->config->set('system.pages.theme', 'quark');
+            $fallback = is_dir(GRAV_ROOT . '/user/themes/quark2') ? 'quark2' : 'quark';
+            $this->config->set('system.pages.theme', $fallback);
             $this->themeMissing = true;
         }
 
