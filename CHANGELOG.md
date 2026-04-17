@@ -3,6 +3,7 @@
 
 1. [](#improved)
    * Updated README
+   * Admin 2 compatibility
 
 # v1.0.2
 ## 04/17/2026
