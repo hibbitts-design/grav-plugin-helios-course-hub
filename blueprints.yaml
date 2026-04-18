@@ -20,11 +20,11 @@ dependencies:
   - { name: grav, version: '>=1.7.0' }
   - { name: shortcode-core, version: '>=5.0.0' }
   - { name: github-markdown-alerts, version: '>=1.0.0' }
-  - { name: external_links }
-  - { name: git-sync }
-  - { name: page-inject }
-  - { name: page-toc }
-  - { name: simplesearch }
+  - { name: external_links, version: '>=1.6.3' }
+  - { name: git-sync, version: '>=3.2.0' }
+  - { name: page-inject, version: '>=2.2.0' }
+  - { name: page-toc, version: '>=3.2.5' }
+  - { name: simplesearch, version: '>=2.3.0' }
 
 form:
   validation: loose
