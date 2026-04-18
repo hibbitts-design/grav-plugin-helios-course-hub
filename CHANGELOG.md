@@ -1,3 +1,9 @@
+# v1.0.4
+## XX/XX/2026
+
+1. [](#improved)
+   * Updated plugin dependencies with version requirements
+
 # v1.0.3
 ## 04/18/2026
 
