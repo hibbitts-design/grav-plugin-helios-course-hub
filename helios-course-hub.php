@@ -259,6 +259,8 @@ class HeliosCourseHubPlugin extends Plugin
         // Override TOC visibility/position via ?toc_position=hidden|left|right or ?toc=hidden|left|right (null when param absent)
         $tocParam = $uri->query('toc_position') ?: $uri->query('toc') ?: null;
         $twig->twig_vars['toc_url_param'] = ($tocParam !== null && $tocParam !== false) ? $tocParam : null;
+        // Hide Git edit link via ?edit_link=false (theme vocab, primary) or ?hidegitlink=true (Docsify alias)
+        $twig->twig_vars['hide_git_link'] = $uri->query('edit_link') === 'false' || $uri->query('hidegitlink') === 'true';
         $twig->twig_vars['helios_base_simple'] = $this->themeMissing
             ? 'partials/base.html.twig'
             : 'partials/base-simple.html.twig';
