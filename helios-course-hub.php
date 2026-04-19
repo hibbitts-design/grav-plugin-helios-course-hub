@@ -253,6 +253,12 @@ class HeliosCourseHubPlugin extends Plugin
         $twig->twig_vars['site_icon'] = $siteIcon;
         $twig->twig_vars['show_plugin_credits'] = $showPluginCredits;
         $twig->twig_vars['course_label_icon'] = $courseLabelIcon;
+        // Hide sidebar and header when ?embedded=true or ?chromeless=true is present in the URL
+        $uri = $this->grav['uri'];
+        $twig->twig_vars['chromeless'] = (bool) $uri->query('embedded') || (bool) $uri->query('chromeless');
+        // Override TOC visibility/position via ?toc_position=hidden|left|right or ?toc=hidden|left|right (null when param absent)
+        $tocParam = $uri->query('toc_position') ?: $uri->query('toc') ?: null;
+        $twig->twig_vars['toc_url_param'] = ($tocParam !== null && $tocParam !== false) ? $tocParam : null;
         $twig->twig_vars['helios_base_simple'] = $this->themeMissing
             ? 'partials/base.html.twig'
             : 'partials/base-simple.html.twig';
