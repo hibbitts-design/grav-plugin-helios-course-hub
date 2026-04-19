@@ -25,7 +25,7 @@
         </div>
         {% endif %}
 
-    {% if show_plugin_credits %}{# PLUGIN CHANGE 2: footer attribution includes Helios Course Hub link, toggled by show_plugin_credits #}
+    {% if show_plugin_credits and not chromeless %}{# PLUGIN CHANGE 2: footer attribution includes Helios Course Hub link, toggled by show_plugin_credits; also suppressed when embedded #}
     <p class="text-center text-sm text-gray-500 dark:text-gray-400">Built with <a href="https://getgrav.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav</a> · <a href="https://getgrav.org/premium/helios" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav Premium Helios</a> theme · <a href="https://github.com/hibbitts-design/grav-skeleton-helios-course-hub" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Helios Course Hub</a> by <a href="https://hibbittsdesign.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">hibbittsdesign.org</a></p>
     {% endif %}
 </footer>
