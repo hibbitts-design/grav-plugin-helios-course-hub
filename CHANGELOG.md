@@ -4,11 +4,14 @@
 1. [](#improved)
    * Updated README
 
+1. [](#bugfix)
+   * Update with correct CSS files
+
 # v1.0.4
 ## 04/19/2026
 
 1. [](#new)
-    * Added ?embedded=true and ?toc_position= URL params for LMS iframe embedding and per-request TOC control
+   * Added ?embedded=true and ?toc_position= URL params for LMS iframe embedding and per-request TOC control
 
 1. [](#improved)
    * Updated plugin dependencies with version requirements
