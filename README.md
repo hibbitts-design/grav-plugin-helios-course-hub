@@ -151,7 +151,7 @@ search:
 
 ## Features
 
-Helios Course Hub provides a ready-built course site using portable Markdown files you fully control. Highlights include visual course cards, context-aware search, and optional Git Sync for open collaborative authoring.
+Helios Course Hub provides a ready-built course site using portable Markdown files you fully control. Highlights include visual course cards, course-aware search, and optional Git Sync for open collaborative authoring.
 
 ### Site Identity
 - Show or hide the site logo icon square next to the Logo Text in the header, with optional custom Tabler icon
