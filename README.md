@@ -398,7 +398,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 
 ## Requirements
 
-- PHP >= 7.3.6
+- PHP >= 8.0
 - Grav CMS >= 1.7.0
 - [Grav Premium Helios Theme](https://getgrav.org/premium/helios) – one license per site ([Standard or Team](https://getgrav.org/premium/license))
 
