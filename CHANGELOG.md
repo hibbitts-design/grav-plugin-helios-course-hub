@@ -1,3 +1,9 @@
+# v1.0.6
+## XX/XX0/2026
+
+1. [](#improved)
+   * Updated README
+
 # v1.0.5
 ## 04/20/2026
 
