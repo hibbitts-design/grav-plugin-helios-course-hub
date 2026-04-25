@@ -3,7 +3,9 @@
 
 1. [](#improved)
    * Updated README
-   * Update font size UI
+   
+1. [](#bugfix)
+   * Skip Helios plugin templates and assets when Helios theme is not active
 
 # v1.0.5
 ## 04/20/2026
