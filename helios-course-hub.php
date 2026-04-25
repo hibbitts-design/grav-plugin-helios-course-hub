@@ -380,12 +380,14 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onOutputGenerated($event)
     {
-        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
-        if ($fontSize !== 'default') {
-            $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
-            if (file_exists($cssFile)) {
-                $css = file_get_contents($cssFile);
-                $event['output'] = str_replace('</head>', '<style>' . $css . '</style></head>', $event['output']);
+        if ($this->isAdmin()) {
+            $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
+            if ($fontSize !== 'default') {
+                $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
+                if (file_exists($cssFile)) {
+                    $css = file_get_contents($cssFile);
+                    $event['output'] = str_replace('</head>', '<style>' . $css . '</style></head>', $event['output']);
+                }
             }
         }
 
