@@ -64,8 +64,8 @@ form:
       default: 'larger'
       options:
         default: 'Default (no changes)'
-        larger: 'Larger'
-        largest: 'Much Larger'
+        larger: 'Large'
+        largest: 'Larger'
 
     header_section:
       type: section
