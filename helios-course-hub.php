@@ -185,6 +185,9 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onTwigTemplatePaths()
     {
+        if ($this->themeMissing) {
+            return;
+        }
         $twig = $this->grav['twig'];
         array_unshift($twig->twig_paths, __DIR__ . '/templates');
     }
@@ -205,6 +208,10 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onTwigSiteVariables()
     {
+        if ($this->themeMissing) {
+            return;
+        }
+
         $assets = $this->grav['assets'];
         $path = 'plugin://helios-course-hub/assets';
 
@@ -256,9 +263,7 @@ class HeliosCourseHubPlugin extends Plugin
         $twig->twig_vars['toc_url_param'] = ($tocParam !== null && $tocParam !== false) ? $tocParam : null;
         // Hide Git edit link via ?edit_link=false (theme vocab, primary) or ?hidegitlink=true (Docsify alias)
         $twig->twig_vars['hide_git_link'] = $uri->query('edit_link') === 'false' || $uri->query('hidegitlink') === 'true';
-        $twig->twig_vars['helios_base_simple'] = $this->themeMissing
-            ? 'partials/base.html.twig'
-            : 'partials/base-simple.html.twig';
+        $twig->twig_vars['helios_base_simple'] = 'partials/base-simple.html.twig';
 
         // Default logo URL to site root; overridden below when only one course is active
         $twig->twig_vars['logo_url'] = $this->grav['base_url'] ?: '/';
