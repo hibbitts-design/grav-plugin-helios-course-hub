@@ -1,5 +1,5 @@
 # v1.0.7
-## XX/XX/2026
+## 04/25/2026
 
 1. [](#improved)
    * Rescale admin font size options and update blueprint labels
