@@ -83,7 +83,7 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onPagesInitializedAdmin2(): void
     {
-        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
+        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
         if ($fontSize === 'default') {
             return;
         }
@@ -386,7 +386,7 @@ class HeliosCourseHubPlugin extends Plugin
     public function onOutputGenerated($event)
     {
         if ($this->isAdmin()) {
-            $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
+            $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
             if ($fontSize !== 'default') {
                 $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
                 if (file_exists($cssFile)) {

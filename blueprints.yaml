@@ -61,11 +61,11 @@ form:
       type: select
       label: 'Admin Font Size'
       help: 'Adjust the Admin Panel font size for improved readability.'
-      default: 'larger'
+      default: 'large'
       options:
         default: 'Default (no changes)'
-        larger: 'Large'
-        largest: 'Larger'
+        large: 'Large'
+        larger: 'Larger'
 
     header_section:
       type: section
