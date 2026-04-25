@@ -4,6 +4,9 @@
 1. [](#improved)
    * Updated README
 
+1. [](#bugfix)
+   * Add empty Helios partial stubs to plugin to prevent 400 errors before Helios theme is installed
+
 # v1.0.5
 ## 04/20/2026
 
