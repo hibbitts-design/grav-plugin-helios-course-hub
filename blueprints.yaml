@@ -60,12 +60,12 @@ form:
     admin_font_size:
       type: select
       label: 'Admin Font Size'
-      help: 'Choose the font size scale for the Admin Panel body, form elements, toolbar, and Editor Pro.'
-      default: 'large'
+      help: 'Adjust the Admin Panel font size for improved readability.'
+      default: 'larger'
       options:
         default: 'Default (no changes)'
-        large: 'Large'
         larger: 'Larger'
+        largest: 'Much Larger'
 
     header_section:
       type: section

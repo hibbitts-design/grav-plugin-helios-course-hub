@@ -83,7 +83,7 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onPagesInitializedAdmin2(): void
     {
-        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
+        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
         if ($fontSize === 'default') {
             return;
         }
@@ -107,11 +107,6 @@ class HeliosCourseHubPlugin extends Plugin
 
         if ($this->config->get('plugins.helios-course-hub.admin_styling_enhancements', true)) {
             $assets->addCss("$path/admin.css");
-        }
-
-        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
-        if ($fontSize !== 'default') {
-            $assets->addCss("$path/admin-fonts-{$fontSize}.css");
         }
 
         $assets->addJs("$path/admin.js");
@@ -385,6 +380,15 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onOutputGenerated($event)
     {
+        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'larger');
+        if ($fontSize !== 'default') {
+            $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
+            if (file_exists($cssFile)) {
+                $css = file_get_contents($cssFile);
+                $event['output'] = str_replace('</head>', '<style>' . $css . '</style></head>', $event['output']);
+            }
+        }
+
         if ($this->browserTitle !== null) {
             $event['output'] = preg_replace(
                 '~<title>[^<]*</title>~',
