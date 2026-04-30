@@ -1,9 +1,14 @@
+# v1.0.8
+## XX/XX/2026
+
+1. [](#bugfix)
+   * Add x-cloak to the toggle wrapper so it stays hidden until Alpine finishes initializing
+
 # v1.0.7
 ## 04/25/2026
 
 1. [](#improved)
    * Rescale admin font size options and update blueprint labels
-
 
 # v1.0.6
 ## 04/25/2026
