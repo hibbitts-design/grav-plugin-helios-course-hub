@@ -13,6 +13,7 @@ class H5PShortcode extends Shortcode
             // Get shortcode content and parameters
             $h5pid  = $sc->getParameter('id', $sc->getBbCode());
             $h5purl = $sc->getParameter('url', $sc->getBbCode()) ?: $sc->getContent();
+            $title  = htmlspecialchars($sc->getParameter('title', 'H5P content'), ENT_QUOTES, 'UTF-8');
 
             // H5P resizer script handles iframe sizing dynamically
             $resizer = '<script src="https://h5p.org/sites/all/modules/h5p/library/js/h5p-resizer.js" charset="UTF-8"></script>';
@@ -25,10 +26,10 @@ class H5PShortcode extends Shortcode
                     ? $h5proot . $h5pid . '/embed'
                     : $h5proot . $h5pid;
 
-                return '<p><iframe src="' . htmlspecialchars($embedurl, ENT_QUOTES, 'UTF-8') . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
+                return '<p><iframe src="' . htmlspecialchars($embedurl, ENT_QUOTES, 'UTF-8') . '" title="' . $title . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
 
             } elseif ($h5purl) {
-                return '<p><iframe src="' . htmlspecialchars($h5purl, ENT_QUOTES, 'UTF-8') . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
+                return '<p><iframe src="' . htmlspecialchars($h5purl, ENT_QUOTES, 'UTF-8') . '" title="' . $title . '" width="400" height="300" frameborder="0" allowfullscreen="allowfullscreen"></iframe>' . $resizer . '</p>';
             }
 
         });
