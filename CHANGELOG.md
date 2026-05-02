@@ -1,6 +1,10 @@
 # v1.0.8
 ## XX/XX/2026
 
+1. [](#improved)
+   * Add optional title parameter to embed shortcodes for screen reader accessibility.
+
+
 1. [](#bugfix)
    * Add x-cloak to the toggle wrapper so it stays hidden until Alpine finishes initializing
 
