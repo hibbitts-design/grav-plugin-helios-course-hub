@@ -4,6 +4,7 @@
 1. [](#improved)
    * Add optional title parameter to embed shortcodes for screen reader accessibility
    * Updated README
+   * Backport "Pages" group header fix and relevance-based group sort from Open Reader
 
 1. [](#bugfix)
    * Add x-cloak to the toggle wrapper so it stays hidden until Alpine finishes initializing
