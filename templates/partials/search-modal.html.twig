@@ -3,8 +3,13 @@
  # Changes from theme original:
  #   1. processSimpleSearchResults: re-groups results by breadcrumb instead of server-side grouped data,
  #      skipping the top-level container page (e.g. "Pages") so groups show as "Cpt-363-2" and
- #      "Cpt-363-2 Modules" rather than "Modules" alone; groups sorted alphabetically so related
- #      course groups appear together (search: PLUGIN CHANGE 1)
+ #      "Cpt-363-2 Modules" rather than "Modules" alone; groups sorted by relevance — see PLUGIN CHANGE 3
+ #      (PLUGIN CHANGE 1)
+ #   2. processSimpleSearchResults: pages at the root level have a single-segment breadcrumb of "Pages";
+ #      fall back to the result title as the group name so they don't appear under a generic "Pages"
+ #      group header (PLUGIN CHANGE 2)
+ #   3. processSimpleSearchResults: sort groups by relevance (position of each group's top result in
+ #      the SimpleSearch results array) rather than alphabetically (PLUGIN CHANGE 3)
  #}
 {% set theme_config = config.themes.helios %}
 {% set search_config = theme_config.search %}
@@ -254,12 +259,20 @@ function searchComponent() {
                 for (const result of this.results) {
                     const parts = result.breadcrumb ? result.breadcrumb.split(/\s+>\s+/) : [];
                     const groupParts = parts.length > 1 ? parts.slice(1) : parts;
-                    const group = groupParts.length > 0 ? groupParts.join(' ') : (result.parent || 'Documentation');
+                    // PLUGIN CHANGE 2: pages at the root level have a single-segment breadcrumb of "Pages";
+                    // fall back to the result title so they don't group under a generic "Pages" header
+                    const isRootOnly = groupParts.length === 1 && groupParts[0] === 'Pages';
+                    const group = (groupParts.length > 0 && !isRootOnly)
+                        ? groupParts.join(' ')
+                        : (result.title || result.parent || 'Documentation');
                     if (!this.grouped[group]) this.grouped[group] = [];
                     this.grouped[group].push(result);
                 }
-                // Sort groups alphabetically so related course groups appear together
-                this.grouped = Object.fromEntries(Object.entries(this.grouped).sort(([a], [b]) => a.localeCompare(b)));
+                // PLUGIN CHANGE 3: Sort groups by relevance (position of each group's top result in the
+                // SimpleSearch relevance-ranked results array) so the most relevant group surfaces first
+                this.grouped = Object.fromEntries(Object.entries(this.grouped).sort(([, a], [, b]) => {
+                    return this.results.indexOf(a[0]) - this.results.indexOf(b[0]);
+                }));
             } else if (Array.isArray(data)) {
                 this.results = data;
                 this.grouped = { 'Results': data };
