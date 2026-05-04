@@ -1,5 +1,5 @@
 # v1.0.8
-## XX/XX/2026
+## 05/04/2026
 
 1. [](#improved)
    * Add optional title parameter to embed shortcodes for screen reader accessibility
