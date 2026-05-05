@@ -398,7 +398,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Repository Host | `github.com` | Repository hosting service for the Helios GitHub Integration (`github.com` or `codeberg.org`) |
 | H5P Content Embed Source URL | `https://h5p.org/h5p/embed/` | Base URL for H5P embeds via Content ID (used with `[h5p id="..."]`) |
 
-> **Note:** To apply the Helios-inspired Admin Panel colour scheme (zinc nav, accessible blue links, muted purple accents), go to **Admin → Customization → Presets**, select **Helios**, and click **Save**.
+> **Note:** To apply the Helios-inspired Admin Panel 1.7 colour scheme (zinc nav, accessible blue links, muted purple accents), go to **Admin → Customization → Presets**, select **Helios**, and click **Save**. Also compatible with the new Admin 2 panel, where larger font sizes improve readability without applying Helios-inspired theming.
 
 ## Requirements
 
