@@ -83,15 +83,27 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onPagesInitializedAdmin2(): void
     {
+        $css = '';
+
         $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
-        if ($fontSize === 'default') {
+        if ($fontSize !== 'default') {
+            $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
+            if (file_exists($cssFile)) {
+                $css .= file_get_contents($cssFile);
+            }
+        }
+
+        if ($this->config->get('plugins.helios-course-hub.admin_label_alignment', true)) {
+            $labelCssFile = __DIR__ . '/assets/admin-label-alignment.css';
+            if (file_exists($labelCssFile)) {
+                $css .= file_get_contents($labelCssFile);
+            }
+        }
+
+        if ($css === '') {
             return;
         }
-        $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
-        if (!file_exists($cssFile)) {
-            return;
-        }
-        $css = file_get_contents($cssFile);
+
         ob_start(function (string $html) use ($css): string {
             if (strpos($html, 'data-sveltekit-preload-data') === false) {
                 return $html;
