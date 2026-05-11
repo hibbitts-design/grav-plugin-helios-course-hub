@@ -51,6 +51,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Announcement shortcode: display a styled notice on any course page, with optional custom title and color type
 - MarkdownFile shortcode: fetch and render a remote Markdown file inline, with YAML front matter automatically stripped
 - Configurable chapter page description line limit: set the maximum number of lines shown per card description on Chapter template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
+- Chapter page child grouping: organize cards on a chapter page into labeled sections by adding `group: "Label"` to a `doc` child page's frontmatter; pages without a group appear first with no heading
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection
@@ -87,7 +88,7 @@ Append `?embedded=true` to any page URL to display only the page content — no 
 The skeleton is a **complete package** – Grav CMS, the Helios Course Hub plugin, and demo content are all included; the [Grav Premium Helios theme](https://getgrav.org/premium/helios) requires a separate license. The home page is a Courses listing that shows all active courses – by default, just cpt-363-1/.
 
 ### Pre-flight Checklist
-1. Confirm your web server meets [Grav's requirements](https://learn.getgrav.org/17/basics/requirements) (PHP 8 or higher)
+1. Confirm your web server meets [Grav's requirements](https://learn.getgrav.org/17/basics/requirements) (PHP 8.0 or higher)
 2. Have your web server login credentials ready (username and password)
 
 ### Installation Steps
@@ -333,7 +334,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Repository Host | [raw]`github.com`[/raw] | Repository hosting service for the Helios GitHub Integration ([raw]`github.com`[/raw] or [raw]`codeberg.org`[/raw]) |
 | H5P Content Embed Source URL | `https://h5p.org/h5p/embed/` | Base URL for H5P embeds via Content ID (used with [raw]`[h5p id="..."]`[/raw]) |
 
-> **Note:** The Helios-inspired Admin Panel 1.7 colour scheme (zinc nav, accessible blue links, muted purple accents) is pre-configured in this skeleton.
+> **Note:** The Helios-inspired Admin Panel 1.7 colour scheme (zinc nav, accessible blue links, muted purple accents) is pre-configured in this skeleton. Also compatible with the new Admin 2 panel, where larger font sizes improve readability without applying Helios-inspired theming.
 
 ## Requirements
 
