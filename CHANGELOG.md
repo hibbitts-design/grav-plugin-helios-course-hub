@@ -4,6 +4,7 @@
 1. [](#improved)
    * Add admin label alignment adjustment for Admin 2 with optional config key
    * Reduce Admin2 zoom and prevent button text wrapping in large font size modes
+   * Add chapter page child grouping support via group frontmatter field
 
 # v1.0.8
 ## 05/04/2026
