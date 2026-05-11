@@ -1,5 +1,5 @@
 # v1.0.9
-## XX/XX/2026
+## 05/11/2026
 
 1. [](#improved)
    * Add admin label alignment adjustment for Admin 2 with optional config key
