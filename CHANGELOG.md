@@ -1,3 +1,9 @@
+# v1.1.0
+## XX/XX/2026
+
+1. [](#improved)
+   * Add course-list card grouping and fix chapter grouping style/structure
+
 # v1.0.9
 ## 05/11/2026
 
