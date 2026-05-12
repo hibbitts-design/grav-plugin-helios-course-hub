@@ -34,36 +34,79 @@
         </article>
     {% endif %}
 
-    {# Auto-generated course cards from version folders #}
+    {# Auto-generated course cards from version folders, with optional grouping via group: "Label" in version page frontmatter #}
     {% if helios_version_info.versions is defined and helios_version_info.versions|length > 0 %}
+    {% set cols = page.header.cards_per_row|default(1) %}
     {% set colClass = {
         1: 'grid-cols-1',
         2: 'sm:grid-cols-2',
         3: 'sm:grid-cols-2 lg:grid-cols-3'
     } %}
-    <div class="course-card-grid grid gap-4 mb-8 {{ colClass[page.header.cards_per_row|default(1)] ?? 'grid-cols-1' }} {{ page.header.cards_per_row|default(1) == 2 ? 'course-card-grid--cols-2' : (page.header.cards_per_row|default(1) == 3 ? 'course-card-grid--cols-3' : '') }}">
-        {% for version in helios_version_info.versions %}
-            {# Find the version's root page for icon/description; skip non-visible courses #}
-            {% set version_page = pages.find('/' ~ version.id) %}
-            {% set version_home = version_page ? version_page.children.first() : null %}
-            {% if version_page %}
-                {# Load optional image from version page frontmatter (image: filename.jpg) #}
-                {% set course_image = version_page.header.image ? version_page.media[version_page.header.image] : null %}
+    {% set gridClass = 'course-card-grid grid gap-4 ' ~ (colClass[cols] ?? 'grid-cols-1') ~ (cols == 2 ? ' course-card-grid--cols-2' : (cols == 3 ? ' course-card-grid--cols-3' : '')) %}
+
+    {# Collect valid versions with their pages and group assignments #}
+    {% set items = [] %}
+    {% for version in helios_version_info.versions %}
+        {% set vp = pages.find('/' ~ version.id) %}
+        {% if vp %}
+            {% set items = items|merge([{'v': version, 'vp': vp, 'vh': vp.children.first(), 'g': vp.header.group ?? ''}]) %}
+        {% endif %}
+    {% endfor %}
+
+    {# Build group order and grouped items; ungrouped ('') always appears first #}
+    {% set groups = {} %}
+    {% set group_order = [] %}
+    {% for item in items %}
+        {% set g = item.g %}
+        {% if g not in group_order %}
+            {% set group_order = group_order|merge([g]) %}
+            {% set groups = groups|merge({(g): []}) %}
+        {% endif %}
+        {% set groups = groups|merge({(g): groups[g]|merge([item])}) %}
+    {% endfor %}
+
+    {% for g in group_order %}
+    {% if g %}
+    <div class="pt-6 mb-10">
+        <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{{ g }}</h2>
+        <div class="{{ gridClass }}">
+            {% for item in groups[g] %}
+                {% set course_image = item.vp.header.image ? item.vp.media[item.vp.header.image] : null %}
                 {% include 'partials/course-card.html.twig' with {
-                    title: version.label,
-                    link: version_home ? version_home.url : version.url,
-                    icon: version_page.header.icon|default(page.header.card_icon),
-                    description: version_page.header.description|default(null),
-                    instructor: version_page.header.instructor|default(null),
-                    badge_label: version_page.header.badge_label|default(null),
-                    badge_color: version_page.header.badge_color|default('default'),
+                    title: item.v.label,
+                    link: item.vh ? item.vh.url : item.v.url,
+                    icon: item.vp.header.icon|default(page.header.card_icon),
+                    description: item.vp.header.description|default(null),
+                    instructor: item.vp.header.instructor|default(null),
+                    badge_label: item.vp.header.badge_label|default(null),
+                    badge_color: item.vp.header.badge_color|default('default'),
                     image: course_image,
-                    image_layout: (page.header.cards_per_row|default(1) == 3) ? 'top' : page.header.card_image_layout|default('side'),
+                    image_layout: (cols == 3) ? 'top' : page.header.card_image_layout|default('side'),
                     card_description_lines: page.header.card_description_lines|default(3)
                 } only %}
-            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <div class="{{ gridClass }} {% if group_order|length > 1 %}mb-10{% else %}mb-8{% endif %}">
+        {% for item in groups[g] %}
+            {% set course_image = item.vp.header.image ? item.vp.media[item.vp.header.image] : null %}
+            {% include 'partials/course-card.html.twig' with {
+                title: item.v.label,
+                link: item.vh ? item.vh.url : item.v.url,
+                icon: item.vp.header.icon|default(page.header.card_icon),
+                description: item.vp.header.description|default(null),
+                instructor: item.vp.header.instructor|default(null),
+                badge_label: item.vp.header.badge_label|default(null),
+                badge_color: item.vp.header.badge_color|default('default'),
+                image: course_image,
+                image_layout: (cols == 3) ? 'top' : page.header.card_image_layout|default('side'),
+                card_description_lines: page.header.card_description_lines|default(3)
+            } only %}
         {% endfor %}
     </div>
+    {% endif %}
+    {% endfor %}
     {% endif %}
 
     {# Page content below course list #}
