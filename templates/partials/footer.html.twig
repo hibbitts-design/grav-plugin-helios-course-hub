@@ -16,12 +16,12 @@
         {% endif %}
         {% set git_path_prefix = (github_server == 'github.com') ? (github_link_mode == 'edit' ? 'edit' : 'blob') : (github_link_mode == 'edit' ? '_edit' : 'src/branch') %}{# PLUGIN CHANGE 1: github_server supports GitHub and Codeberg; github_link_mode supports view/edit #}
         <div class="mb-4 border-gray-200 dark:border-gray-700 text-center">
-            <a href="https://{{ github_server }}/{{ theme_config.github.repo }}/{{ git_path_prefix }}/{{ theme_config.github.branch }}/{{ file_path }}"
+            <a href="https://{{ github_server }}/{{ theme_config.github.repo|trim('/') }}/{{ git_path_prefix }}/{{ theme_config.github.branch }}/{{ file_path }}"
                target="_blank"
                rel="noopener noreferrer"
                class="edit-page-link inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-primary">
-                {{ svg_icon(github_link_icon ?: 'tabler/file-text.svg', 'w-4 h-4')|raw }}
-                {{ theme_config.github.edit_text ?: 'THEME_HELIOS.EDIT_PAGE'|t }}
+                <span aria-hidden="true">{{ svg_icon(github_link_icon ?: 'tabler/file-text.svg', 'w-4 h-4')|raw }}</span>
+                {{ theme_config.github.edit_text ?: 'THEME_HELIOS.EDIT_PAGE'|t }}<span class="sr-only"> (opens in new tab)</span>
             </a>
         </div>
         {% endif %}
