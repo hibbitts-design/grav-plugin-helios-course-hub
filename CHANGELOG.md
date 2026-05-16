@@ -2,8 +2,9 @@
 ## XX/XX/2026
 
 1. [](#improved)
-   * Add aria-hidden to footer icon and sr-only "opens in new tab" label.
+   * Add aria-hidden to footer icon and sr-only "opens in new tab" label
    * Trim trailing slash from repo value in footer git link URL
+   * Removed no longer needed Admin2 font sizing
 
 # v1.1.0
 ## 05/12/2026
