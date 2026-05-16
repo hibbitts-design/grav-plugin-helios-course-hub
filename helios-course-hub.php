@@ -85,14 +85,6 @@ class HeliosCourseHubPlugin extends Plugin
     {
         $css = '';
 
-        $fontSize = $this->config->get('plugins.helios-course-hub.admin_font_size', 'large');
-        if ($fontSize !== 'default') {
-            $cssFile = __DIR__ . "/assets/admin-fonts-{$fontSize}.css";
-            if (file_exists($cssFile)) {
-                $css .= file_get_contents($cssFile);
-            }
-        }
-
         if ($this->config->get('plugins.helios-course-hub.admin_label_alignment', true)) {
             $labelCssFile = __DIR__ . '/assets/admin-label-alignment.css';
             if (file_exists($labelCssFile)) {
