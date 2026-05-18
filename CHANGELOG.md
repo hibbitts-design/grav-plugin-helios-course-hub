@@ -1,5 +1,5 @@
 # v1.1.1
-## XX/XX/2026
+## 05/17/2026
 
 1. [](#improved)
    * Add aria-hidden to footer icon and sr-only "opens in new tab" label
