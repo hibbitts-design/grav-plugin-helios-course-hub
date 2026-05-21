@@ -4,6 +4,9 @@
 1. [](#improved)
    * Updates for Helios theme v2.1.3: migrate base.html.twig to swap-body architecture and add missing TOC layout variables
 
+1. [](#bugfix)
+   * Fix redundant alt text on course card images
+
 # v1.1.1
 ## 05/18/2026
 
