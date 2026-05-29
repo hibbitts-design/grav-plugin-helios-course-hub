@@ -1,3 +1,9 @@
+# v1.1.3
+## 05/29/2026
+
+1. [](#bugfix)
+   * Fix sidebar image not found when filename has Admin-added numeric prefix
+
 # v1.1.2
 ## 05/21/2026
 
