@@ -337,9 +337,10 @@ class HeliosCourseHubPlugin extends Plugin
                             $showSidebarImage = $versionPage->header()->show_sidebar_image ?? 0;
                             $courseImage = $versionPage->header()->image ?? null;
                             if ($showSidebarImage && $courseImage) {
+                                $courseImageBasename = preg_replace('/^\d+_/', '', $courseImage);
                                 foreach ($versionPage->media()->all() as $filename => $medium) {
                                     $basename = preg_replace('/^\d+_/', '', $filename);
-                                    if ($basename === $courseImage) {
+                                    if ($basename === $courseImageBasename) {
                                         $twig->twig_vars['course_sidebar_image'] = $medium->url();
                                         break;
                                     }
