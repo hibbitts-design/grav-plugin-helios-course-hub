@@ -11,6 +11,9 @@ class HeliosCourseHubPlugin extends Plugin
     /** @var bool Whether the Helios theme is missing or inactive */
     protected $themeMissing = false;
 
+    /** @var bool Guard against onShortcodeHandlers firing more than once */
+    protected $shortcodesRegistered = false;
+
     /** @var string|null Computed "Course | Page Title | Site Title" browser title */
     protected $browserTitle = null;
 
@@ -198,6 +201,11 @@ class HeliosCourseHubPlugin extends Plugin
 
     public function onShortcodeHandlers()
     {
+        if ($this->shortcodesRegistered) {
+            return;
+        }
+        $this->shortcodesRegistered = true;
+
         $shortcodes = $this->grav['shortcode'];
         $dir = __DIR__ . '/shortcodes';
 
