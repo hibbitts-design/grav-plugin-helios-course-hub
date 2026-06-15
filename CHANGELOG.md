@@ -1,3 +1,9 @@
+# v1.1.4
+## 06/15/2026
+
+1. [](#bugfix)
+   * Update plugin templates and PHP to use Helios v2.1.6 renamed Twig variables (helios_* → doc_*, nav_tree)
+
 # v1.1.3
 ## 05/29/2026
 
