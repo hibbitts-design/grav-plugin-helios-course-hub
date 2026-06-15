@@ -3,6 +3,7 @@
 
 1. [](#bugfix)
    * Update plugin templates and PHP to use Helios v2.1.6 renamed Twig variables (helios_* → doc_*, nav_tree)
+   * Fix duplicate shortcode handler error on Grav v2.0 by guarding onShortcodeHandlers() against multiple firings
 
 # v1.1.3
 ## 05/29/2026
