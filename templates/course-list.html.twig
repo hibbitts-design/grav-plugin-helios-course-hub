@@ -35,7 +35,7 @@
     {% endif %}
 
     {# Auto-generated course cards from version folders, with optional grouping via group: "Label" in version page frontmatter #}
-    {% if helios_version_info.versions is defined and helios_version_info.versions|length > 0 %}
+    {% if doc_version_info.versions is defined and doc_version_info.versions|length > 0 %}
     {% set cols = page.header.cards_per_row|default(1) %}
     {% set colClass = {
         1: 'grid-cols-1',
@@ -46,7 +46,7 @@
 
     {# Collect valid versions with their pages and group assignments #}
     {% set items = [] %}
-    {% for version in helios_version_info.versions %}
+    {% for version in doc_version_info.versions %}
         {% set vp = pages.find('/' ~ version.id) %}
         {% if vp %}
             {% set items = items|merge([{'v': version, 'vp': vp, 'vh': vp.children.first(), 'g': vp.header.group ?? ''}]) %}

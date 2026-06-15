@@ -75,9 +75,9 @@
     {# END PLUGIN ADDITION #}
 
     {# PLUGIN ADDITION: Course label #}
-    {% set show_dropdown = theme_config.versioning.enabled and theme_config.versioning.show_dropdown and helios_version_info is defined and helios_version_info.count > 1 %}
-    {% if not show_dropdown and helios_version_info is defined and helios_version_info.count > 1 %}
-        {% set current_version_data = helios_version_info.versions|filter(v => v.is_current)|first %}
+    {% set show_dropdown = theme_config.versioning.enabled and theme_config.versioning.show_dropdown and doc_version_info is defined and doc_version_info.count > 1 %}
+    {% if not show_dropdown and doc_version_info is defined and doc_version_info.count > 1 %}
+        {% set current_version_data = doc_version_info.versions|filter(v => v.is_current)|first %}
         {% if current_version_data %}
         <div class="px-4 py-1 border-b border-gray-200 dark:border-gray-800">
             {# PLUGIN CHANGE 5: course label links to first page of current course when url is available #}
@@ -102,7 +102,7 @@
     {# END PLUGIN ADDITION #}
 
     {# Version switcher #}
-    {% if theme_config.versioning.enabled and theme_config.versioning.show_dropdown and helios_version_info is defined and helios_version_info.count > 1 %}
+    {% if theme_config.versioning.enabled and theme_config.versioning.show_dropdown and doc_version_info is defined and doc_version_info.count > 1 %}
     <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-800">
         <div x-data="{ open: false }" class="relative">
             <label class="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5">
@@ -113,8 +113,8 @@
                     :aria-expanded="open"
                     class="flex items-center justify-between w-full px-3 py-2 text-sm rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                 <span class="font-medium text-gray-900 dark:text-white">
-                    {% set current_version_data = helios_version_info.versions|filter(v => v.is_current)|first %}
-                    {{ current_version_data.label ?: helios_version }}
+                    {% set current_version_data = doc_version_info.versions|filter(v => v.is_current)|first %}
+                    {{ current_version_data.label ?: doc_version }}
                     {% if current_version_data.is_default %}
                         <span class="ml-1 text-xs text-green-600 dark:text-green-400">({{ 'THEME_HELIOS.VERSION_LATEST'|t }})</span>
                     {% endif %}
@@ -134,7 +134,7 @@
                  class="absolute left-0 right-0 mt-1 rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black/5 dark:ring-white/10 z-10 max-h-64 overflow-y-auto"
                  x-cloak>
                 <div class="py-1">
-                    {% for version in helios_version_info.versions %}
+                    {% for version in doc_version_info.versions %}
                     <a href="{{ version.url }}"
                        @click="mobileNavOpen = false"
                        class="flex items-center justify-between px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors
@@ -184,8 +184,8 @@
          }"
          @scroll.debounce.100ms="sessionStorage.setItem('sidebar_scroll', $el.scrollTop)">
         <div class="sidebar-nav">
-            {% if helios_nav is defined %}
-                {{ _self.nav_items(helios_nav, 0) }}
+            {% if nav_tree is defined %}
+                {{ _self.nav_items(nav_tree, 0) }}
             {% endif %}
         </div>
 

@@ -163,7 +163,7 @@
 function searchComponent() {
     const provider = '{{ search_provider }}';
     const baseUrl = '{{ base_url }}';
-    const currentVersion = '{{ helios_version ?: "" }}';
+    const currentVersion = '{{ doc_version ?: "" }}';
     const versioningEnabled = {{ (helios.versioning.enabled ?? false) ? 'true' : 'false' }};
 
     return {
