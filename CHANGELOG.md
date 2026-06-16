@@ -1,3 +1,9 @@
+# v1.1.5
+## 06/16/2026
+
+1. [](#improved)
+   * Add has() guard to shared shortcodes to prevent duplicate handler error when both plugins are active simultaneously
+
 # v1.1.4
 ## 06/15/2026
 
