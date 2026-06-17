@@ -1,3 +1,9 @@
+# v1.1.6
+## 06/17/2026
+
+1. [](#improved)
+   * Add Admin1/Admin2 theme warning notices with installed-but-inactive distinction
+
 # v1.1.5
 ## 06/16/2026
 
