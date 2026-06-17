@@ -5,11 +5,13 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
+use RocketTheme\Toolbox\Event\Event;
 
 class HeliosCourseHubPlugin extends Plugin
 {
     /** @var bool Whether the Helios theme is missing or inactive */
-    protected $themeMissing = false;
+    protected $themeMissing       = false;
+    protected $themeInstalledOnly = false;
 
     /** @var bool Guard against onShortcodeHandlers firing more than once */
     protected $shortcodesRegistered = false;
@@ -34,16 +36,20 @@ class HeliosCourseHubPlugin extends Plugin
         $themePath = GRAV_ROOT . '/user/themes/' . $themeName;
         $themeActive = $this->config->get('system.pages.theme') === $themeName;
 
-        if (!is_dir($themePath) || !$themeActive) {
+        $themeInstalled = is_dir($themePath);
+
+        if (!$themeInstalled || !$themeActive) {
             $fallback = is_dir(GRAV_ROOT . '/user/themes/quark2') ? 'quark2' : 'quark';
             $this->config->set('system.pages.theme', $fallback);
-            $this->themeMissing = true;
+            $this->themeMissing       = true;
+            $this->themeInstalledOnly = $themeInstalled && !$themeActive;
         }
 
         // Register page blueprints in every context so they are discoverable
         // from admin, frontend, CLI, and API requests alike.
         $this->enable([
-            'onGetPageBlueprints' => ['onGetPageBlueprints', 0],
+            'onGetPageBlueprints'         => ['onGetPageBlueprints', 0],
+            'onApiDashboardNotifications' => ['onApiDashboardNotifications', 0],
         ]);
 
         if ($this->isAdmin2Route()) {
@@ -55,8 +61,9 @@ class HeliosCourseHubPlugin extends Plugin
 
         if ($this->isAdmin()) {
             $this->enable([
-                'onPageInitialized'  => ['onPageInitialized', 0],
-                'onOutputGenerated'  => ['onOutputGenerated', 0],
+                'onAdminTwigTemplatePaths' => ['onAdminHeliosNotice', 0],
+                'onPageInitialized'        => ['onPageInitialized', 0],
+                'onOutputGenerated'        => ['onOutputGenerated', 0],
             ]);
             return;
         }
@@ -100,11 +107,49 @@ class HeliosCourseHubPlugin extends Plugin
         }
 
         ob_start(function (string $html) use ($css): string {
-            if (strpos($html, 'data-sveltekit-preload-data') === false) {
+            if (strpos($html, 'data-sveltekit') === false && strpos($html, '</body>') === false) {
                 return $html;
             }
             return str_replace('</head>', '<style>' . $css . '</style></head>', $html);
         });
+    }
+
+    protected function themeNoticeKey(): string
+    {
+        return $this->themeInstalledOnly
+            ? 'PLUGIN_HELIOS_COURSE_HUB.THEME_INACTIVE_NOTICE'
+            : 'PLUGIN_HELIOS_COURSE_HUB.THEME_REQUIRED_NOTICE';
+    }
+
+    public function onAdminHeliosNotice(): void
+    {
+        if (!$this->themeMissing) {
+            return;
+        }
+
+        $this->grav['messages']->add(
+            $this->grav['language']->translate($this->themeNoticeKey()),
+            'warning'
+        );
+    }
+
+    public function onApiDashboardNotifications(Event $event): void
+    {
+        if (!$this->themeMissing) {
+            return;
+        }
+
+        $notifications = $event['notifications'] ?? [];
+        $notifications['top'][] = [
+            'id'             => 'helios-course-hub-theme-required',
+            'date'           => date('c'),
+            'level'          => 'warning',
+            'icon'           => 'shield-alert',
+            'location'       => ['top'],
+            'message'        => $this->grav['language']->translate($this->themeNoticeKey()),
+            'reappear_after' => '+1 days',
+        ];
+        $event['notifications'] = $notifications;
     }
 
     public function onPageInitialized()
@@ -123,15 +168,9 @@ class HeliosCourseHubPlugin extends Plugin
 
         if ($this->themeMissing) {
             $heliosLicense = \Grav\Common\GPM\Licenses::get('helios');
-            $targetRoute = $heliosLicense ? '/admin/themes' : '/admin/license-manager';
-            $currentRoute = $this->grav['uri']->path();
-            $isLoggedIn = $this->grav['user']->authenticated ?? false;
-
-            // Show banner on all admin pages; redirect to target only from /admin
-            $this->grav['messages']->add(
-                "Helios Grav Premium theme required. Enter your Helios and SVG Icons license keys, then install and activate the theme. (Helios Course Hub Plugin)",
-                'warning'
-            );
+            $targetRoute   = $heliosLicense ? '/admin/themes' : '/admin/license-manager';
+            $currentRoute  = $this->grav['uri']->path();
+            $isLoggedIn    = $this->grav['user']->authenticated ?? false;
 
             if ($isLoggedIn && $currentRoute === '/admin') {
                 $this->grav->redirect($targetRoute);

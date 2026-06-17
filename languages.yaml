@@ -2,6 +2,8 @@ en:
   PLUGIN_HELIOS_COURSE_HUB:
     COURSE_LABEL: Course
     COURSE_LATEST_LABEL: default
+    THEME_REQUIRED_NOTICE: "Helios Grav Premium theme required. Enter your Helios and SVG Icons license keys, then install and activate the theme. (Helios Course Hub Plugin)"
+    THEME_INACTIVE_NOTICE: "Helios Grav Premium theme is installed but not active. Please activate the Helios theme to use the Course Hub plugin. (Helios Course Hub Plugin)"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
