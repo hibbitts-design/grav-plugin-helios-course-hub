@@ -1,8 +1,2 @@
-{#
- # Plugin override of chapter.html.twig (based on Helios theme v2.1.3)
- # Changes from theme original:
- #   1. Child pages support optional grouping via group: "Label" in child page frontmatter;
- #      ungrouped children render first with no heading, grouped children follow under a labelled section
- #      (grouping logic lives in partials/content/chapter.html.twig — dispatched by swap-body.html.twig)
- #}
-{% extends 'partials/base.html.twig' %}
+{# Backwards compatibility alias — chapter.md pages render using module.html.twig #}
+{% extends 'module.html.twig' %}

@@ -57,7 +57,7 @@
 {# Page content — template-aware so HTMX swaps render the right body without
    needing to re-extend per-template files. #}
 <article id="htmx-article" class="prose dark:prose-invert max-w-none">
-    {% if page.template == 'chapter' %}
+    {% if page.template in ['module', 'chapter'] %}
         {% include 'partials/content/chapter.html.twig' %}
     {% elseif page.template == 'api-endpoint' %}
         {% include 'partials/content/api-endpoint.html.twig' %}

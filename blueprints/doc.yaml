@@ -1,0 +1,4 @@
+title: Documentation Page
+'@extends':
+    type: course-page
+    context: blueprints://pages

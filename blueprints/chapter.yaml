@@ -1,0 +1,4 @@
+title: Chapter
+'@extends':
+    type: module
+    context: blueprints://pages
