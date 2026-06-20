@@ -1,3 +1,9 @@
+# v1.1.7
+## 06/20/2026
+
+1. [](#improved)
+   * Add course template (renamed from course-card) with backwards-compatible alias for existing installs
+
 # v1.1.6
 ## 06/17/2026
 
