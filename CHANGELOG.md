@@ -1,10 +1,14 @@
+# v1.1.9
+## XX/XX/2026
+
+1. [](#improved)
+   * Update module blueprint title to "Course Module" for cross-plugin consistency
+
 # v1.1.8
 ## 06/20/2026
 
 1. [](#improved)
    * Rename chapter→module and doc→course-page templates with backwards compatibility aliases; update demo pages and READMEs
-
-Rename chapter→module and doc→course-page templates with backwards compatibility aliases; update demo pages and READMEs
 
 # v1.1.7
 ## 06/20/2026
