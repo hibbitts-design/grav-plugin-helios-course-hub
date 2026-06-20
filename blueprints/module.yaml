@@ -1,4 +1,4 @@
-title: Module
+title: Course Module
 '@extends':
     type: default
     context: blueprints://pages
