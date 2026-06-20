@@ -50,8 +50,8 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Build an alphabetical topics index with auto-generated A–Z navigation
 - Announcement shortcode: display a styled notice on any course page, with optional custom title and color type
 - MarkdownFile shortcode: fetch and render a remote Markdown file inline, with YAML front matter automatically stripped
-- Configurable chapter page description line limit: set the maximum number of lines shown per card description on Chapter template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
-- Chapter page child grouping: organize cards on a chapter page into labeled sections by adding `group: "Label"` to a `doc` child page's frontmatter; pages without a group appear first with no heading
+- Configurable module page description line limit: set the maximum number of lines shown per card description on Module template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
+- Module page child grouping: organize cards on a module page into labeled sections by adding `group: "Label"` to a `course-page` child page's frontmatter; pages without a group appear first with no heading
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection
@@ -114,7 +114,7 @@ user/pages/
 ├── 00.courses/                  # Courses homepage
 │   └── course-list.md           # Course list settings and default card values
 ├── cpt-363-1/                   # Course 1 (published by default)
-│   ├── course-card.md           # Course settings (icon, image, instructor, badge)
+│   ├── course.md           # Course settings (icon, image, instructor, badge)
 │   ├── 10.home/
 │   ├── 20.essentials/
 │   ├── 30.modules/
@@ -190,7 +190,7 @@ If no `===` delimiter is present, all content renders above the cards as normal.
 
 ### Course Card Settings
 
-Each course folder contains a `course-card.md` file with frontmatter that controls the course card display. These fields can be set in the Admin Panel by opening the course root page.
+Each course folder contains a `course.md` file with frontmatter that controls the course card display. These fields can be set in the Admin Panel by opening the course root page.
 
 | Field | Description |
 |-------|-------------|
@@ -329,7 +329,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Site Logo Icon | _(empty)_ | Tabler icon path for the site logo icon square (e.g. [raw]`tabler/book.svg`[/raw]). Leave empty to use the default icon. Only applies when Show Site Logo Icon is enabled |
 | Single Course Site Logo Link | First Page of Only Listed Course | Choose where the site Logo Text and icon link navigates: **Courses Home Page** or **First Page of Only Listed Course** (navigates to the first page of the course when only one course is active) |
 | Show Plugin Credits | Enabled | Show or hide the "Built with Grav · Helios · Helios Course Hub" attribution line in the footer |
-| Description Line Limit | 2 lines | Maximum number of lines shown per card description on Chapter template pages; the Modules section uses this template (2, 3, or no limit) |
+| Description Line Limit | 2 lines | Maximum number of lines shown per card description on Module template pages; the Modules section uses this template (2, 3, or no limit) |
 | Show Repository Host Icon Link in Header | Enabled | Show or hide the GitHub or Codeberg icon link to the course repository in the site header |
 | Git Link Icon | [raw]`tabler/file-text.svg`[/raw] | Tabler icon path for the Git link icon shown in the page footer |
 | Git Link Mode | View file | Whether the Git link opens the file for **viewing** (default, for open access to course materials) or **editing** (for course authors and contributors with repository access) |
@@ -351,7 +351,7 @@ Before migrating, it is recommended to download and install the Helios Course Hu
 
 | Open Course Hub | Helios Course Hub |
 |---|---|
-| `01.home/` (blog template) | `cpt-100/10.home/` (doc template) |
+| `01.home/` (blog template) | `cpt-100/10.home/` (course-page template) |
 | `01.home/module-XX/` (item template) | `cpt-100/20.modules/` |
 | `02.schedule/` | `cpt-100/30.schedule/` |
 | `03.resources/` | `cpt-100/40.resources/` |
@@ -363,15 +363,15 @@ Before migrating, it is recommended to download and install the Helios Course Hu
 | `favicon/` | set via Helios theme settings |
 
 **Template changes:**
-- Change `template: blog` and `template: page` to `template: doc` on all course content pages
+- Change `template: blog` and `template: page` to `template: course-page` on all course content pages
 - Move and rename `item` template pages — weekly content moves into sub-folders under the modules chapter page (see `cpt-363-1/30.modules/` in the skeleton for an example)
 - Add `taxonomy: category: docs` to all sub-folder pages (e.g. individual module pages)
-- Remove modular home page blocks (`01._reminders/`, `02._preparations/`) — replaced by the home page doc template
+- Remove modular home page blocks (`01._reminders/`, `02._preparations/`) — replaced by the home page course-page template
 
 **Course structure:** Wrap all course pages in a course folder (`cpt-100/`) at the site root, alongside the new `00.courses/` catalog folder (see `00.courses/` in the skeleton for an example).
 
 **New files:**
-- `cpt-100/course-card.md` — course card metadata (icon, description, image; see `cpt-363-1/course-card.md` in the skeleton for an example)
+- `cpt-100/course.md` — course card metadata (icon, description, image; see `cpt-363-1/course.md` in the skeleton for an example)
 - `cpt-100/15.essentials/essentials.md` — key course info, between home and modules (see `cpt-363-1/20.essentials/` in the skeleton for an example)
 
 > [!NOTE]
@@ -385,8 +385,8 @@ Before migrating, it is recommended to download and install the Helios Course Hu
 |---|---|
 | `01.home/subsitelist.md` (course list) | `00.courses/` (course catalog) |
 | `02.cpt-200/` | `cpt-200/` |
-| `02.cpt-200/subsite.md` | `cpt-200/course-card.md` |
-| `02.cpt-200/01.home/` (blog template) | `cpt-200/10.home/` (doc template) |
+| `02.cpt-200/subsite.md` | `cpt-200/course.md` |
+| `02.cpt-200/01.home/` (blog template) | `cpt-200/10.home/` (course-page template) |
 | `02.cpt-200/01.home/module-XX/` (item template) | `cpt-200/20.modules/` |
 | `02.cpt-200/02.schedule/` | `cpt-200/30.schedule/` |
 | `02.cpt-200/03.topics/` | `cpt-200/40.topics/` |
@@ -403,10 +403,10 @@ Before migrating, it is recommended to download and install the Helios Course Hu
 **Course folder naming:** Remove numeric prefix and standardize to hyphenated course code (`02.cpt-200` → `cpt-200`).
 
 **Template changes:**
-- Change `template: blog` and `template: page` to `template: doc` on all course content pages
+- Change `template: blog` and `template: page` to `template: course-page` on all course content pages
 - Move and rename `item` template pages — weekly content moves into sub-folders under the modules chapter page (see `cpt-363-1/30.modules/` in the skeleton for an example)
 - Add `taxonomy: category: docs` to all sub-folder pages (e.g. individual module pages)
-- Remove modular home page blocks (`01._reminders/`, `02._preparations/`) — replaced by the home page doc template
+- Remove modular home page blocks (`01._reminders/`, `02._preparations/`) — replaced by the home page course-page template
 
 **Markup changes:**
 - **Topics page** — wrap content in [raw]`[topics]...[/topics]`[/raw] shortcode and add to frontmatter:
@@ -421,9 +421,9 @@ Before migrating, it is recommended to download and install the Helios Course Hu
       prev_next: false
       toc_position: hidden
   ```
-  See the included `cpt-363-1/70.guide/doc.md` for a full example.
+  See the included `cpt-363-1/70.guide/course-page.md` for a full example.
 
-**Course metadata:** Replace `subsite.md` with `course-card.md` (see `cpt-363-1/course-card.md` in the skeleton for an example). Key fields:
+**Course metadata:** Replace `subsite.md` with `course.md` (see `cpt-363-1/course.md` in the skeleton for an example). Key fields:
 
 ```yaml
 # Old: subsite.md
@@ -432,7 +432,7 @@ subsite_list_description: 'Introduction to Computing Science'
 subsite_home: home
 published: true
 
-# New: course-card.md
+# New: course.md
 icon: tabler/code.svg
 description: 'Introduction to Computing Science'
 image: cpt200-card.jpg
