@@ -1,8 +1,14 @@
 # v1.2.0
 ## XX/XX/2026
 
+1. [](#bugfix)
+   * Fix ?embedded=true not suppressing header/footer on default-toc and course-list pages — add chromeless support to base-simple-wide.html.twig and override base-simple.html.twig
+   * Fix missing Open Graph meta tags on default-toc and course-list pages
+
 1. [](#improved)
    * Update module blueprint title to "Course Module" for cross-plugin consistency
+   * Add `languages/en.yaml` with THEME_HELIOS fallback strings for sites running without the Helios theme installed
+   * Add i18n support for accessibility strings (Skip to content, Toggle/Close/Main navigation, Toggle submenu, theme toggle, search, View on GitHub/Codeberg) across all plugin-owned templates
 
 # v1.1.8
 ## 06/20/2026
@@ -14,7 +20,7 @@
 ## 06/20/2026
 
 1. [](#improved)
-   * Add course template (renamed from course-card) with backwards-compatible alias for existing installs
+   * Add course template (renamed from course-card) with backwards-compatible alias for existing installs. Upgrade note: rename each course card page's root file from `course-card.md` to `course-page.md` — the site renders correctly without this, but course card fields will no longer be editable in the Admin panel until the rename is done
 
 # v1.1.6
 ## 06/17/2026
