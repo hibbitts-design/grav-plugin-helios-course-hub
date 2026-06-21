@@ -76,7 +76,7 @@
         {% if theme_config.search.enabled %}
         <button @click="searchOpen = true" data-ys-open
                 class="search-trigger"
-                aria-label="Search">
+                aria-label="{{ 'THEME_HELIOS.SEARCH'|t }}">
             <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
@@ -93,7 +93,7 @@
         {# Git repository link #}{# PLUGIN CHANGE 3 #}
         {% if theme_config.github.enabled and theme_config.github.repo and show_github_header_icon != false %}
         {% set git_icon = (github_server == 'github.com') ? 'tabler/brand-github.svg' : 'tabler/brand-git.svg' %}
-        {% set git_label = (github_server == 'github.com') ? 'View on GitHub' : 'View on Codeberg' %}
+        {% set git_label = (github_server == 'github.com') ? 'THEME_HELIOS.VIEW_ON_GITHUB'|t : 'THEME_HELIOS.VIEW_ON_CODEBERG'|t %}
         <a href="https://{{ github_server }}/{{ theme_config.github.repo }}"
            target="_blank"
            rel="noopener noreferrer"
@@ -106,7 +106,7 @@
         {# Theme toggle #}
         {% if appearance.selector %}
         {# Add x-cloak to the toggle wrapper so it stays hidden until Alpine finishes initializing #}
-        <div class="theme-toggle" x-cloak role="radiogroup" aria-label="Theme selection">
+        <div class="theme-toggle" x-cloak role="radiogroup" aria-label="{{ 'THEME_HELIOS.THEME_SELECTION'|t }}">
             <div class="theme-toggle-indicator"
                  :class="{
                      'translate-x-0': theme === 'light',
@@ -119,7 +119,7 @@
                     :class="{ 'theme-toggle-btn-active': theme === 'light' }"
                     role="radio"
                     :aria-checked="theme === 'light'"
-                    aria-label="Light mode">
+                    aria-label="{{ 'THEME_HELIOS.LIGHT_MODE'|t }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                 </svg>
@@ -130,7 +130,7 @@
                     :class="{ 'theme-toggle-btn-active': theme === 'system' }"
                     role="radio"
                     :aria-checked="theme === 'system'"
-                    aria-label="System theme">
+                    aria-label="{{ 'THEME_HELIOS.SYSTEM_MODE'|t }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
@@ -141,7 +141,7 @@
                     :class="{ 'theme-toggle-btn-active': theme === 'dark' }"
                     role="radio"
                     :aria-checked="theme === 'dark'"
-                    aria-label="Dark mode">
+                    aria-label="{{ 'THEME_HELIOS.DARK_MODE'|t }}">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                 </svg>
