@@ -1,5 +1,5 @@
 # v1.2.0
-## XX/XX/2026
+## 06/22/2026
 
 1. [](#bugfix)
    * Fix ?embedded=true not suppressing header/footer on default-toc and course-list pages — add chromeless support to base-simple-wide.html.twig and override base-simple.html.twig
