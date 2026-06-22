@@ -1,6 +1,6 @@
 name: Helios Course Hub
 type: plugin
-version: 1.2.0
+version: 1.2.1
 description: Adds course cards, course-aware search, Codeberg integration, shortcodes, and Admin Panel enhancements to the Helios Grav Premium theme for one or more courses.
 icon: th
 author:
@@ -115,7 +115,7 @@ form:
     show_github_header_icon:
       type: toggle
       label: 'Show Repository Host Icon Link in Header'
-      help: 'Show a GitHub or Codeberg icon link to the course repository in the site header. Only applies when GitHub Integration is enabled in the Helios theme settings.'
+      help: 'Show a repository icon link in the site header. When a Custom URL for Header Icon Link is set below, the icon displays regardless of whether Helios GitHub Integration is enabled.'
       highlight: 1
       default: 1
       options:
@@ -123,6 +123,15 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+
+    github_header_custom_url:
+      type: text
+      size: long
+      label: 'Custom URL for Header Icon Link'
+      help: 'Overrides the Helios theme repository URL for the header icon link, and works even without GitHub Integration enabled. Leave blank to use the Helios theme URL.'
+      placeholder: 'https://github.com/your-org/your-repo'
+      validate:
+        type: url
 
     github_link_icon:
       type: text
