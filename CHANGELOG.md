@@ -1,3 +1,9 @@
+# v1.2.2
+## 06/24/2026
+
+1. [](#new)
+   * Add single flat course root mode: plugin support and updated demo pages
+
 # v1.2.1
 ## 06/22/2026
 
