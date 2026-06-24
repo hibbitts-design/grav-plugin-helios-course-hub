@@ -3,7 +3,9 @@
     Changes from theme original:
       1. PLUGIN CHANGE 1: Skip results whose course page does not have published: true in frontmatter.
          Extracts course slug from first path segment of result route and looks up the page
-         via grav.pages.find(). Results are excluded if published is false or omitted.
+         via grav.pages.find(). The filter only applies when the first-segment page uses the
+         'course' template — in single-course root mode the first segment is a content page
+         (course-page template), so the check is bypassed and all results are included.
 #}
 {% set search_query = query|default('') %}
 {% set results = [] %}
@@ -37,12 +39,17 @@
 {% for result in search_results %}
     {# PLUGIN CHANGE 1: Find course page and skip result if not explicitly published.
        Extract course slug from first path segment of result route (e.g. /cpt-363-2/schedule -> /cpt-363-2),
-       then look up the page directly — avoids Twig variable scoping issues with parent traversal. #}
+       then look up the page directly — avoids Twig variable scoping issues with parent traversal.
+       The published check only runs when the first-segment page uses the 'course' template;
+       in single-course root mode the first segment is a content page so the check is skipped. #}
     {% set route_parts = result.route|split('/') %}
     {% set course_route = '/' ~ route_parts[1] %}
     {% set course_page = grav.pages.find(course_route) %}
 
-    {% if not course_page or course_page.header.published is same as(true) %}
+    {# NOTE: course_page.template == 'course' only when the wrapper file is named course.md (Grav derives
+       the template name from the filename). The multi-course published filter depends on this convention —
+       course wrapper pages must remain named course.md for the filter to function correctly. #}
+    {% if not course_page or course_page.template != 'course' or course_page.header.published is same as(true) %}
 
     {# Build breadcrumb from parent pages #}
     {% set breadcrumb = helpers.get_breadcrumb(result)|trim %}

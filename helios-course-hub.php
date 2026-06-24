@@ -325,6 +325,7 @@ class HeliosCourseHubPlugin extends Plugin
 
         // Default logo URL to site root; overridden below when only one course is active
         $twig->twig_vars['logo_url'] = $this->grav['base_url'] ?: '/';
+        $logoLinkTarget = $this->config->get('plugins.helios-course-hub.logo_link_target', 'single_course');
 
         // Filter doc_version_info to respect 'visible: false' in course frontmatter.
         // Runs at priority -100 to ensure the theme has already populated this variable.
@@ -407,7 +408,6 @@ class HeliosCourseHubPlugin extends Plugin
             }
 
             // When logo_link_target is 'single_course' and only one course is active, point the logo link to its first child page
-            $logoLinkTarget = $this->config->get('plugins.helios-course-hub.logo_link_target', 'single_course');
             if ($logoLinkTarget === 'single_course' && $versionInfo['count'] === 1) {
                 $singleVersion = $versionInfo['versions'][0] ?? null;
                 $versionId = is_array($singleVersion) ? ($singleVersion['id'] ?? null) : ($singleVersion->id ?? null);
@@ -438,6 +438,14 @@ class HeliosCourseHubPlugin extends Plugin
 
             if ($courseLabel && $pageTitle && $siteTitle && $versionInfo['count'] > 1) {
                 $this->browserTitle = $pageTitle . ' | ' . $courseLabel . ' | ' . $siteTitle;
+            }
+        } else {
+            // Single-course root mode (versioning disabled): point logo to first visible root child
+            if ($logoLinkTarget === 'single_course') {
+                $firstChild = $this->grav['pages']->root()->children()->visible()->first();
+                if ($firstChild) {
+                    $twig->twig_vars['logo_url'] = $firstChild->url();
+                }
             }
         }
     }
