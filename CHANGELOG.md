@@ -1,3 +1,9 @@
+# v1.2.3
+## 06/25/2026
+
+1. [](#bugfix)
+   * Ensure og:image URL is absolute for social media preview cards
+
 # v1.2.2
 ## 06/24/2026
 
