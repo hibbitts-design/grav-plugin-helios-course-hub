@@ -1,3 +1,9 @@
+# v1.2.6
+## 06/28/2026
+
+1. [](#new)
+   * Add custom Google Font support with font family, URL, and size options to Typography section
+
 # v1.2.5
 ## 06/28/2026
 
