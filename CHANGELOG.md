@@ -1,3 +1,9 @@
+# v1.2.8
+## 06/28/2026
+
+1. [](#improved)
+   * Add heading font toggle to Typography section, defaulting to Helios theme font for headings
+
 # v1.2.7
 ## 06/28/2026
 
