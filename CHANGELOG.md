@@ -1,3 +1,10 @@
+# v1.2.5
+## 06/28/2026
+
+1. [](#improved)
+   * Add [excerpt] shortcode for subtle grey border styling on multi-paragraph blockquotes
+   * Update ReadMe
+
 # v1.2.4
 ## 06/27/2026
 
