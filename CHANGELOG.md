@@ -1,3 +1,9 @@
+# v1.2.7
+## 06/28/2026
+
+1. [](#bugfix)
+   * Exclude prev/next navigation from custom font by resetting to Helios theme font
+
 # v1.2.6
 ## 06/28/2026
 
