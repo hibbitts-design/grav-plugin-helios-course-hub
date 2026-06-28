@@ -1,6 +1,6 @@
 name: Helios Course Hub
 type: plugin
-version: 1.2.7
+version: 1.2.8
 description: Adds course cards, course-aware search, Codeberg integration, shortcodes, and Admin Panel enhancements to the Helios Grav Premium theme for one or more courses.
 icon: th
 author:
@@ -101,6 +101,18 @@ form:
         small: 'Small'
         medium: 'Medium (default)'
         large: 'Large'
+
+    custom_font_headings:
+      type: toggle
+      label: 'Apply Custom Font to Headings'
+      help: 'When enabled, headings (H1–H6) also use the custom font. When disabled, headings keep the Helios theme font. Only applies when a Custom Google Font URL is set.'
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
 
     footer_section:
       type: section

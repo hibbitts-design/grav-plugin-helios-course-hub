@@ -468,6 +468,7 @@ class HeliosCourseHubPlugin extends Plugin
         $fontUrl    = trim($this->config->get('plugins.helios-course-hub.custom_font_url', ''));
         $fontFamily = trim($this->config->get('plugins.helios-course-hub.custom_font_family', ''));
         $fontSize   = $this->config->get('plugins.helios-course-hub.custom_font_size', 'medium');
+        $fontHeadings = (bool) $this->config->get('plugins.helios-course-hub.custom_font_headings', false);
         if ($fontUrl && strpos($fontUrl, 'https://fonts.googleapis.com/css') === 0
             && $fontFamily && preg_match('/^[\w\s,"\'.-]+$/', $fontFamily)) {
             $textScales = [
@@ -509,7 +510,16 @@ class HeliosCourseHubPlugin extends Plugin
                     . ' --helios-font-body: ' . $themeFontFamily . ';'
                     . ' --font-sans: ' . $themeFontFamily . ';'
                     . ' font-family: ' . $themeFontFamily . ';'
-                    . ' }</style>' . "\n";
+                    . ' }'
+                    . (!$fontHeadings
+                        ? ' #main-content h1, #main-content h2, #main-content h3,'
+                        . ' #main-content h4, #main-content h5, #main-content h6 {'
+                        . ' --helios-font-body: ' . $themeFontFamily . ';'
+                        . ' --font-sans: ' . $themeFontFamily . ';'
+                        . ' font-family: ' . $themeFontFamily . ';'
+                        . ' }'
+                        : '')
+                    . '</style>' . "\n";
             $event['output'] = str_replace('</head>', $inject . '</head>', $event['output']);
         }
 
