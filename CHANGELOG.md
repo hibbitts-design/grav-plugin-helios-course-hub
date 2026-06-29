@@ -1,3 +1,9 @@
+# v1.2.9
+## 06/29/2026
+
+1. [](#improved)
+   * Adjust mobile prev/next nav button height, alignment, and title truncation
+
 # v1.2.8
 ## 06/28/2026
 
