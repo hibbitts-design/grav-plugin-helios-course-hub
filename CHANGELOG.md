@@ -1,10 +1,19 @@
+# v1.2.11
+## 06/30/2026
+
+1. [](#improved)
+   * Added check for langswitcher plugin
+
+1. [](#bugfix)
+   * Fix version dropdown label alignment for long wrapping text
+
 # v1.2.10
 ## 06/30/2026
 
 1. [](#improved)
    * Port HTMX history-miss fix from Helios theme v2.1.9 to plugin base templates
 
-1. [](#improved)
+1. [](#bugfix)
    * Fix WCAG 2.1 serious accessibility issues in templates and shortcodes
 
 # v1.2.9
