@@ -88,6 +88,10 @@
     <meta name="robots" content="{{ page.robots }}">
     {% endif %}
 
+    {% if htmx_enabled %}
+    <meta name="htmx-config" content='{"refreshOnHistoryMiss":true}'>
+    {% endif %}
+
     {# Favicon #}
     {% if theme_config.custom_favicon %}
         {% set favicon = theme_config.custom_favicon|first %}
