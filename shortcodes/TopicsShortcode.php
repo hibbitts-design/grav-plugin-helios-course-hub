@@ -22,14 +22,14 @@ class TopicsShortcode extends Shortcode
                 }
                 return '<span class="topics-index-inactive">' . $letter . '</span>';
             }, $allLetters);
-            $index = '<div class="topics-index">' . implode(' | ', $indexItems) . '</div>';
+            $index = '<nav class="topics-index" aria-label="Topics A–Z index">' . implode('', $indexItems) . '</nav>';
 
             // Replace single-letter h2 headings with styled letter divs
             $body = preg_replace_callback(
                 '/<h2[^>]*>\s*([A-Z])\s*<\/h2>/i',
                 function($m) {
                     $letter = strtoupper($m[1]);
-                    return '<div class="topics-letter" id="' . strtolower($letter) . '">' . $letter . '</div>';
+                    return '<h2 class="topics-letter" id="' . strtolower($letter) . '">' . $letter . '</h2>';
                 },
                 $content
             );
