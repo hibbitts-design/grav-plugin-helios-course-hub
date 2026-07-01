@@ -1,3 +1,9 @@
+# v1.2.12
+## 07/01/2026
+
+1. [](#improved)
+   * Add WCAG 2.1 listbox keyboard navigation to version dropdown
+
 # v1.2.11
 ## 06/30/2026
 
