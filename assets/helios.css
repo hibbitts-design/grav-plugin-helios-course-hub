@@ -411,3 +411,29 @@ footer .edit-page-link svg {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
+
+/* Figures with captions in page content */
+.prose figure {
+    max-width: 100%;
+    margin: 1.5rem auto;
+}
+
+.prose figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+}
+
+.prose figcaption {
+    font-size: 0.8125rem;
+    font-style: italic;
+    text-align: center;
+    margin-top: 0.375rem;
+    color: var(--color-gray-500);
+}
+
+.dark .prose figcaption {
+    color: var(--color-gray-400);
+}
