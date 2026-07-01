@@ -1,3 +1,9 @@
+# v1.2.13
+## 07/01/2026
+
+1. [](#improved)
+   * Add figcaption styling for figures in page content
+
 # v1.2.12
 ## 07/01/2026
 
