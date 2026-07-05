@@ -1,8 +1,11 @@
 # v1.2.16
-## XX/XX/2026
+## 07/05/2026
 
 1. [](#improved)
    * Restored PDF shortcode default ratio to 16:9
+
+1. [](#bugfix)
+   * Fix GoogleSlides shortcode: switch to getHandlers() to prevent raw HTML output
 
 # v1.2.15
 ## 07/06/2026
