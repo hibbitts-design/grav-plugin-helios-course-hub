@@ -1,3 +1,9 @@
+# v1.2.15
+## 07/06/2026
+
+1. [](#bugfix)
+   * Fix H5P iframe clipping and default PDF embed to portrait aspect ratio in both plugins
+
 # v1.2.14
 ## 07/02/2026
 
