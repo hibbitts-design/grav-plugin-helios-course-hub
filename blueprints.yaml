@@ -78,6 +78,15 @@ form:
       title: 'Typography'
       underline: true
 
+    content_text_size:
+      type: select
+      label: 'Content Text Scaling'
+      help: 'Body text size for module/chapter and course page content. "Comfortable" increases reading text size by one step (approx. 18px vs 16px at the theme''s default Medium font size).'
+      default: 'standard'
+      options:
+        standard: 'Standard (default)'
+        comfortable: 'Comfortable (Larger Reading Text)'
+
     custom_font_url:
       type: text
       size: long

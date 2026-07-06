@@ -292,6 +292,7 @@ class HeliosCourseHubPlugin extends Plugin
         $showSiteIcon = $this->config->get('plugins.helios-course-hub.show_site_icon', true);
         $siteIcon = $this->config->get('plugins.helios-course-hub.site_icon', '');
         $showPluginCredits = $this->config->get('plugins.helios-course-hub.show_plugin_credits', true);
+        $contentTextSize = $this->config->get('plugins.helios-course-hub.content_text_size', 'standard');
         // Use card_icon from the course-list page as the default course label icon
         $courseListPage = null;
         foreach ($this->grav['pages']->instances() as $p) {
@@ -313,6 +314,7 @@ class HeliosCourseHubPlugin extends Plugin
         $twig->twig_vars['site_icon'] = $siteIcon;
         $twig->twig_vars['show_plugin_credits'] = $showPluginCredits;
         $twig->twig_vars['course_label_icon'] = $courseLabelIcon;
+        $twig->twig_vars['content_text_size'] = $contentTextSize;
         // Hide sidebar and header when ?embedded=true or ?chromeless=true is present in the URL
         $uri = $this->grav['uri'];
         $twig->twig_vars['chromeless'] = (bool) $uri->query('embedded') || (bool) $uri->query('chromeless');
