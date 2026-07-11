@@ -2,7 +2,10 @@
 ## XX/XX/2026
 
 1. [](#new)
-   * Add Content Text Scaling setting to toggle comfortable (18px) reading size for module/chapter and course pages
+   * Add self-hosted [linkpreviewcard] shortcode as a working replacement for legacy Embedly card
+
+1. [](#improved)
+   * Fix Grav 2 tagfilter escaping in H5PShortcode by moving the resizer script to the Assets API
 
 # v1.2.16
 ## 07/05/2026
