@@ -1,3 +1,9 @@
+# v1.3.1
+## 07/15/2026
+
+1. [](#new)
+   * Added educational content block shortcodes from Helios Open Reader.
+
 # v1.3.0
 ## 07/11/2026
 
