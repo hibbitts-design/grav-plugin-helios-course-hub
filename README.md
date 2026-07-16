@@ -131,7 +131,7 @@ Add the following to `user/config/themes/helios.yaml` to configure course versio
 
 ```yaml
 versioning:
-  version_pattern: '/^[a-zA-Z]+-?\d+([.-]\d+)*$/i'
+  version_pattern: '/^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z][a-zA-Z0-9]*)*-?\d+([.-]\d+)*$/i'
   labels:
     cpt-363-1: CPT-363-1
     cpt-363-2: CPT-363-2
