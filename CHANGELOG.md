@@ -1,3 +1,9 @@
+# v1.3.2
+## XX/XX/2026
+
+1. [](#bugfix)
+    * Fix version_pattern regex to match multi-word slugs as documented in README
+
 # v1.3.1
 ## 07/15/2026
 
