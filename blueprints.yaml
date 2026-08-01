@@ -1,6 +1,6 @@
 name: Helios Course Hub
 type: plugin
-version: 1.3.1
+version: 1.3.2
 description: Adds course cards, course-aware search, Codeberg integration, shortcodes, and Admin Panel enhancements to the Helios Grav Premium theme for one or more courses.
 icon: th
 author:
