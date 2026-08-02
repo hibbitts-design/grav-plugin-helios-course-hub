@@ -30,6 +30,7 @@ The Helios Course Hub gives you a modern, open, and fully controlled companion s
 - **Open authoring built in** – Content is plain Markdown, so "Edit this Page" links go directly to human-readable source anyone can copy and adapt – no special tools required. Git Sync and open repository access are included from the start.
 - **No build pipeline, no local toolchain** – edit in the browser-based Admin panel or via Git; changes go live immediately, no deploy step required
 - **A complete starting point** – pre-built course structure (weekly modules, topics index, resources, syllabus), demo content, and all configuration included; replace the content and you're done
+- **Bring your Canvas (or other LMS) content with you** – the companion [Common Cartridge Converter](https://common-cartridge-converter.hibbittsdesign.org/) (Beta) turns a Common Cartridge (.imscc) export into a Course Hub starting point in minutes: modules, pages, learning objectives, embedded video, course image, license, and syllabus all carried across.
 
 ## Features
 
@@ -310,6 +311,7 @@ Custom CSS, JavaScript, shortcodes, and Helios-inspired Admin Panel styling with
 - [raw]`[h5p url="..."]`[/raw] – H5P interactive content via full embed URL
 - [raw]`[h5p id="..."]`[/raw] – H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
 - [raw]`[embedly url="..."]`[/raw] – Embedly card with dark mode support
+- [raw]`[linkpreviewcard url="..."]`[/raw] – Self-hosted link preview card (image, title, description) scraped directly from the page; an alternative to [raw]`[embedly]`[/raw] that doesn't rely on the [embed.ly](https://embed.ly/) service
 - [raw]`[topics]...[/topics]`[/raw] – Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 - [raw]`[announcement]...[/announcement]`[/raw] – Styled announcement notice (default: Important/purple), supports Markdown content
 - [raw]`[announcement title="..." type="..."]...[/announcement]`[/raw] – With optional custom title and type (`note`, `tip`, `important`, `warning`, `caution`)
@@ -453,6 +455,10 @@ routable: false
 > As with the single course migration, `15.essentials/essentials.md` is the recommended home for content previously kept in `sidebar/default.md`.
 
 **What stays the same:** Most page body content requires no changes — only frontmatter updates are needed.
+
+## Bring Your Canvas (or Other LMS) Content With You
+
+The companion [Common Cartridge Converter](https://common-cartridge-converter.hibbittsdesign.org/) (Beta) turns a Common Cartridge (.imscc) export – from Canvas, Moodle, Brightspace, or Blackboard – into a Course Hub starting point in minutes: modules, pages, learning objectives, embedded video, course image, license, and syllabus all carried across. Upload your export and browse the resulting Markdown files directly – no Grav or Helios installation needed to see what carries over.
 
 ## Support
 

@@ -381,6 +381,7 @@ For single-course sites, set the Site Title to the course name – it serves as 
 - `[h5p id="..."]` – H5P interactive content via Content ID (requires H5P Content Embed Source URL to be set in plugin settings)
 - `[h5p url="..." title="..."]` – H5P embed with accessible title (recommended for accessibility)
 - `[embedly url="..."]` – Embedly card with dark mode support
+- `[linkpreviewcard url="..."]` – Self-hosted link preview card (image, title, description) scraped directly from the page; an alternative to `[embedly]` that doesn't rely on the [embed.ly](https://embed.ly/) service
 - `[topics]...[/topics]` – Alphabetical topics index with auto-generated A–Z navigation, linked letters, and styled letter section labels
 - `[announcement]...[/announcement]` – Styled announcement notice (default: Important/purple), supports Markdown content
 - `[announcement title="..." type="..."]...[/announcement]` – With optional custom title and type (`note`, `tip`, `important`, `warning`, `caution`)
