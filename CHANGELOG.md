@@ -1,8 +1,9 @@
 # v1.3.4
-## XX/XX/2026
+## 08/04/2026
 
 1. [](#improved)
    * Update ReadMe and example pages
+   * Make courses reachable in Quark/Quark2's native nav when Helios is inactive
 
 # v1.3.3
 ## 08/02/2026
