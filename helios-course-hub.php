@@ -75,6 +75,28 @@ class HeliosCourseHubPlugin extends Plugin
             'onOutputGenerated'   => ['onOutputGenerated', 0],
             'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
         ]);
+
+        // Fallback theme (Quark/Quark2) builds its own nav purely from page.children.visible.
+        // Course folders have no numeric order prefix and are visible:false by default, so they
+        // never show up there — unlike a normal routable/ordered content page. Make them visible
+        // (and directly routable) only in this fallback scenario, so the fallback theme's own
+        // native dropdown nav can reach each course and its pages, mirroring how a normal
+        // ordered/routable top-level page already would.
+        if ($this->themeMissing) {
+            $this->enable([
+                'onPagesInitialized' => ['onPagesInitialized', 0],
+            ]);
+        }
+    }
+
+    public function onPagesInitialized()
+    {
+        foreach ($this->grav['pages']->instances() as $p) {
+            if ($p->template() === 'course' && $p->published()) {
+                $p->visible(true);
+                $p->routable(true);
+            }
+        }
     }
 
     private function isAdmin2Route(): bool
