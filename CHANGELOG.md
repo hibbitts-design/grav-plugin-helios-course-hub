@@ -1,3 +1,9 @@
+# v1.3.5
+## 08/27/2026
+
+1. [](#improved)
+   * Carry over Helios theme v2.1.15: output head-group JS asset group in base, base-simple, and base-simple-wide templates
+
 # v1.3.4
 ## 08/04/2026
 
