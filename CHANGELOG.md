@@ -1,3 +1,9 @@
+# v1.3.7
+## XX/XX/2026
+
+1. [](#bugfix)
+   * Demo Welcome page links now work in multi-course sites, with the Guide link using the page's address
+
 # v1.3.6
 ## 10/07/2026
 
