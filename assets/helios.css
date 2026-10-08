@@ -449,3 +449,9 @@ footer .edit-page-link svg {
 .dark .prose figcaption {
     color: var(--color-gray-400);
 }
+
+/* [showifembedded] content is hidden on normal pages; on embedded pages the plugin swaps these
+   (see onTwigSiteVariables), hiding [hideifembedded] content and showing [showifembedded] content */
+.hch-show-if-embedded {
+    display: none;
+}

@@ -73,7 +73,9 @@ class HeliosCourseHubPlugin extends Plugin
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', -100],
             'onOutputGenerated'   => ['onOutputGenerated', 0],
-            'onShortcodeHandlers' => ['onShortcodeHandlers', 0],
+            // -10: after Shortcode Core registers its own sample shortcodes (such as a starter [badge]), so this plugin's
+            // shortcodes with the same name replace them
+            'onShortcodeHandlers' => ['onShortcodeHandlers', -10],
         ]);
 
         // Fallback theme (Quark/Quark2) builds its own nav purely from page.children.visible.
@@ -340,6 +342,11 @@ class HeliosCourseHubPlugin extends Plugin
         // Hide sidebar and header when ?embedded=true or ?chromeless=true is present in the URL
         $uri = $this->grav['uri'];
         $twig->twig_vars['chromeless'] = (bool) $uri->query('embedded') || (bool) $uri->query('chromeless');
+        // On embedded pages, hide [hideifembedded] content and show [showifembedded] content. This is CSS added to
+        // the page rather than a change to the content, because a page's content is cached once for both addresses.
+        if ($twig->twig_vars['chromeless']) {
+            $this->grav['assets']->addInlineCss('.hch-hide-if-embedded{display:none}.hch-show-if-embedded{display:block}');
+        }
         // Override TOC visibility/position via ?toc_position=hidden|left|right or ?toc=hidden|left|right (null when param absent)
         $tocParam = $uri->query('toc_position') ?: $uri->query('toc') ?: null;
         $twig->twig_vars['toc_url_param'] = ($tocParam !== null && $tocParam !== false) ? $tocParam : null;
