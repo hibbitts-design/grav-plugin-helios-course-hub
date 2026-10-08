@@ -1,8 +1,12 @@
 # v1.3.7
-## XX/XX/2026
+## 10/08/2026
 
+1. [](#new)
+   * [badge] and [button] shortcodes from the free Grav projects, shown in the Helios style, so moved content works unchanged
+   * [hideifembedded] and [showifembedded] shortcodes, as in Grav Open Course Hub
 1. [](#bugfix)
    * Demo Welcome page links now work in multi-course sites, with the Guide link using the page's address
+   * This plugin's shortcodes now replace any starter shortcode of the same name from Shortcode Core
 
 # v1.3.6
 ## 10/07/2026
