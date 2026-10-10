@@ -1,3 +1,9 @@
+# v1.3.8
+## 10/09/2026
+
+1. [](#improved)
+   * Second-level headings sit closer to the content below them (0.5rem, the same as the other heading levels), so groups such as the schedule's weeks read as one unit
+
 # v1.3.7
 ## 10/08/2026
 
