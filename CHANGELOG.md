@@ -1,3 +1,9 @@
+# v1.3.9
+## 10/16/2026
+
+1. [](#improved)
+   * Topics A–Z index: large, bold letters in boxes about 36px square (easier to tap and click, with enough contrast), a clear keyboard focus outline, and letters without topics hidden from screen readers
+
 # v1.3.8
 ## 10/09/2026
 
