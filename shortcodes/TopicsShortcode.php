@@ -20,7 +20,8 @@ class TopicsShortcode extends Shortcode
                 if (in_array($letter, $active)) {
                     return '<a href="#' . strtolower($letter) . '">' . $letter . '</a>';
                 }
-                return '<span class="topics-index-inactive">' . $letter . '</span>';
+                // letters without entries are hidden from screen readers (aria-hidden), which then hear only the letters they can follow
+                return '<span class="topics-index-inactive" aria-hidden="true">' . $letter . '</span>';
             }, $allLetters);
             $index = '<nav class="topics-index" aria-label="Topics A–Z index">' . implode('', $indexItems) . '</nav>';
 
