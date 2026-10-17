@@ -30,15 +30,16 @@
    Ungrouped children render first with no heading; grouped children follow. #}
 {% set children = page.children.visible %}
 {% if children.count > 0 %}
+    {# (each key starts with "g:", since Twig would renumber a group name that is a number, such as 2026) #}
     {% set groups = {} %}
     {% set group_order = [] %}
     {% for child in children %}
         {% set g = child.header.group ?? '' %}
         {% if g not in group_order %}
             {% set group_order = group_order|merge([g]) %}
-            {% set groups = groups|merge({(g): []}) %}
+            {% set groups = groups|merge({('g:' ~ g): []}) %}
         {% endif %}
-        {% set groups = groups|merge({(g): groups[g]|merge([child])}) %}
+        {% set groups = groups|merge({('g:' ~ g): groups['g:' ~ g]|merge([child])}) %}
     {% endfor %}
 
     {% for g in group_order %}
@@ -46,7 +47,7 @@
     <div class="pt-6 mb-10">
         <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{{ g }}</h2>
         <div class="grid gap-4 sm:grid-cols-2">
-            {% for child in groups[g] %}
+            {% for child in groups['g:' ~ g] %}
             <a href="{{ child.url }}"
                class="hover:!no-underline group block p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors">
                 <h3 class="flex items-center !mt-3 gap-3 text-base font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors">
@@ -68,7 +69,7 @@
     </div>
     {% else %}
     <div class="grid gap-4 sm:grid-cols-2{% if group_order|length > 1 %} mb-10{% endif %}">
-        {% for child in groups[g] %}
+        {% for child in groups['g:' ~ g] %}
         <a href="{{ child.url }}"
            class="hover:!no-underline group block p-6 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-primary dark:hover:border-primary transition-colors">
             <h3 class="flex items-center !mt-3 gap-3 text-base font-semibold text-gray-900 dark:text-white group-hover:text-primary transition-colors">

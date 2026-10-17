@@ -54,15 +54,16 @@
     {% endfor %}
 
     {# Build group order and grouped items; ungrouped ('') always appears first #}
+    {# (each key starts with "g:", since Twig would renumber a group name that is a number, such as 2026) #}
     {% set groups = {} %}
     {% set group_order = [] %}
     {% for item in items %}
         {% set g = item.g %}
         {% if g not in group_order %}
             {% set group_order = group_order|merge([g]) %}
-            {% set groups = groups|merge({(g): []}) %}
+            {% set groups = groups|merge({('g:' ~ g): []}) %}
         {% endif %}
-        {% set groups = groups|merge({(g): groups[g]|merge([item])}) %}
+        {% set groups = groups|merge({('g:' ~ g): groups['g:' ~ g]|merge([item])}) %}
     {% endfor %}
 
     {% for g in group_order %}
@@ -70,7 +71,7 @@
     <div class="pt-6 mb-10">
         <h2 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-4">{{ g }}</h2>
         <div class="{{ gridClass }}">
-            {% for item in groups[g] %}
+            {% for item in groups['g:' ~ g] %}
                 {% set course_image = item.vp.header.image ? item.vp.media[item.vp.header.image] : null %}
                 {% include 'partials/course-card.html.twig' with {
                     title: item.v.label,
@@ -89,7 +90,7 @@
     </div>
     {% else %}
     <div class="{{ gridClass }} {% if group_order|length > 1 %}mb-10{% else %}mb-8{% endif %}">
-        {% for item in groups[g] %}
+        {% for item in groups['g:' ~ g] %}
             {% set course_image = item.vp.header.image ? item.vp.media[item.vp.header.image] : null %}
             {% include 'partials/course-card.html.twig' with {
                 title: item.v.label,
