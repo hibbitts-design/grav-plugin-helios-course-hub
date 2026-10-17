@@ -1,3 +1,16 @@
+# v1.3.10
+## 10/17/2026
+
+1. [](#new)
+    * Badge Label and Badge Color settings for modules and their pages: a short badge such as "New", "Draft" or "Due Friday" on the page's card, shown as on the course cards, as in Grav Open Course Hub
+    * Captions for images in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML, as in Grav Open Course Hub
+1. [](#improved)
+    * Images in page text are no taller than a little over half the screen, so an image and the text around it fit on screen together, when reading or presenting a module (figure and card images are unchanged)
+    * README: badges on module and page cards, and image captions
+1. [](#bugfix)
+    * A course or module group named with just a number (such as `group: 2026`) no longer stops the course list or Modules page from loading
+    * Default badges (Badge Color Default, or [badge] without a colour) have enough contrast in Light mode: their text is a darker shade of the primary colour, so it stays readable whatever primary colour a site uses
+
 # v1.3.9
 ## 10/16/2026
 
