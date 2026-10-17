@@ -30,3 +30,23 @@ form:
               rows: 2
               placeholder: A short description for this page
               help: Used in navigation cards and page summaries
+            header.badge_label:
+              type: text
+              label: Badge Label
+              toggleable: true
+              placeholder: 'e.g. New, Draft, Due Friday'
+              help: 'Short status badge displayed on this page''s card. Leave empty to show no badge.'
+            header.badge_color:
+              type: select
+              label: Badge Color
+              toggleable: true
+              default: default
+              options:
+                default: Default
+                blue: Blue
+                green: Green
+                yellow: Yellow
+                red: Red
+                purple: Purple
+                plain: Plain
+              help: 'Badge color. Matches Helios doc-badge color options.'

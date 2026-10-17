@@ -177,6 +177,8 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - MarkdownFile shortcode: fetch and render a remote Markdown file inline, with YAML front matter automatically stripped
 - Configurable module page description line limit: set the maximum number of lines shown per card description on Module template pages (the Modules section uses this template) site-wide via the Helios Course Hub plugin settings (2 default, 3, or no limit)
 - Module page child grouping: organize cards on a module page into labeled sections by adding `group: "Label"` to a `course-page` child page's frontmatter; pages without a group appear first with no heading
+- Module and page card badges: add `badge_label` (e.g. `New`, `Draft`, `Due Friday`) and an optional `badge_color` to a `course-page` page's frontmatter (or its Badge Label and Badge Color settings) to show a status badge on its card, as on the course cards
+- Image captions in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML; images in page text are no taller than a little over half the screen, so an image and its text fit on screen together
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection

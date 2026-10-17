@@ -3,6 +3,7 @@
  # Changes from theme original:
  #   1. Child pages support optional grouping via group: "Label" in child page frontmatter;
  #      ungrouped children render first with no heading, grouped children follow under a labelled section
+ #   2. Child page cards show an optional badge (badge_label and badge_color), as on the course cards
  # Note: grouping logic lives here (not in chapter.html.twig) so it applies to both full page
  #       and HTMX navigation renders.
  #}
@@ -63,6 +64,7 @@
                     {{ child.header.description ?: child.summary|striptags }}
                 </p>
                 {% endif %}
+                {% include 'partials/content/chapter-card-badge.html.twig' with { card_page: child } only %}
             </a>
             {% endfor %}
         </div>
@@ -85,6 +87,7 @@
                 {{ child.header.description ?: child.summary|striptags }}
             </p>
             {% endif %}
+            {% include 'partials/content/chapter-card-badge.html.twig' with { card_page: child } only %}
         </a>
         {% endfor %}
     </div>

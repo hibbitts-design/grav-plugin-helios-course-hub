@@ -1,0 +1,9 @@
+{# A status badge such as "New", "Draft" or "Due Friday" on a module (or page) card, from the page's Badge Label and
+   Badge Color settings, shown as on the course cards (partials/course-card-content.html.twig), as in Grav Open
+   Course Hub - hibbittsdesign.org #}
+{% if card_page.header.badge_label %}
+{% set badge_color = card_page.header.badge_color %}
+{% set badge_color_class = badge_color and badge_color != 'default' ? 'doc-badge-' ~ badge_color : '' %}
+{% set badge_classes = ['doc-badge', badge_color_class]|filter(v => v)|join(' ') %}
+<div class="mt-3"><span class="{{ badge_classes }}">{{ card_page.header.badge_label|e }}</span></div>
+{% endif %}
