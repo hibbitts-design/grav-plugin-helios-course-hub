@@ -1,3 +1,10 @@
+# v1.3.11
+## XX/XX/2026
+
+1. [](#improved)
+    * French and German translations are complete for the plugin's own texts: German is new, and French adds the Admin notices and the navigation labels screen readers hear (from languages/en.yaml), plus "Theme selection" and the Git link's name, which the Helios theme doesn't have
+    * Text that was only in English in the templates is now translatable: the footer's credit line (as one sentence, so translations can order its links), "(opens in new tab)" for screen readers, the "View Repository" link, and the search dialog's name (now "Search", from the Helios theme)
+
 # v1.3.10
 ## 10/17/2026
 
