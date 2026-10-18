@@ -21,12 +21,17 @@
                rel="noopener noreferrer"
                class="edit-page-link inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-primary">
                 <span aria-hidden="true">{{ svg_icon(github_link_icon ?: 'tabler/file-text.svg', 'w-4 h-4')|raw }}</span>
-                {{ theme_config.github.edit_text ?: 'THEME_HELIOS.EDIT_PAGE'|t }}<span class="sr-only"> (opens in new tab)</span>
+                {{ theme_config.github.edit_text ?: 'THEME_HELIOS.EDIT_PAGE'|t }}<span class="sr-only"> {{ 'PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t }}</span>
             </a>
         </div>
         {% endif %}
 
     {% if show_plugin_credits and not chromeless %}{# PLUGIN CHANGE 2: footer attribution includes Helios Course Hub link, toggled by show_plugin_credits; also suppressed when embedded #}
-    <p class="text-center text-sm text-gray-500 dark:text-gray-400">Built with <a href="https://getgrav.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav<span class="sr-only"> (opens in new tab)</span></a> · <a href="https://getgrav.org/premium/helios" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav Premium Helios<span class="sr-only"> (opens in new tab)</span></a> theme · <a href="https://github.com/hibbitts-design/grav-skeleton-helios-course-hub" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Helios Course Hub<span class="sr-only"> (opens in new tab)</span></a> by <a href="https://hibbittsdesign.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">hibbittsdesign.org<span class="sr-only"> (opens in new tab)</span></a></p>
+    {# the credit line, as one translatable sentence (FOOTER_CREDITS in languages.yaml), with its four links filled in as %1$s to %2$s, %3$s and %4$s #}
+    {% set credit_grav = '<a href="https://getgrav.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav<span class="sr-only"> ' ~ ('PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t) ~ '</span></a>' %}
+    {% set credit_helios = '<a href="https://getgrav.org/premium/helios" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Grav Premium Helios<span class="sr-only"> ' ~ ('PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t) ~ '</span></a>' %}
+    {% set credit_course_hub = '<a href="https://github.com/hibbitts-design/grav-skeleton-helios-course-hub" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">Helios Course Hub<span class="sr-only"> ' ~ ('PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t) ~ '</span></a>' %}
+    {% set credit_author = '<a href="https://hibbittsdesign.org" target="_blank" rel="nofollow noopener noreferrer" class="hover:underline">hibbittsdesign.org<span class="sr-only"> ' ~ ('PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t) ~ '</span></a>' %}
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400">{{ 'PLUGIN_HELIOS_COURSE_HUB.FOOTER_CREDITS'|t(credit_grav, credit_helios, credit_course_hub, credit_author)|raw }}</p>
     {% endif %}
 </footer>

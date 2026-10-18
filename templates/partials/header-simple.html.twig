@@ -94,7 +94,7 @@
         {% set resolved_git_url = github_header_custom_url ?: (theme_config.github.enabled and theme_config.github.repo ? 'https://' ~ github_server ~ '/' ~ theme_config.github.repo : null) %}
         {% if resolved_git_url and show_github_header_icon != false %}
         {% set git_icon = 'github.com' in resolved_git_url ? 'tabler/brand-github.svg' : ('codeberg.org' in resolved_git_url ? 'tabler/brand-codeberg.svg' : 'tabler/brand-git.svg') %}
-        {% set git_label = 'github.com' in resolved_git_url ? 'THEME_HELIOS.VIEW_ON_GITHUB'|t : ('codeberg.org' in resolved_git_url ? 'THEME_HELIOS.VIEW_ON_CODEBERG'|t : 'View Repository') %}
+        {% set git_label = 'github.com' in resolved_git_url ? 'THEME_HELIOS.VIEW_ON_GITHUB'|t : ('codeberg.org' in resolved_git_url ? 'THEME_HELIOS.VIEW_ON_CODEBERG'|t : 'PLUGIN_HELIOS_COURSE_HUB.VIEW_REPOSITORY'|t) %}
         <a href="{{ resolved_git_url }}"
            target="_blank"
            rel="noopener noreferrer"

@@ -1,11 +1,50 @@
+# The plugin's texts. languages/en.yaml has more English texts (fallbacks for when the Helios theme isn't installed,
+# and a few Helios-style texts the theme doesn't have); their French and German are here.
+
 en:
   PLUGIN_HELIOS_COURSE_HUB:
-    COURSE_LABEL: Course
-    COURSE_LATEST_LABEL: default
+    VIEW_REPOSITORY: "View Repository"
+    COURSE_LABEL: "Course"
+    COURSE_LATEST_LABEL: "default"
     THEME_REQUIRED_NOTICE: "Helios Grav Premium theme required. Enter your Helios and SVG Icons license keys, then install and activate the theme. (Helios Course Hub Plugin)"
     THEME_INACTIVE_NOTICE: "Helios Grav Premium theme is installed but not active. Please activate the Helios theme to use the Course Hub plugin. (Helios Course Hub Plugin)"
+    OPENS_IN_NEW_TAB: "(opens in new tab)"
+    FOOTER_CREDITS: "Built with %1$s · %2$s theme · %3$s by %4$s"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
-    COURSE_LABEL: Cours
-    COURSE_LATEST_LABEL: défaut
+    VIEW_REPOSITORY: "Voir le dépôt"
+    COURSE_LABEL: "Cours"
+    COURSE_LATEST_LABEL: "défaut"
+    THEME_REQUIRED_NOTICE: "Le thème premium Helios est requis. Entrez vos clés de licence Helios et SVG Icons, puis installez et activez le thème. (Plugin Helios Course Hub)"
+    THEME_INACTIVE_NOTICE: "Le thème premium Helios est installé mais non actif. Veuillez activer le thème Helios pour utiliser le plugin Course Hub. (Plugin Helios Course Hub)"
+    OPENS_IN_NEW_TAB: "(s'ouvre dans un nouvel onglet)"
+    FOOTER_CREDITS: "Conçu avec %1$s · thème %2$s · %3$s par %4$s"
+    SKIP_TO_CONTENT: "Aller au contenu"
+    TOGGLE_NAVIGATION: "Afficher ou masquer le menu"
+    CLOSE_NAVIGATION: "Fermer le menu"
+    MAIN_NAVIGATION: "Navigation principale"
+    TOGGLE_SUBMENU: "Afficher ou masquer le sous-menu"
+  THEME_HELIOS:
+    THEME_SELECTION: "Choix du thème"
+    VIEW_ON_GITHUB: "Voir sur GitHub"
+    VIEW_ON_CODEBERG: "Voir sur Codeberg"
+
+de:
+  PLUGIN_HELIOS_COURSE_HUB:
+    VIEW_REPOSITORY: "Repository ansehen"
+    COURSE_LABEL: "Kurs"
+    COURSE_LATEST_LABEL: "Standard"
+    THEME_REQUIRED_NOTICE: "Das Premium-Theme Helios ist erforderlich. Geben Sie Ihre Lizenzschlüssel für Helios und SVG Icons ein, und installieren und aktivieren Sie dann das Theme. (Helios Course Hub Plugin)"
+    THEME_INACTIVE_NOTICE: "Das Premium-Theme Helios ist installiert, aber nicht aktiv. Bitte aktivieren Sie das Theme Helios, um das Course Hub Plugin zu verwenden. (Helios Course Hub Plugin)"
+    OPENS_IN_NEW_TAB: "(öffnet in neuem Tab)"
+    FOOTER_CREDITS: "Erstellt mit %1$s · Theme %2$s · %3$s von %4$s"
+    SKIP_TO_CONTENT: "Zum Inhalt springen"
+    TOGGLE_NAVIGATION: "Menü ein- oder ausblenden"
+    CLOSE_NAVIGATION: "Menü schließen"
+    MAIN_NAVIGATION: "Hauptnavigation"
+    TOGGLE_SUBMENU: "Untermenü ein- oder ausblenden"
+  THEME_HELIOS:
+    THEME_SELECTION: "Farbschema wählen"
+    VIEW_ON_GITHUB: "Auf GitHub ansehen"
+    VIEW_ON_CODEBERG: "Auf Codeberg ansehen"
