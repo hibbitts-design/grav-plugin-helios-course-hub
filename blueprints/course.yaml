@@ -50,6 +50,12 @@ form:
               toggleable: true
               placeholder: 'e.g. Jane Smith or Jane Smith & John Doe'
               help: 'Instructor name(s) shown below the description on the course card on the Courses homepage.'
+            header.group:
+              type: text
+              label: Group
+              toggleable: true
+              placeholder: 'e.g. Current Courses'
+              help: 'Shows this course under a heading with this name on the Courses homepage.'
             header.badge_label:
               type: text
               label: Badge Label

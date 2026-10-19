@@ -30,6 +30,12 @@ form:
               rows: 2
               placeholder: A short description for this page
               help: Used in navigation cards and page summaries
+            header.group:
+              type: text
+              label: Group
+              toggleable: true
+              placeholder: 'e.g. Readings'
+              help: 'Shows this page''s card under a heading with this name, on the page that lists it.'
             header.badge_label:
               type: text
               label: Badge Label
