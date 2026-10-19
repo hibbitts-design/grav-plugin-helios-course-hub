@@ -11,6 +11,11 @@ show_site_icon: true
 site_icon: tabler/hexagon.svg
 logo_link_target: single_course
 show_plugin_credits: true
+cc_license:
+  enabled: false
+  type: ccby
+  icon: false
+  text: ''
 chapter_description_lines: 2
 github_server: github.com
 github_link_icon: tabler/file-text.svg

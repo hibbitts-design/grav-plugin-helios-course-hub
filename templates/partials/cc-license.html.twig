@@ -1,0 +1,34 @@
+{#
+ # Creative Commons license for the site's content, shown in the footer (the Display CC License setting), with the same
+ # settings as Grav Open Course Hub (Bootstrap4 Open Matter): the license type, only its badge, and text added after it.
+ # Left out of embedded and chromeless pages, and of any page with hide_cc_license: true in its frontmatter.
+ #}
+{% set cc = config.plugins['helios-course-hub'].cc_license ?? {} %}
+{% if (cc.enabled ?? false) and not chromeless and not page.header.hide_cc_license %}
+    {# each license's address part (as in creativecommons.org/licenses/by-sa/4.0/) and its full name #}
+    {% set cc_licenses = {
+        ccby:     {code: 'by',       name: 'Creative Commons Attribution 4.0 International'},
+        ccbysa:   {code: 'by-sa',    name: 'Creative Commons Attribution-ShareAlike 4.0 International'},
+        ccbynd:   {code: 'by-nd',    name: 'Creative Commons Attribution-NoDerivatives 4.0 International'},
+        ccbync:   {code: 'by-nc',    name: 'Creative Commons Attribution-NonCommercial 4.0 International'},
+        ccbyncsa: {code: 'by-nc-sa', name: 'Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International'},
+        ccbyncnd: {code: 'by-nc-nd', name: 'Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International'}
+    } %}
+    {% set cc_license = cc_licenses[cc.type ?? 'ccby'] ?? cc_licenses.ccby %}
+    {% set cc_url = 'https://creativecommons.org/licenses/' ~ cc_license.code ~ '/4.0/' %}
+    <div class="hor-cc-license mb-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        <a rel="license" href="{{ cc_url }}" class="inline-block">
+            <img src="https://licensebuttons.net/l/{{ cc_license.code }}/4.0/88x31.png" width="88" height="31" alt="{{ 'PLUGIN_HELIOS_COURSE_HUB.CC_LICENSE'|t|e('html_attr') }}" class="mx-auto my-0">
+        </a>
+        {% if not (cc.icon ?? false) or cc.text %}
+        <p class="mt-2">
+            {%- if not (cc.icon ?? false) -%}
+                {# one translatable sentence, with the license's name as a link in place of %s #}
+                {% set cc_link = '<a rel="license" href="' ~ cc_url ~ '" class="hover:underline">' ~ cc_license.name ~ '</a>' %}
+                {{ 'PLUGIN_HELIOS_COURSE_HUB.CC_LICENSED_UNDER'|t(cc_link)|raw }}
+            {%- endif -%}
+            {%- if cc.text %} {{ cc.text }}{% endif -%}
+        </p>
+        {% endif %}
+    </div>
+{% endif %}

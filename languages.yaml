@@ -12,6 +12,8 @@ en:
     FOOTER_CREDITS: "Built with %1$s · %2$s theme · %3$s by %4$s"
     IMAGE_LARGER: "Show image larger"
     IMAGE_CLOSE: "Close"
+    CC_LICENSE: "Creative Commons License"
+    CC_LICENSED_UNDER: "This work is licensed under a %s License"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
@@ -29,6 +31,8 @@ fr:
     TOGGLE_SUBMENU: "Afficher ou masquer le sous-menu"
     IMAGE_LARGER: "Agrandir l'image"
     IMAGE_CLOSE: "Fermer"
+    CC_LICENSE: "Licence Creative Commons"
+    CC_LICENSED_UNDER: "Cette œuvre est mise à disposition selon les termes de la licence %s"
   THEME_HELIOS:
     THEME_SELECTION: "Choix du thème"
     VIEW_ON_GITHUB: "Voir sur GitHub"
@@ -50,6 +54,8 @@ de:
     TOGGLE_SUBMENU: "Untermenü ein- oder ausblenden"
     IMAGE_LARGER: "Bild vergrößern"
     IMAGE_CLOSE: "Schließen"
+    CC_LICENSE: "Creative-Commons-Lizenz"
+    CC_LICENSED_UNDER: "Dieses Werk ist lizenziert unter einer %s Lizenz"
   THEME_HELIOS:
     THEME_SELECTION: "Farbschema wählen"
     VIEW_ON_GITHUB: "Auf GitHub ansehen"

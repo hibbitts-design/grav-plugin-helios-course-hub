@@ -140,6 +140,51 @@ form:
       validate:
         type: bool
 
+    cc_license.enabled:
+      type: toggle
+      label: 'Display CC License'
+      help: 'Show a Creative Commons license in the footer of every page.'
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    cc_license.type:
+      type: select
+      label: 'CC License Type'
+      size: long
+      default: ccby
+      help: 'The license for the site''s content.'
+      options:
+        ccby: 'CC Attribution'
+        ccbysa: 'CC Attribution Share Alike'
+        ccbynd: 'CC Attribution No Derivatives'
+        ccbync: 'CC Attribution Non-Commercial'
+        ccbyncsa: 'CC Attribution Non-Commercial Share Alike'
+        ccbyncnd: 'CC Attribution Non-Commercial No Derivatives'
+
+    cc_license.icon:
+      type: toggle
+      label: 'Display Only CC License Icon'
+      help: 'Show just the license badge, without its sentence.'
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    cc_license.text:
+      type: text
+      label: 'Additional CC License Text'
+      size: long
+      placeholder: 'e.g. except where otherwise noted.'
+      help: 'Text added after the license sentence.'
+
     chapter_pages_section:
       type: section
       title: 'Chapter Pages (incl. Modules)'
