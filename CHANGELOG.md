@@ -4,9 +4,13 @@
 1. [](#new)
     * Tap or click an image in a page that's shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones), as in Grav Open Course Hub; Escape, the Close button or a tap closes it
     * The / key opens search, as Ctrl/Cmd+K does (as on GitHub and many documentation sites), except while typing in a box, as in Grav Helios Open Reader
+    * Group setting for courses and course pages, so course cards and page cards can be grouped under headings from the Admin panel instead of only in frontmatter, as in Grav Open Course Hub
+    * Display CC License setting: a Creative Commons license for the site's content in the footer of every page (not on embedded pages), with the same settings as Grav Open Course Hub – license type, only its badge, and text added after it; a page can hide it with `hide_cc_license: true`
 1. [](#improved)
     * README and demo Read Me pages: sharing a single course's link or making it the site's homepage, and why `course.md` stays non-routable
     * README: seeing an image larger, the / key for search, and the demo content folders (the multi-course demo is in _demo/multi-course/)
+    * README and demo Read Me pages: the Group setting
+    * README and demo Read Me pages: the Creative Commons license settings
 
 # v1.3.11
 ## 10/18/2026
