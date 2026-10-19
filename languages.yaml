@@ -10,6 +10,8 @@ en:
     THEME_INACTIVE_NOTICE: "Helios Grav Premium theme is installed but not active. Please activate the Helios theme to use the Course Hub plugin. (Helios Course Hub Plugin)"
     OPENS_IN_NEW_TAB: "(opens in new tab)"
     FOOTER_CREDITS: "Built with %1$s · %2$s theme · %3$s by %4$s"
+    IMAGE_LARGER: "Show image larger"
+    IMAGE_CLOSE: "Close"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
@@ -25,6 +27,8 @@ fr:
     CLOSE_NAVIGATION: "Fermer le menu"
     MAIN_NAVIGATION: "Navigation principale"
     TOGGLE_SUBMENU: "Afficher ou masquer le sous-menu"
+    IMAGE_LARGER: "Agrandir l'image"
+    IMAGE_CLOSE: "Fermer"
   THEME_HELIOS:
     THEME_SELECTION: "Choix du thème"
     VIEW_ON_GITHUB: "Voir sur GitHub"
@@ -44,6 +48,8 @@ de:
     CLOSE_NAVIGATION: "Menü schließen"
     MAIN_NAVIGATION: "Hauptnavigation"
     TOGGLE_SUBMENU: "Untermenü ein- oder ausblenden"
+    IMAGE_LARGER: "Bild vergrößern"
+    IMAGE_CLOSE: "Schließen"
   THEME_HELIOS:
     THEME_SELECTION: "Farbschema wählen"
     VIEW_ON_GITHUB: "Auf GitHub ansehen"

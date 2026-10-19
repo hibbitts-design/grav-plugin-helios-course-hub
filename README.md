@@ -65,7 +65,7 @@ This plugin works with the [Grav Premium Helios theme](https://getgrav.org/premi
 - **LMS embedding without LTI** – embed any page directly into Canvas, Moodle, or Brightspace with a URL parameter; no LTI setup, no plugin, no IT negotiation required
 - **Single or multi-course** – share a direct link so students land straight on their course homepage; add more courses and a full, browsable course list is automatically available as the homepage.
 - **Portable by design** – your content is plain Markdown files on your server; no database, portable to any tool or host if your needs change
-- **Course-aware search** – search automatically scopes to the current course when browsing within it, and spans all courses from the Courses homepage; results are always relevant
+- **Course-aware search** – search automatically scopes to the current course when browsing within it, and spans all courses from the Courses homepage; results are always relevant; **/** opens search, as Ctrl/Cmd+K does
 - **Open authoring built in** – Content is plain Markdown, so "Edit this Page" links go directly to human-readable source anyone can copy and adapt – no special tools required. Git Sync and open repository access are included from the start.
 - **No build pipeline, no local toolchain** – edit in the browser-based Admin panel or via Git; changes go live immediately, no deploy step required
 - **A complete starting point** – pre-built course structure (weekly modules, topics index, resources, syllabus), demo content, and all configuration included; replace the content and you're done
@@ -121,7 +121,7 @@ The `_demo` folder in this plugin contains a default Helios Course Hub site that
 - `cpt-363-2/` – Second course (same structure as cpt-363-1, including course.md; unpublished by default)
 - `cpt-363-3/` – Third course (same structure as cpt-363-1, including course.md; unpublished by default)
 
-To use the demo content, copy the contents of `_demo/pages/` into your Grav `user/pages/` folder.
+To use the demo content, copy the contents of `_demo/multi-course/` into your Grav `user/pages/` folder. `_demo/pages/` holds a single-course version, with one course's pages at the top level.
 
 ## Helios Theme Configuration
 
@@ -179,6 +179,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Module page child grouping: organize cards on a module page into labeled sections by adding `group: "Label"` to a `course-page` child page's frontmatter; pages without a group appear first with no heading
 - Module and page card badges: add `badge_label` (e.g. `New`, `Draft`, `Due Friday`) and an optional `badge_color` to a `course-page` page's frontmatter (or its Badge Label and Badge Color settings) to show a status badge on its card, as on the course cards
 - Image captions in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML; images in page text are no taller than a little over half the screen, so an image and its text fit on screen together
+- Seeing an image larger: tap or click an image shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones); Escape, the Close button or a tap closes it
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection

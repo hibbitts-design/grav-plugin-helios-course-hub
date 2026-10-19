@@ -297,6 +297,14 @@ class HeliosCourseHubPlugin extends Plugin
         $assets->addCss("$path/helios.css");
         $assets->addCss("$path/print.css", ['media' => 'print']);
         $assets->addJs("$path/helios.js", ['group' => 'bottom', 'loading' => 'defer']);
+        // Tap or click an image in a page to see it larger; its button labels, in the site's language, are read by the script
+        $assets->addJs("$path/image-zoom.js", ['group' => 'bottom', 'loading' => 'defer']);
+        $language = $this->grav['language'];
+        $zoomLabels = [
+            'larger' => $language->translate('PLUGIN_HELIOS_COURSE_HUB.IMAGE_LARGER'),
+            'close'  => $language->translate('PLUGIN_HELIOS_COURSE_HUB.IMAGE_CLOSE'),
+        ];
+        $assets->addInlineJs('window.heliosImageZoomLabels = ' . json_encode($zoomLabels) . ';', ['group' => 'bottom']);
 
         // Inject site-wide chapter card description line override when value differs from theme default (2)
         $chapterDescLines = (int)$this->config->get('plugins.helios-course-hub.chapter_description_lines', 2);

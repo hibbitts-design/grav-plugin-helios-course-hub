@@ -13,7 +13,8 @@
     .mobile-nav-panel,
     #htmx-prev-next,
     #htmx-loading,
-    #htmx-breadcrumbs {
+    #htmx-breadcrumbs,
+    .image-zoom-dialog {
         display: none !important;
     }
 
