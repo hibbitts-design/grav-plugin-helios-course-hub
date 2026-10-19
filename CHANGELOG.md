@@ -1,3 +1,13 @@
+# v1.3.13
+## 10/19/2026
+
+1. [](#new)
+    * A course image in the sidebar for single-course sites (with the course's pages directly in user/pages): put course.md and its image at the top of user/pages, and its Card Image and Show Card Image in Course Sidebar settings show the image in the sidebar, as in a site with several courses
+1. [](#improved)
+    * README and demo Read Me pages: the course image in single-course sites
+1. [](#bugfix)
+    * README and demo Read Me pages: Show Card Image in Course Sidebar is off by default, not on
+
 # v1.3.12
 ## 10/19/2026
 
