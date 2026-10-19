@@ -1,5 +1,5 @@
 # v1.3.11
-## XX/XX/2026
+## 10/18/2026
 
 1. [](#improved)
     * French and German translations are complete for the plugin's own texts: German is new, and French adds the Admin notices and the navigation labels screen readers hear (from languages/en.yaml), plus "Theme selection" and the Git link's name, which the Helios theme doesn't have
