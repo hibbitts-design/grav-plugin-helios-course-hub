@@ -4,6 +4,8 @@
 
 namespace Grav\Plugin;
 
+use Grav\Common\File\CompiledMarkdownFile;
+use Grav\Common\Page\Media;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -486,7 +488,46 @@ class HeliosCourseHubPlugin extends Plugin
                     $twig->twig_vars['logo_url'] = $firstChild->url();
                 }
             }
+
+            // The course's Card Image in the sidebar, from the course.md at the top of user/pages,
+            // the same as from a course folder's course.md in a site with several courses
+            $twig->twig_vars['course_sidebar_image'] = $this->rootCourseSidebarImage();
         }
+    }
+
+    /**
+     * In a single-course site, the course's pages sit directly in user/pages, and so does its
+     * course.md (as the Common Cartridge Converter writes it, once moved out of its course folder).
+     * Grav doesn't read a Markdown file there as a page, so this reads course.md's Card Image
+     * (image) and Show Card Image in Course Sidebar (show_sidebar_image) settings itself, and
+     * finds the image among the files beside it. Returns the image's address, or null when
+     * there's no course.md, the setting is off, or the image isn't there.
+     */
+    private function rootCourseSidebarImage(): ?string
+    {
+        $pagesPath = $this->grav['locator']->findResource('page://');
+        if (!is_string($pagesPath) || !is_file($pagesPath . '/course.md')) {
+            return null;
+        }
+
+        $header = (array) CompiledMarkdownFile::instance($pagesPath . '/course.md')->header();
+        $showSidebarImage = $header['show_sidebar_image'] ?? 0;
+        $courseImage = $header['image'] ?? null;
+        if (!$showSidebarImage || !$courseImage) {
+            return null;
+        }
+
+        // Admin can add a number in front of an uploaded file's name (e.g. "130_photo.jpg"),
+        // so compare the names without it, as for a course folder's image
+        $courseImageBasename = preg_replace('/^\d+_/', '', (string) $courseImage);
+        $media = new Media($pagesPath);
+        foreach ($media->all() as $filename => $medium) {
+            $basename = preg_replace('/^\d+_/', '', $filename);
+            if ($basename === $courseImageBasename) {
+                return $medium->url();
+            }
+        }
+        return null;
     }
 
     public function onOutputGenerated($event)
