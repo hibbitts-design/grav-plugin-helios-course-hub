@@ -21,12 +21,16 @@
             <img src="https://licensebuttons.net/l/{{ cc_license.code }}/4.0/88x31.png" width="88" height="31" alt="{{ 'PLUGIN_HELIOS_COURSE_HUB.CC_LICENSE'|t|e('html_attr') }}" class="mx-auto my-0">
         </a>
         {% if not (cc.icon ?? false) or cc.text %}
+        {# The - in {%- and -%} trims the spaces and line breaks around those tags, so the sentence and the added text
+           come out as one line of text, with a single space between them #}
         <p class="mt-2">
             {%- if not (cc.icon ?? false) -%}
-                {# one translatable sentence, with the license's name as a link in place of %s #}
+                {# one translatable sentence, with the license's name as a link in place of %s. |raw shows the link as a link
+                   rather than as text; it's safe, as the link is made here from the fixed list above, not from Admin input #}
                 {% set cc_link = '<a rel="license" href="' ~ cc_url ~ '" class="hover:underline">' ~ cc_license.name ~ '</a>' %}
                 {{ 'PLUGIN_HELIOS_COURSE_HUB.CC_LICENSED_UNDER'|t(cc_link)|raw }}
             {%- endif -%}
+            {# the Additional CC License Text from Admin, which Twig escapes, so it's always shown as plain text #}
             {%- if cc.text %} {{ cc.text }}{% endif -%}
         </p>
         {% endif %}
