@@ -1,8 +1,12 @@
 # v1.3.12
-## XX/XX/2026
+## 10/19/2026
 
+1. [](#new)
+    * Tap or click an image in a page that's shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones), as in Grav Open Course Hub; Escape, the Close button or a tap closes it
+    * The / key opens search, as Ctrl/Cmd+K does (as on GitHub and many documentation sites), except while typing in a box, as in Grav Helios Open Reader
 1. [](#improved)
     * README and demo Read Me pages: sharing a single course's link or making it the site's homepage, and why `course.md` stays non-routable
+    * README: seeing an image larger, the / key for search, and the demo content folders (the multi-course demo is in _demo/multi-course/)
 
 # v1.3.11
 ## 10/18/2026
