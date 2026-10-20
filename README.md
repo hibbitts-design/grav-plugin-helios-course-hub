@@ -180,6 +180,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Module and page card badges: add `badge_label` (e.g. `New`, `Draft`, `Due Friday`) and an optional `badge_color` to a `course-page` page's frontmatter (or its Badge Label and Badge Color settings) to show a status badge on its card, as on the course cards
 - Image captions in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML; images in page text are no taller than a little over half the screen, so an image and its text fit on screen together
 - Seeing an image larger: tap or click an image shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones); Escape, the Close button or a tap closes it
+- On this page on phones: turn on the On this page Box on Phones setting (off by default) to start each page with two or more sections with a slim On this page box listing them, closed until tapped, on phones and tablets, where the theme's On this page column isn't shown
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection

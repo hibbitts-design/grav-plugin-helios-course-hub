@@ -23,6 +23,9 @@
     {% endif %}
 </div>
 
+{# On phones and tablets, the module's sections in an "On this page" box, above its content #}
+{% include 'partials/page-sections-above.html.twig' %}
+
 {% if page.content|trim %}
 <div class="mb-12">{{ page.content|raw }}</div>
 {% endif %}

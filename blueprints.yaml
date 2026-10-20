@@ -123,6 +123,23 @@ form:
       validate:
         type: bool
 
+    course_pages_section:
+      type: section
+      title: 'Course Pages'
+      underline: true
+
+    page_sections_box:
+      type: toggle
+      label: 'On this page Box on Phones'
+      help: 'Lists a page''s sections above its content on phones and tablets. Defaults to Disabled.'
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
     footer_section:
       type: section
       title: 'Footer'
