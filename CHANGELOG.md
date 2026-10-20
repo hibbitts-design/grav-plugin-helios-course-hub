@@ -1,3 +1,11 @@
+# v1.3.14
+## 10/20/2026
+
+1. [](#new)
+    * An On this page Box on Phones setting (off by default): on phones and tablets, a page with two or more sections starts with a slim "On this page" box listing them, closed until tapped, as in Grav Open Course Hub (wider screens are unchanged)
+1. [](#improved)
+    * README: the On this page box on phones
+
 # v1.3.13
 ## 10/19/2026
 
