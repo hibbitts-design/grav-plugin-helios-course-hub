@@ -1,3 +1,9 @@
+# v1.3.15
+## 10/23/2026
+
+1. [](#improved)
+    * Code comments in the [badge], [button], [hideifembedded] and [showifembedded] shortcodes match the other Helios plugin, so the shortcodes stay identical apart from their settings and class names
+
 # v1.3.14
 ## 10/20/2026
 
