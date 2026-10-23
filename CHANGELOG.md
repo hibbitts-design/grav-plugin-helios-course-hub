@@ -1,3 +1,9 @@
+# v1.3.16
+## 10/XX/2026
+
+1. [](#bugfix)
+    * Demo content: the Welcome module pages no longer link to the UX Techniques Guide where it isn't published (the single-course demo and the first two multi-course demo courses), matching the skeleton
+
 # v1.3.15
 ## 10/23/2026
 
