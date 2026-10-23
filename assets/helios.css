@@ -669,3 +669,61 @@ img.image-zoom:focus-visible {
         display: none;
     }
 }
+
+/* References shortcode – academic citation lists from imported content */
+.hor-references {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-gray-200);
+}
+
+.dark .hor-references {
+    border-top-color: var(--color-gray-700);
+}
+
+.hor-references-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+    margin-bottom: 0.75rem;
+}
+
+.dark .hor-references-label {
+    color: var(--color-gray-400);
+}
+
+.hor-references-body {
+    font-size: 0.875rem;
+    color: var(--color-gray-600);
+}
+
+.dark .hor-references-body {
+    color: var(--color-gray-400);
+}
+
+/* Hanging indent for wrapped citation lines */
+.hor-references-body p {
+    padding-left: 1.5em;
+    text-indent: -1.5em;
+    margin-bottom: 0.5rem;
+}
+
+/* Callout title colours: the GitHub Markdown Alerts plugin uses one set of colours in both modes, too pale on a light
+   background and too dim on a dark one, so these use GitHub's own light and dark colours instead */
+.md-alert {
+    --gh-alert-note-title-color: #0969da;
+    --gh-alert-tip-title-color: #1a7f37;
+    --gh-alert-important-title-color: #6639ba;
+    --gh-alert-warning-title-color: #7d4e00;
+    --gh-alert-caution-title-color: #d1242f;
+}
+
+.dark .md-alert {
+    --gh-alert-note-title-color: #4493f8;
+    --gh-alert-tip-title-color: #3fb950;
+    --gh-alert-important-title-color: #ab7df8;
+    --gh-alert-warning-title-color: #d29922;
+    --gh-alert-caution-title-color: #f85149;
+}
