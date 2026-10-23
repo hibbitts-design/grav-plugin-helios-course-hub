@@ -1,5 +1,5 @@
 # v1.3.16
-## 10/XX/2026
+## 10/23/2026
 
 1. [](#improved)
     * Callout titles use GitHub's own light and dark colours, so they are easier to read in both modes, instead of one set of colours from the GitHub Markdown Alerts plugin
