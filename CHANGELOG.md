@@ -1,6 +1,9 @@
 # v1.3.16
 ## 10/XX/2026
 
+1. [](#improved)
+    * Callout titles use GitHub's own light and dark colours, so they are easier to read in both modes, instead of one set of colours from the GitHub Markdown Alerts plugin
+    * The [references] shortcode has the same styles as in Grav Helios Open Reader: a small References label, a top border and a hanging indent for each reference, in light and dark mode
 1. [](#bugfix)
     * Demo content: the Welcome module pages no longer link to the UX Techniques Guide where it isn't published (the single-course demo and the first two multi-course demo courses), matching the skeleton
 
