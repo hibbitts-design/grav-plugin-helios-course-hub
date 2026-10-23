@@ -4,7 +4,7 @@ namespace Grav\Plugin\Shortcodes;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 /**
- * [button] – the button shortcode from Grav Open Course Hub, Open MultiCourse Hub and Open Publishing Space,
+ * [button] – the button shortcode from Grav Open Publishing Space, Open Course Hub and Open MultiCourse Hub,
  * shown with the Helios button style, so content moved from them works unchanged - hibbittsdesign.org
  *
  * Examples: [button label="Start the Quiz" url="https://..."]  [button label="Slides" url="..." type="secondary" size="sm"]

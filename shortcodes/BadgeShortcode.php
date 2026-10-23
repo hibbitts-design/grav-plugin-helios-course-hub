@@ -4,7 +4,7 @@ namespace Grav\Plugin\Shortcodes;
 use Thunder\Shortcode\Shortcode\ShortcodeInterface;
 
 /**
- * [badge] – the badge shortcode from Grav Open Course Hub, Open MultiCourse Hub and Open Publishing Space,
+ * [badge] – the badge shortcode from Grav Open Publishing Space, Open Course Hub and Open MultiCourse Hub,
  * shown with the Helios badge style, so content moved from them works unchanged - hibbittsdesign.org
  *
  * Examples: [badge label="Due Friday"]  [badge label="New" type="success"]  [badge label="Read more" url="https://..."]
