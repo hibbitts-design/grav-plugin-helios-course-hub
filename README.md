@@ -181,7 +181,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Image captions in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML; images in page text are no taller than a little over half the screen, so an image and its text fit on screen together
 - Seeing an image larger: tap or click an image shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones); Escape, the Close button or a tap closes it
 - On this page on phones: turn on the On this page Box on Phones setting (off by default) to start each page with two or more sections with a slim On this page box listing them, closed until tapped, on phones and tablets, where the theme's On this page column isn't shown
-- Collapse sidebar: on wider screens, readers can collapse the sidebar to a slim strip (keeping the site icon) to focus on the page, and expand it again from the same button at the bottom of the sidebar; their choice is remembered (the Collapse Sidebar Button setting, on by default)
+- Hide sidebar: on wider screens, readers can hide the sidebar, down to a slim strip (keeping the site icon), to focus on the page, and show it again from the same button at the bottom of the sidebar; their choice is remembered (the Hide Sidebar Button setting, on by default)
 
 ### Embedding & Shortcodes
 - Embed rich content with built-in shortcodes: iFrames, Google Slides, PDFs, H5P, and Embedly cards, with responsive 16:9 layout and automatic dark/light theme detection
@@ -424,7 +424,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Site Logo Icon | _(empty)_ | Tabler icon path for the site logo icon square (e.g. `tabler/book.svg`). Leave empty to use the default icon. Only applies when Show Site Logo Icon is enabled |
 | Single Course Site Logo Link | First Page of Only Listed Course | Choose where the site Logo Text and icon link navigates: **Courses Home Page** or **First Page of Only Listed Course** (navigates to the first page of the course when only one course is active) |
 | Show Plugin Credits | Enabled | Show or hide the "Built with Grav · Helios · Helios Course Hub" attribution line in the footer |
-| Collapse Sidebar Button | Enabled | Let readers collapse the sidebar to a slim strip on wider screens to focus on the page, with a button at the bottom of the sidebar; their choice is remembered in their browser |
+| Hide Sidebar Button | Enabled | Let readers hide the sidebar, down to a slim strip, on wider screens to focus on the page, with a button at the bottom of the sidebar; their choice is remembered in their browser |
 | Display CC License | Disabled | Show a Creative Commons license in the footer of every page (not on embedded pages); a page can hide it with `hide_cc_license: true` |
 | CC License Type | CC Attribution | The license: CC BY, BY-SA, BY-ND, BY-NC, BY-NC-SA or BY-NC-ND (4.0) |
 | Display Only CC License Icon | Disabled | Show just the license badge, without its sentence |
