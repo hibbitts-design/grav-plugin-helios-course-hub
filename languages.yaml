@@ -14,6 +14,8 @@ en:
     IMAGE_CLOSE: "Close"
     CC_LICENSE: "Creative Commons License"
     CC_LICENSED_UNDER: "This work is licensed under a %s License"
+    COLLAPSE_SIDEBAR: "Collapse sidebar"
+    EXPAND_SIDEBAR: "Expand sidebar"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
@@ -27,6 +29,8 @@ fr:
     SKIP_TO_CONTENT: "Aller au contenu"
     TOGGLE_NAVIGATION: "Afficher ou masquer le menu"
     CLOSE_NAVIGATION: "Fermer le menu"
+    COLLAPSE_SIDEBAR: "Réduire la barre latérale"
+    EXPAND_SIDEBAR: "Développer la barre latérale"
     MAIN_NAVIGATION: "Navigation principale"
     TOGGLE_SUBMENU: "Afficher ou masquer le sous-menu"
     IMAGE_LARGER: "Agrandir l'image"
@@ -50,6 +54,8 @@ de:
     SKIP_TO_CONTENT: "Zum Inhalt springen"
     TOGGLE_NAVIGATION: "Menü ein- oder ausblenden"
     CLOSE_NAVIGATION: "Menü schließen"
+    COLLAPSE_SIDEBAR: "Seitenleiste einklappen"
+    EXPAND_SIDEBAR: "Seitenleiste ausklappen"
     MAIN_NAVIGATION: "Hauptnavigation"
     TOGGLE_SUBMENU: "Untermenü ein- oder ausblenden"
     IMAGE_LARGER: "Bild vergrößern"

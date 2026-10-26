@@ -8,6 +8,7 @@
  #   5. Course label links to first page of current course via course_label_url (search: PLUGIN CHANGE 5)
  #   6. Course sidebar image banner shown above course label when course has card image (search: PLUGIN ADDITION)
  #   7. Version dropdown: keyboard navigation (WCAG 2.1 §4.1.2) — Up/Down arrow moves focus between options; Escape closes and returns focus to trigger (search: PLUGIN CHANGE 7)
+ #   8. Button that collapses the sidebar to a slim strip, or expands it (search: PLUGIN ADDITION: COLLAPSE)
  #}
 {% set theme_config = config.themes.helios %}
 {% set logo = theme_config.logo %}
@@ -15,7 +16,7 @@
 
 <div class="flex flex-col h-full">
     {# Sidebar header with logo #}
-    <div class="flex items-center h-16 px-4 border-b border-gray-200 dark:border-gray-800 shrink-0">
+    <div class="hor-sidebar-head flex items-center h-16 px-4 border-b border-gray-200 dark:border-gray-800 shrink-0">
         <a href="{{ logo_url }}" class="flex items-center gap-3" @click="mobileNavOpen = false">{# PLUGIN CHANGE 3: logo_url links to first course page when single course #}
             {% if logo.image %}
                 {% set logo_file = logo.image|first %}
@@ -257,6 +258,27 @@
         </p>
     </div>
     {% endif %}
+
+    {# PLUGIN ADDITION: COLLAPSE: on wider screens, a button that collapses the sidebar to a slim strip, so readers can focus on
+       the page, or expands it again. At the bottom of the sidebar, so it's in the same place either way and doesn't get
+       lost among the navigation. Hidden until assets/helios.js sets it up; not in the phone menu, which has its own
+       close button #}
+    {# (only with the plugin's Collapse Sidebar Button setting on) #}
+    {% if not mobile and config.plugins['helios-course-hub'].collapse_sidebar_button is not same as(false) %}
+    <div class="hor-sidebar-toggle-row shrink-0 mt-auto px-3 py-2 border-t border-gray-200 dark:border-gray-800">
+        <button type="button"
+                class="hor-sidebar-toggle hidden items-center gap-2 px-2 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-controls="hor-sidebar"
+                aria-expanded="true">
+            <svg class="hor-sidebar-toggle-icon w-5 h-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>
+            </svg>
+            <span class="hor-sidebar-toggle-collapse">{{ 'PLUGIN_HELIOS_COURSE_HUB.COLLAPSE_SIDEBAR'|t }}</span>
+            <span class="hor-sidebar-toggle-expand sr-only">{{ 'PLUGIN_HELIOS_COURSE_HUB.EXPAND_SIDEBAR'|t }}</span>
+        </button>
+    </div>
+    {% endif %}
+    {# END PLUGIN ADDITION: COLLAPSE #}
 </div>
 
 {# Recursive navigation macro #}
