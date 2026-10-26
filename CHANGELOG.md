@@ -1,3 +1,9 @@
+# v1.3.17
+## XX/XX/2026
+
+1. [](#new)
+    * Collapse sidebar: on wider screens, a "Collapse sidebar" button at the bottom of the sidebar shrinks it to a slim strip with the site icon, so readers can focus on the page, and expands it again from the same place, with a short slide (none when the reader's system asks for reduced motion). The choice is remembered in the reader's browser, and phones are unchanged. It can be turned off with the new Collapse Sidebar Button setting, as in Grav Helios Open Reader
+
 # v1.3.16
 ## 10/23/2026
 
