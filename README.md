@@ -182,6 +182,7 @@ Helios Course Hub provides a ready-built course site using portable Markdown fil
 - Image captions in plain Markdown: an italic line right after an image on its own line (such as `*Photo by …*`) shows as a caption, styled like figure captions, so photo credits need no HTML; images in page text are no taller than a little over half the screen, so an image and its text fit on screen together
 - Seeing an image larger: tap or click an image shown smaller than its full size to see it larger, filling the screen (handy for diagrams and screenshots on phones); Escape, the Close button or a tap closes it
 - On this page on phones: turn on the On this page Box on Phones setting (off by default) to start each page with two or more sections with a slim On this page box listing them, closed until tapped, on phones and tablets, where the theme's On this page column isn't shown
+- Side Box: add `side_box` (Markdown) to a `course-page` page, or to the course's `course.md` for every page of the course, to show it under the navigation – the same setting as in Grav Helios Open Reader and Grav Open Publishing Space; `side_box: false` hides it on a page, or on a module and its pages
 - Keep My Place: a course's Modules page shows returning readers a "Continue where you left off" strip linking to the last page they opened in its module list, as in Grav Helios Open Reader (the Keep My Place setting, on by default; a course can turn it off with `keep_my_place: false` in its `course.md`)
 - Arrow keys: the ← and → keys go to the previous and next page, following the course's Previous and Next links – handy when presenting a course by screen sharing
 - Hide sidebar: on wider screens, readers can hide the sidebar, down to a slim strip (keeping the site icon), to focus on the page, and show it again from the same button at the bottom of the sidebar; their choice is remembered (the Hide Sidebar Button setting, on by default)
@@ -306,6 +307,7 @@ Each course folder contains a `course.md` file with frontmatter that controls th
 | `badge_color` | Optional badge colour (`yellow`, `green`, `red`, etc.) |
 | `image` | Optional card image filename (upload to the course's media folder) |
 | `show_sidebar_image` | Show the card image in the course sidebar when browsing within this course (default: No) |
+| `side_box` | Markdown shown under the navigation on every page of this course (a page's own `side_box` replaces it) |
 | `keep_my_place` | Set to `false` to turn off the "Continue where you left off" strip for this course (default: on) |
 | `group` | Optional group label for organizing course cards on the Courses homepage into labeled sections; courses without a group appear first with no heading |
 

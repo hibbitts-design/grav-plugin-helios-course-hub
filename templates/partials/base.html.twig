@@ -94,8 +94,20 @@
     <title>{{ page.title ?: site.title }}</title>
     {% endif %}
 
-    {% if page.description %}
-    <meta name="description" content="{{ page.description }}">
+    {% include 'partials/meta-description.html.twig' %}
+
+    {# Open Graph meta tags (link previews), with the course's Card Image #}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url(true) }}">
+    {% set og_course = doc_version_info.versions|default([])|filter(v => v.is_current)|first %}
+    <meta property="og:title" content="{{ page.title }}{% if og_course %} | {{ og_course.label }}{% endif %}{% if site.title %} | {{ site.title }}{% endif %}">
+    {% set og_description = page.header.description|default(site.metadata.description|default('')) %}
+    {% if og_description %}
+    <meta property="og:description" content="{{ og_description|striptags|e }}">
+    {% endif %}
+    {% if course_card_image %}
+        {% set og_origin = grav.uri.scheme ~ grav.uri.host ~ (grav.uri.port ? ':' ~ grav.uri.port : '') %}
+        <meta property="og:image" content="{{ course_card_image starts with 'http' ? course_card_image : og_origin ~ course_card_image }}">
     {% endif %}
 
     {% if page.robots %}

@@ -87,3 +87,9 @@ form:
               validate:
                 type: bool
               help: 'Shows returning readers a "Continue where you left off" box on this course''s Modules page.'
+            header.side_box:
+              type: textarea
+              label: Side Box
+              toggleable: true
+              rows: 5
+              help: 'Markdown shown under the navigation on every page of this course.'

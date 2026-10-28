@@ -407,6 +407,8 @@ class HeliosCourseHubPlugin extends Plugin
             // Set course_label_url to the first child page of the current course version
             $twig->twig_vars['course_label_url'] = null;
             $twig->twig_vars['course_sidebar_image'] = null;
+            $twig->twig_vars['course_side_box'] = null;
+            $twig->twig_vars['course_card_image'] = null;
             foreach ($filteredVersions as $version) {
                 $isCurrent = is_array($version) ? ($version['is_current'] ?? false) : ($version->is_current ?? false);
                 if ($isCurrent) {
@@ -432,16 +434,23 @@ class HeliosCourseHubPlugin extends Plugin
                             // Respect show_sidebar_image toggle (default: hide)
                             $showSidebarImage = $versionPage->header()->show_sidebar_image ?? 0;
                             $courseImage = $versionPage->header()->image ?? null;
-                            if ($showSidebarImage && $courseImage) {
+                            if ($courseImage) {
                                 $courseImageBasename = preg_replace('/^\d+_/', '', $courseImage);
                                 foreach ($versionPage->media()->all() as $filename => $medium) {
                                     $basename = preg_replace('/^\d+_/', '', $filename);
                                     if ($basename === $courseImageBasename) {
-                                        $twig->twig_vars['course_sidebar_image'] = $medium->url();
+                                        // also the course's image in link previews
+                                        $twig->twig_vars['course_card_image'] = $medium->url();
+                                        if ($showSidebarImage) {
+                                            $twig->twig_vars['course_sidebar_image'] = $medium->url();
+                                        }
                                         break;
                                     }
                                 }
                             }
+
+                            // the course's Side Box
+                            $twig->twig_vars['course_side_box'] = $versionPage->header()->side_box ?? null;
                         }
                     }
                     break;
@@ -489,38 +498,39 @@ class HeliosCourseHubPlugin extends Plugin
                 }
             }
 
-            // The course's Card Image in the sidebar, from the course.md at the top of user/pages,
-            // the same as from a course folder's course.md in a site with several courses
-            $twig->twig_vars['course_sidebar_image'] = $this->rootCourseSidebarImage();
+            // The course's Card Image and Side Box, from the course.md at the top of user/pages
+            $rootCourseHeader = $this->rootCourseHeader();
+            $twig->twig_vars['course_card_image'] = $this->rootCourseImage($rootCourseHeader);
+            $twig->twig_vars['course_sidebar_image'] = ($rootCourseHeader['show_sidebar_image'] ?? 0) ? $twig->twig_vars['course_card_image'] : null;
+            $twig->twig_vars['course_side_box'] = $rootCourseHeader['side_box'] ?? null;
         }
     }
 
     /**
-     * In a single-course site, the course's pages sit directly in user/pages, and so does its
-     * course.md (as the Common Cartridge Converter writes it, once moved out of its course folder).
-     * Grav doesn't read a Markdown file there as a page, so this reads course.md's Card Image
-     * (image) and Show Card Image in Course Sidebar (show_sidebar_image) settings itself, and
-     * finds the image among the files beside it. Returns the image's address, or null when
-     * there's no course.md, the setting is off, or the image isn't there.
+     * A single-course site's course.md settings (Grav doesn't read it as a page there), or [] when there's none.
      */
-    private function rootCourseSidebarImage(): ?string
+    private function rootCourseHeader(): array
     {
         $pagesPath = $this->grav['locator']->findResource('page://');
         if (!is_string($pagesPath) || !is_file($pagesPath . '/course.md')) {
-            return null;
+            return [];
         }
+        return (array) CompiledMarkdownFile::instance($pagesPath . '/course.md')->header();
+    }
 
-        $header = (array) CompiledMarkdownFile::instance($pagesPath . '/course.md')->header();
-        $showSidebarImage = $header['show_sidebar_image'] ?? 0;
+    /**
+     * The address of a single-course site's Card Image, or null when there's none.
+     */
+    private function rootCourseImage(array $header): ?string
+    {
         $courseImage = $header['image'] ?? null;
-        if (!$showSidebarImage || !$courseImage) {
+        if (!$courseImage) {
             return null;
         }
 
-        // Admin can add a number in front of an uploaded file's name (e.g. "130_photo.jpg"),
-        // so compare the names without it, as for a course folder's image
+        // ignore the number Admin can add to an uploaded file's name (e.g. "130_photo.jpg")
         $courseImageBasename = preg_replace('/^\d+_/', '', (string) $courseImage);
-        $media = new Media($pagesPath);
+        $media = new Media($this->grav['locator']->findResource('page://'));
         foreach ($media->all() as $filename => $medium) {
             $basename = preg_replace('/^\d+_/', '', $filename);
             if ($basename === $courseImageBasename) {

@@ -5,6 +5,7 @@
  #   PLUGIN CHANGE 5 — content_text_size setting toggles prose-lg on #htmx-article (search: PLUGIN CHANGE 5)
  #   PLUGIN CHANGE 6 – "On this page" box on phones and tablets, after a course page's title (search: PLUGIN CHANGE 6)
  #   PLUGIN CHANGE 7 – Keep My Place: a page in a module list is remembered for its Modules page (search: PLUGIN CHANGE 7)
+ #   PLUGIN CHANGE 8 – the page's Side Box, for the sidebar after an HTMX page swap (search: PLUGIN CHANGE 8)
  #}
 
 {# Shared swap-target body — rendered both by base.html.twig (full page) and
@@ -121,6 +122,9 @@
 <div id="htmx-toc-template" style="display:none" x-ignore aria-hidden="true">
     {{ toc_html|raw }}
 </div>
+
+{# PLUGIN CHANGE 8 – the page's Side Box, copied into the sidebar by helios.js (HTMX doesn't redraw the sidebar) #}
+<template id="hor-side-box-template">{{ include('partials/side-box.html.twig')|trim|raw }}</template>
 
 {# Navigation state for client-side updates — width logic stays in Twig and the JS
    just reads the computed values. #}

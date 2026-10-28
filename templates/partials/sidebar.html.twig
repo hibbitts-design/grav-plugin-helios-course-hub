@@ -9,6 +9,7 @@
  #   6. Course sidebar image banner shown above course label when course has card image (search: PLUGIN ADDITION)
  #   7. Version dropdown: keyboard navigation (WCAG 2.1 §4.1.2) — Up/Down arrow moves focus between options; Escape closes and returns focus to trigger (search: PLUGIN CHANGE 7)
  #   8. Button that collapses the sidebar to a slim strip, or expands it (search: PLUGIN ADDITION: COLLAPSE)
+ #   9. Side Box (side_box) shown under the navigation on a course's pages (search: PLUGIN ADDITION: SIDE BOX)
  #}
 {% set theme_config = config.themes.helios %}
 {% set logo = theme_config.logo %}
@@ -229,6 +230,13 @@
                 {{ _self.nav_items(nav_tree, 0) }}
             {% endif %}
         </div>
+
+        {# PLUGIN ADDITION: SIDE BOX: always present (hidden when empty), so helios.js can refill it after HTMX swaps #}
+        {% set side_box_html = include('partials/side-box.html.twig')|trim %}
+        <div class="hor-side-box border-t border-gray-200 dark:border-gray-800 prose dark:prose-invert max-w-none"{% if not side_box_html %} hidden{% endif %}>
+            {{ side_box_html|raw }}
+        </div>
+        {# END PLUGIN ADDITION: SIDE BOX #}
 
         {# Header menu links (mobile only - hidden on desktop where titlebar shows them) #}
         {% if theme_config.header.menu %}
