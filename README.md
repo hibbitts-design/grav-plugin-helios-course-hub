@@ -433,6 +433,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Single Course Site Logo Link | First Page of Only Listed Course | Choose where the site Logo Text and icon link navigates: **Courses Home Page** or **First Page of Only Listed Course** (navigates to the first page of the course when only one course is active) |
 | Show Plugin Credits | Enabled | Show or hide the "Built with Grav · Helios · Helios Course Hub" attribution line in the footer |
 | Keep My Place | Enabled | Show returning readers a "Continue where you left off" strip on a course's Modules page, linking to the last page they opened there (remembered in their browser) |
+| Previous/Next Bar on Phones | Disabled | On phones, a Previous/Next bar fixed to the bottom of the screen, in place of the page's Previous/Next boxes, as in Grav Helios Open Reader |
 | Hide Sidebar Button | Enabled | Let readers hide the sidebar, down to a slim strip, on wider screens to focus on the page, with a button at the bottom of the sidebar; their choice is remembered in their browser |
 | Display CC License | Disabled | Show a Creative Commons license in the footer of every page (not on embedded pages); a page can hide it with `hide_cc_license: true` |
 | CC License Type | CC Attribution | The license: CC BY, BY-SA, BY-ND, BY-NC, BY-NC-SA or BY-NC-ND (4.0) |

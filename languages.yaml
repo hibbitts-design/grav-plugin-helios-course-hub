@@ -16,6 +16,7 @@ en:
     CC_LICENSED_UNDER: "This work is licensed under a %s License"
     COLLAPSE_SIDEBAR: "Hide sidebar"
     EXPAND_SIDEBAR: "Show sidebar"
+    PAGE_NAVIGATION_BAR: "Page navigation, bar"
     CONTINUE_WHERE_LEFT_OFF: "Continue where you left off"
     FORGET_PLACE: "Forget this place"
 
@@ -33,6 +34,7 @@ fr:
     CLOSE_NAVIGATION: "Fermer le menu"
     COLLAPSE_SIDEBAR: "Masquer la barre latérale"
     EXPAND_SIDEBAR: "Afficher la barre latérale"
+    PAGE_NAVIGATION_BAR: "Navigation entre les pages, barre"
     MAIN_NAVIGATION: "Navigation principale"
     TOGGLE_SUBMENU: "Afficher ou masquer le sous-menu"
     IMAGE_LARGER: "Agrandir l'image"
@@ -60,6 +62,7 @@ de:
     CLOSE_NAVIGATION: "Menü schließen"
     COLLAPSE_SIDEBAR: "Seitenleiste ausblenden"
     EXPAND_SIDEBAR: "Seitenleiste einblenden"
+    PAGE_NAVIGATION_BAR: "Seitennavigation, Leiste"
     MAIN_NAVIGATION: "Hauptnavigation"
     TOGGLE_SUBMENU: "Untermenü ein- oder ausblenden"
     IMAGE_LARGER: "Bild vergrößern"

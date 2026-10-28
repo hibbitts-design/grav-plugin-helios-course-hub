@@ -938,3 +938,84 @@ html:not(.hor-sidebar-collapsed) .hor-sidebar-toggle-expand {
 .hor-side-box > :last-child {
     margin-bottom: 0;
 }
+
+/* Previous/Next bar on phones (partials/sticky-prev-next.html.twig), styled as in Grav Helios Open Reader and
+   behaving as in Grav Open Publishing Space guides: fixed to the bottom of the screen, in place of the page's
+   Previous/Next boxes. Hidden on wider screens, and on very short screens (phones turned sideways) */
+.hor-sticky-nav {
+    display: none;
+}
+
+@media (max-width: 639px) and (min-height: 500px) {
+    .hor-sticky-nav {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        background-color: white;
+        border-top: 1px solid rgb(229 231 235); /* gray-200 */
+        padding-bottom: env(safe-area-inset-bottom); /* room for the iPhone's home bar */
+    }
+
+    .dark .hor-sticky-nav {
+        background-color: rgb(17 24 39); /* gray-900 */
+        border-top-color: rgb(31 41 55); /* gray-800 */
+    }
+
+    /* the bar replaces the page's own Previous/Next boxes, when it's there (">" = only those, not the bar's) */
+    #htmx-prev-next:has(.hor-sticky-nav) > .prev-next-nav {
+        display: none;
+    }
+
+    /* room at the bottom of the page, so the bar doesn't cover the footer */
+    body:has(.hor-sticky-nav) {
+        padding-bottom: calc(3.75rem + env(safe-area-inset-bottom));
+    }
+
+    /* links reached with the Tab key, and places jumped to, stay above the bar rather than behind it */
+    html:has(.hor-sticky-nav) {
+        scroll-padding-bottom: calc(3.75rem + env(safe-area-inset-bottom));
+    }
+
+    /* while typing in a box (such as the search box), the bar steps aside so it doesn't cover it */
+    body:has(input:not([type="checkbox"], [type="radio"], [type="button"], [type="submit"], [type="reset"]):focus, textarea:focus) .hor-sticky-nav {
+        display: none;
+    }
+
+    /* equal-width buttons fill the bar */
+    .hor-sticky-nav .prev-next-nav {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+        gap: 0;
+        justify-content: flex-start;
+    }
+
+    .hor-sticky-nav .nav-button {
+        flex: 1;
+        min-width: 0;
+        padding: 0.5rem 0.75rem;
+        border: none;
+        border-radius: 0;
+        margin-left: 0;
+        justify-content: flex-start;
+    }
+
+    .hor-sticky-nav .nav-button.next {
+        justify-content: flex-end;
+    }
+
+    .hor-sticky-nav .nav-button.prev {
+        border-right: 1px solid rgb(229 231 235); /* gray-200 */
+    }
+
+    .dark .hor-sticky-nav .nav-button.prev {
+        border-right-color: rgb(31 41 55); /* gray-800 */
+    }
+
+    .hor-sticky-nav .nav-button .title {
+        -webkit-line-clamp: 1;
+    }
+}

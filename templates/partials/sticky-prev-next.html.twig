@@ -1,0 +1,35 @@
+{# Previous/Next bar fixed to the bottom of the screen on phones, in place of the page's Previous/Next boxes, as in
+   Grav Helios Open Reader (same markup and styles). Only with the Previous/Next Bar on Phones setting on, and not
+   when embedded. Shown on phones only, by assets/helios.css #}
+{% if not chromeless and config.plugins['helios-course-hub'].prev_next_bar %}
+{% set prev = doc_prev|default(null) %}
+{% set next = doc_next|default(null) %}
+{% if prev or next %}
+<div class="hor-sticky-nav not-prose" id="hor-sticky-nav">
+    <nav class="prev-next-nav" aria-label="{{ 'PLUGIN_HELIOS_COURSE_HUB.PAGE_NAVIGATION_BAR'|t|e('html_attr') }}">
+        {% if prev %}
+        <a href="{{ prev.url }}" class="nav-button prev group">
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            <div>
+                <span class="label">{{ 'THEME_HELIOS.PREVIOUS'|t }}</span>
+                <span class="title block">{{ prev.title }}</span>
+            </div>
+        </a>
+        {% endif %}
+        {% if next %}
+        <a href="{{ next.url }}" class="nav-button next group">
+            <div>
+                <span class="label">{{ 'THEME_HELIOS.NEXT'|t }}</span>
+                <span class="title block">{{ next.title }}</span>
+            </div>
+            <svg class="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+        </a>
+        {% endif %}
+    </nav>
+</div>
+{% endif %}
+{% endif %}

@@ -6,6 +6,7 @@
  #   PLUGIN CHANGE 6 – "On this page" box on phones and tablets, after a course page's title (search: PLUGIN CHANGE 6)
  #   PLUGIN CHANGE 7 – Keep My Place: a page in a module list is remembered for its Modules page (search: PLUGIN CHANGE 7)
  #   PLUGIN CHANGE 8 – the page's Side Box, for the sidebar after an HTMX page swap (search: PLUGIN CHANGE 8)
+ #   PLUGIN CHANGE 9 – Previous/Next bar on phones (search: PLUGIN CHANGE 9)
  #}
 
 {# Shared swap-target body — rendered both by base.html.twig (full page) and
@@ -113,6 +114,8 @@
 <div id="htmx-prev-next">
     {% if theme_var('navigation.prev_next', true) and not chromeless %}
         {% include 'partials/prev-next.html.twig' %}
+        {# PLUGIN CHANGE 9 – Previous/Next bar on phones #}
+        {% include 'partials/sticky-prev-next.html.twig' %}
     {% endif %}
 </div>
 
