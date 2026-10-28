@@ -1,5 +1,5 @@
 # v1.3.19
-## XX/XX/2026
+## 10/28/2026
 
 1. [](#new)
     * Learning objectives: a course page's new Learning Objectives setting (`learning_objectives`) is shown as a Learning Objectives box just after the page's title (after the On this page box on phones) – the same setting as in Grav Helios Open Reader, Grav Open Course Hub and Grav Open Publishing Space, so a page's objectives carry over when content moves between them
