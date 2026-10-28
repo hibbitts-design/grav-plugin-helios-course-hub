@@ -23,6 +23,20 @@
     {% endif %}
 </div>
 
+{# Keep My Place: "Continue where you left off" (Grav Helios Open Reader's "Continue reading" strip), shown by
+   assets/helios.js when the reader has been to one of this Modules page's pages (hidden until then, and when embedded).
+   It can be turned off in the plugin settings, or for a course with keep_my_place: false on its course page #}
+{% set course_keeps_place = page.parent.header.keep_my_place is not defined or page.parent.header.keep_my_place %}
+{% if page.template == 'module' and course_keeps_place and config.plugins['helios-course-hub'].keep_my_place is not same as(false) and not chromeless %}
+<div id="hor-resume-reading" class="hor-resume-strip not-prose" data-hor-publication-path="{{ page.url }}" hidden>
+    <svg class="hor-resume-icon" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+    </svg>
+    <span class="hor-resume-text"><a id="hor-resume-btn" href="#">{{ 'PLUGIN_HELIOS_COURSE_HUB.CONTINUE_WHERE_LEFT_OFF'|t }}: <span id="hor-resume-title"></span></a></span>
+    <button type="button" class="hor-resume-dismiss" aria-label="{{ 'PLUGIN_HELIOS_COURSE_HUB.FORGET_PLACE'|t|e('html_attr') }}">&#x2715;</button>
+</div>
+{% endif %}
+
 {# On phones and tablets, the module's sections in an "On this page" box, above its content #}
 {% include 'partials/page-sections-above.html.twig' %}
 

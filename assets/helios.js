@@ -105,3 +105,110 @@
     }
   });
 })();
+
+// Keep My Place, from Grav Helios Open Reader's "Continue reading" (the same markup, names and styles), but just the
+// page, as module pages are scanned rather than read from top to bottom: a page in a course's module list is remembered
+// in the reader's browser (localStorage), and the course's Modules page shows a "Continue where you left off" strip
+// linking back to it; its close button forgets the place. Each Modules page has its own place. Runs on each page load
+// and again after each HTMX page swap - hibbittsdesign.org
+(function () {
+  // Per-Modules-page key: namespaced by origin + the Modules page's path (as Open Reader's publication path), so each
+  // course's place is stored independently
+  function horPageKey(publicationPath) {
+    return 'hor-last-page|' + window.location.origin + '|' + (publicationPath || '');
+  }
+
+  function horInitSavePlace(root) {
+    // Save the current page when on a page in a module list
+    var savePlaceEl = root.querySelector('[data-hor-save-page]');
+    if (savePlaceEl) {
+      try {
+        localStorage.setItem(horPageKey(savePlaceEl.dataset.horPublicationPath), JSON.stringify({
+          url: savePlaceEl.dataset.horUrl,
+          title: savePlaceEl.dataset.horTitle
+        }));
+      } catch (e) {}
+    }
+
+    // Populate and show the resume strip when on a Modules page
+    var resumeStrip = root.querySelector('#hor-resume-reading');
+    if (resumeStrip) {
+      var stripPubPath = resumeStrip.dataset.horPublicationPath || '';
+      try {
+        var saved = localStorage.getItem(horPageKey(stripPubPath));
+        if (saved) {
+          var pageData = JSON.parse(saved);
+          root.querySelector('#hor-resume-btn').href = pageData.url;
+          root.querySelector('#hor-resume-title').textContent = pageData.title;
+          resumeStrip.removeAttribute('hidden');
+
+          var dismissBtn = resumeStrip.querySelector('.hor-resume-dismiss');
+          if (dismissBtn) {
+            dismissBtn.addEventListener('click', function () {
+              try { localStorage.removeItem(horPageKey(stripPubPath)); } catch (e) {}
+              resumeStrip.setAttribute('hidden', '');
+              // keyboard focus moves to the page's heading, as the button it was on is now hidden
+              var heading = document.querySelector('#main-content h1');
+              if (heading) {
+                heading.setAttribute('tabindex', '-1');
+                heading.focus();
+              }
+            });
+          }
+        }
+      } catch (e) {}
+    }
+  }
+
+  horInitSavePlace(document);
+  window.addEventListener('helios:content-loaded', function (evt) {
+    var container = evt.detail && evt.detail.container;
+    if (container) {
+      horInitSavePlace(container);
+    }
+  });
+})();
+
+// Arrow keys: the left and right arrow keys go to the previous and next page (the page's Previous and Next links), as
+// in Grav Helios Open Reader - handy when presenting a course by screen sharing. The links are clicked rather than
+// opened, so pages load just as they would for a reader clicking them - hibbittsdesign.org
+(function () {
+  // true when an element is a box that scrolls sideways (such as a wide table or code block) and is wider than its space,
+  // where the arrow keys should scroll it instead
+  function scrollsSideways(element) {
+    var overflowX = window.getComputedStyle(element).overflowX;
+    var canScroll = overflowX === "auto" || overflowX === "scroll";
+    return canScroll && element.scrollWidth > element.clientWidth;
+  }
+
+  document.addEventListener("keydown", function (event) {
+    // leave the keys alone with a modifier key held, so browser shortcuts still work
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
+      return;
+    }
+    // and while typing (including in the search dialog), or in a box that scrolls sideways
+    var target = event.target;
+    var typingTags = ["INPUT", "TEXTAREA", "SELECT"];
+    if (target.isContentEditable || typingTags.indexOf(target.tagName) !== -1) {
+      return;
+    }
+    if (target !== document.body && scrollsSideways(target)) {
+      return;
+    }
+    // and while an image is shown larger (tap to see it larger), where the reader is looking at the image
+    if (document.querySelector("dialog[open]")) {
+      return;
+    }
+
+    var link = null;
+    if (event.key === "ArrowLeft") {
+      link = document.querySelector(".prev-next-nav .nav-button.prev");
+    }
+    if (event.key === "ArrowRight") {
+      link = document.querySelector(".prev-next-nav .nav-button.next");
+    }
+    if (link) {
+      link.click();
+    }
+  });
+})();

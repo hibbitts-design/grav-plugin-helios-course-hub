@@ -16,6 +16,8 @@ en:
     CC_LICENSED_UNDER: "This work is licensed under a %s License"
     COLLAPSE_SIDEBAR: "Hide sidebar"
     EXPAND_SIDEBAR: "Show sidebar"
+    CONTINUE_WHERE_LEFT_OFF: "Continue where you left off"
+    FORGET_PLACE: "Forget this place"
 
 fr:
   PLUGIN_HELIOS_COURSE_HUB:
@@ -37,6 +39,8 @@ fr:
     IMAGE_CLOSE: "Fermer"
     CC_LICENSE: "Licence Creative Commons"
     CC_LICENSED_UNDER: "Cette œuvre est mise à disposition selon les termes de la licence %s"
+    CONTINUE_WHERE_LEFT_OFF: "Reprendre là où vous en étiez"
+    FORGET_PLACE: "Oublier cet endroit"
   THEME_HELIOS:
     THEME_SELECTION: "Choix du thème"
     VIEW_ON_GITHUB: "Voir sur GitHub"
@@ -62,6 +66,8 @@ de:
     IMAGE_CLOSE: "Schließen"
     CC_LICENSE: "Creative-Commons-Lizenz"
     CC_LICENSED_UNDER: "Dieses Werk ist lizenziert unter einer %s Lizenz"
+    CONTINUE_WHERE_LEFT_OFF: "Weiter, wo Sie aufgehört haben"
+    FORGET_PLACE: "Diese Stelle vergessen"
   THEME_HELIOS:
     THEME_SELECTION: "Farbschema wählen"
     VIEW_ON_GITHUB: "Auf GitHub ansehen"

@@ -76,3 +76,14 @@ form:
                 purple: Purple
                 plain: Plain
               help: 'Badge color. Matches Helios doc-badge color options.'
+            header.keep_my_place:
+              type: toggle
+              label: Keep My Place
+              highlight: 1
+              default: 1
+              options:
+                1: PLUGIN_ADMIN.ENABLED
+                0: PLUGIN_ADMIN.DISABLED
+              validate:
+                type: bool
+              help: 'Shows returning readers a "Continue where you left off" box on this course''s Modules page.'

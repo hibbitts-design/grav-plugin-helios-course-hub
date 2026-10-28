@@ -140,6 +140,18 @@ form:
       validate:
         type: bool
 
+    keep_my_place:
+      type: toggle
+      label: 'Keep My Place'
+      help: 'Shows returning readers a "Continue where you left off" box on a course''s Modules page.'
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
     collapse_sidebar_button:
       type: toggle
       label: 'Hide Sidebar Button'

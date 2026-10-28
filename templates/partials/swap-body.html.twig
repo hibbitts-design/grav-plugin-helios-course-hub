@@ -4,6 +4,7 @@
  #   PLUGIN CHANGE 4 — suppress prev/next pagination when chromeless=true (search: PLUGIN CHANGE 4)
  #   PLUGIN CHANGE 5 — content_text_size setting toggles prose-lg on #htmx-article (search: PLUGIN CHANGE 5)
  #   PLUGIN CHANGE 6 – "On this page" box on phones and tablets, after a course page's title (search: PLUGIN CHANGE 6)
+ #   PLUGIN CHANGE 7 – Keep My Place: a page in a module list is remembered for its Modules page (search: PLUGIN CHANGE 7)
  #}
 
 {# Shared swap-target body — rendered both by base.html.twig (full page) and
@@ -69,6 +70,19 @@
     {% elseif page.template == 'error' %}
         {% include 'partials/content/error.html.twig' %}
     {% elseif page.template == 'course-page' %}
+        {# PLUGIN CHANGE 7 – Keep My Place: a page in a Modules page's list (a module, or a page inside one) is remembered
+           for that Modules page (see assets/helios.js), unless turned off in the plugin settings or for its course
+           (keep_my_place: false on the course page) #}
+        {% set place_list_page = null %}
+        {% if page.parent.template == 'module' %}
+            {% set place_list_page = page.parent %}
+        {% elseif page.parent.parent.template == 'module' %}
+            {% set place_list_page = page.parent.parent %}
+        {% endif %}
+        {% set course_keeps_place = place_list_page and (place_list_page.parent.header.keep_my_place is not defined or place_list_page.parent.header.keep_my_place) %}
+        {% if course_keeps_place and config.plugins['helios-course-hub'].keep_my_place is not same as(false) and not chromeless %}
+            <div data-hor-save-page data-hor-url="{{ page.url }}" data-hor-title="{{ page.title|e('html_attr') }}" data-hor-publication-path="{{ place_list_page.url }}" hidden></div>
+        {% endif %}
         {# PLUGIN CHANGE 6 – on phones and tablets, an "On this page" box listing the page's sections. A course page's
            title is the "# Title" heading in its own Markdown, so the box goes just after that first heading (or at the
            top, for a page without one) #}
