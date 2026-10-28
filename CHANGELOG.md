@@ -1,3 +1,9 @@
+# v1.3.21
+## 10/28/2026
+
+1. [](#new)
+    * Previous/Next Bar on Phones: a new setting (off by default) for a Previous/Next bar fixed to the bottom of the screen on phones, as in Grav Helios Open Reader and Grav Open Publishing Space
+
 # v1.3.20
 ## 10/28/2026
 
