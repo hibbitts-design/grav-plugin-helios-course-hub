@@ -209,6 +209,8 @@ Append `?embedded=true` to any page URL to display only the page content — no 
 ### Authoring & Customization
 - Git Sync plugin for syncing site content with GitHub, Codeberg, or similar Git hosting service
 - Automatic "Edit this Page" link option provided by the Helios Theme, with support for both GitHub and Codeberg repositories – defaults to **View Page Markdown** (linking to the Markdown source file for open access to course materials) and optionally configurable to link directly to file editing for course authors and contributors
+- A course page's title is the `# Title` heading at the top of its own Markdown (the phone "On this page" box follows it) – unlike Grav Helios Open Reader pages, whose title comes from their Title setting; add or remove that line when moving a page between the two
+- Link from one module to another with a relative link, such as `[Accessibility](../accessibility)`: it keeps working when a course moves to another folder or site, where an absolute link (`/my-course/modules/accessibility`) would need updating
 - Customize CSS and JavaScript via the bundled Helios Course Hub plugin
 - Print stylesheet with page break control for images, lists, tables, and headings; absolute link URLs displayed inline; and consistent page margins across browsers
 - Page Table of Contents template (`default-toc`): adds a right-column Table of Contents to standalone content-heavy pages; set `template: default-toc` in any page's frontmatter to enable
