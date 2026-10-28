@@ -73,6 +73,11 @@
            title is the "# Title" heading in its own Markdown, so the box goes just after that first heading (or at the
            top, for a page without one) #}
         {% set page_sections_box %}{% include 'partials/page-sections-above.html.twig' %}{% endset %}
+        {# Learning objectives from the page settings (learning_objectives, the same setting as in Grav Open Course Hub
+           and Grav Helios Open Reader), shown as an [objectives] box after the "On this page" box #}
+        {% if page.header.learning_objectives %}
+            {% set page_sections_box = page_sections_box ~ ('[objectives]' ~ page.header.learning_objectives|markdown ~ '[/objectives]')|shortcodes %}
+        {% endif %}
         {% if page_sections_box|trim and '</h1>' in page.content %}
             {# split(text, 2): the content up to the first title heading, and everything after it #}
             {% set content_parts = page.content|split('</h1>', 2) %}
