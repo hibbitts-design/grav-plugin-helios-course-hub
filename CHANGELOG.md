@@ -3,6 +3,8 @@
 
 1. [](#new)
     * Learning objectives: a course page's new Learning Objectives setting (`learning_objectives`) is shown as a Learning Objectives box just after the page's title (after the On this page box on phones) – the same setting as in Grav Helios Open Reader, Grav Open Course Hub and Grav Open Publishing Space, so a page's objectives carry over when content moves between them
+    * Arrow keys: the left and right arrow keys go to the previous and next page, as in Grav Helios Open Reader – handy when presenting a course by screen sharing
+    * Keep My Place: a course's Modules page shows returning readers a "Continue where you left off" strip, as in Grav Helios Open Reader. On by default; can be turned off in the plugin settings, or per course with `keep_my_place: false`
 
 # v1.3.18
 ## 10/26/2026
