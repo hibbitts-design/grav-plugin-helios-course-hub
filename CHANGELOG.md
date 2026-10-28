@@ -1,3 +1,12 @@
+# v1.3.20
+## 10/28/2026
+
+1. [](#new)
+    * Side Box: Markdown under the navigation, from a page's or the course's new Side Box setting (`side_box`), as in Grav Helios Open Reader
+    * Link previews: course pages now have Open Graph tags, with the course's Card Image
+2. [](#bugfix)
+    * Description: pages now get a description tag – the page's, its metadata's, or the site's
+
 # v1.3.19
 ## 10/28/2026
 
