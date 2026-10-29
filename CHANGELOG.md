@@ -1,3 +1,9 @@
+# v1.3.22
+## 10/29/2026
+
+1. [](#improved)
+    * A page's Markdown version (Grav 2's .md address) keeps its callouts as > [!NOTE] and so on, so Docsify-This, GitHub and others show them as callouts
+
 # v1.3.21
 ## 10/28/2026
 
