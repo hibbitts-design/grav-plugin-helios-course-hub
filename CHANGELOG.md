@@ -3,6 +3,9 @@
 
 1. [](#improved)
     * Course cards side by side line up: titles of one or two lines and the instructor and badge line align across each row
+    * Cards side by side: titles start at the top of each row, with a little less padding and space under titles
+2. [](#bugfix)
+    * Card arrows keep their size when a title wraps, and the instructor line has its intended small gap above it
 
 # v1.3.22
 ## 10/29/2026
