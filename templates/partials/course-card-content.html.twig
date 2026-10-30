@@ -1,5 +1,6 @@
 {# Inner content for course-card - icon, title, arrow, description #}
-<div class="flex items-center gap-3 text-base font-semibold text-gray-900 dark:text-white {{ link ? 'group-hover:text-primary' : '' }} transition-colors">
+{# the title, then the details below it in one block, so a row of cards can line them up (see helios.css) #}
+<div class="course-card-head flex items-center gap-3 text-base font-semibold text-gray-900 dark:text-white {{ link ? 'group-hover:text-primary' : '' }} transition-colors">
     {% if icon %}
     <span class="doc-card-icon flex-shrink-0 inline-flex items-center justify-center p-2 rounded-xl bg-primary/15 text-primary">
         {{ svg_icon(icon, 'w-5 h-5')|raw }}
@@ -12,6 +13,8 @@
     </svg>
     {% endif %}
 </div>
+{% if description or content or instructor or badge_label %}
+<div class="course-card-details">
 {% if description or content %}
 {% set clamp_class = description and card_description_lines > 0 ? 'course-card-description--clamp-' ~ card_description_lines : '' %}
 <div class="course-card-description mt-3 text-sm text-gray-600 dark:text-gray-400 {{ clamp_class }}">
@@ -27,4 +30,6 @@
 {% set badge_color_class = badge_color and badge_color != 'default' ? 'doc-badge-' ~ badge_color : '' %}
 {% set badge_classes = ['doc-badge', badge_color_class]|filter(v => v)|join(' ') %}
 <div class="mt-3"><span class="{{ badge_classes }}">{{ badge_label }}</span></div>
+{% endif %}
+</div>
 {% endif %}
