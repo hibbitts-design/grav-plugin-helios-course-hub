@@ -1,5 +1,5 @@
 # v1.3.23
-## XX/XX/2026
+## 10/30/2026
 
 1. [](#improved)
     * Course cards side by side line up: titles of one or two lines and the instructor and badge line align across each row
