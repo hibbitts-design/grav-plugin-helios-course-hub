@@ -1,11 +1,12 @@
 # v1.3.24
-## XX/XX/2026
+## 11/12/2026
 
 1. [](#new)
     * A course's OER attribution and license (its Attribution tab), shown in the footer of its pages, as in Grav Open Course Space and Helios Open Reader
     * Optional "This page as Markdown" link in the footer, as in Helios Open Reader (off by default)
 1. [](#improved)
     * README and demo Read Me pages: how to give a course its own address (such as a subdomain), with Grav's environment configuration
+    * README: introduced as the Grav Premium successor to Open Course Hub
 
 # v1.3.23
 ## 10/30/2026
