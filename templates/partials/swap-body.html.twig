@@ -8,6 +8,7 @@
  #   PLUGIN CHANGE 8 – the page's Side Box, for the sidebar after an HTMX page swap (search: PLUGIN CHANGE 8)
  #   PLUGIN CHANGE 9 – Previous/Next bar on phones (search: PLUGIN CHANGE 9)
  #   PLUGIN ADDITION – data-hch-markdown-url marker for the footer's "This page as Markdown" link
+ #   PLUGIN ADDITION – hch-attribution-template, the page's course attribution for the footer
  #}
 
 {# Shared swap-target body — rendered both by base.html.twig (full page) and
@@ -132,6 +133,10 @@
 {% if show_markdown_link %}
 <div data-hch-markdown-url="{{ include('partials/markdown-url.html.twig')|trim }}" hidden></div>
 {% endif %}
+
+{# The page's course attribution, copied into the footer by helios.js after an HTMX page swap, so moving to a page
+   in another course shows that course's attribution (PLUGIN ADDITION) #}
+<template id="hch-attribution-template">{{ include('partials/course-attribution.html.twig')|trim|raw }}</template>
 
 {# PLUGIN CHANGE 8 – the page's Side Box, copied into the sidebar by helios.js (HTMX doesn't redraw the sidebar) #}
 <template id="hor-side-box-template">{{ include('partials/side-box.html.twig')|trim|raw }}</template>

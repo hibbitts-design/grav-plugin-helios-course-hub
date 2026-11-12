@@ -179,11 +179,21 @@
     }
   }
 
+  // The course's attribution in the footer: replaced with the new page's (from its hch-attribution-template), so it
+  // matches the page's course after an HTMX swap, even when the swap moves to another course
+  function hchUpdateAttribution(root) {
+    var template = root.querySelector('#hch-attribution-template');
+    var wrap = document.querySelector('.hch-attribution-wrap');
+    if (!template || !wrap) return;
+    wrap.innerHTML = template.innerHTML;
+  }
+
   window.addEventListener('helios:content-loaded', function (evt) {
     var container = evt.detail && evt.detail.container;
     if (container) {
       horInitSavePlace(container);
       hchUpdateMarkdownLink(container);
+      hchUpdateAttribution(container);
     }
   });
 })();

@@ -43,27 +43,9 @@
     </aside>
     {% endif %}
 
-    {# The course's OER attribution and license (its Attribution tab), as in Helios Open Reader #}{# PLUGIN CHANGE 6 #}
-    {% set attribution = course_attribution ?? null %}
-    {% if attribution and not chromeless %}
-    <div class="hch-attribution mt-4 mb-4 text-center text-sm text-gray-500 dark:text-gray-400">
-        {% if attribution.text %}
-        <p>{{ attribution.text|raw }}</p>
-        {% endif %}
-        {# the license on its own line, unless the attribution text already names it (as in "licensed under CC BY 4.0") #}
-        {% if attribution.license and not (attribution.text and attribution.license in attribution.text) %}
-        <p class="mt-2">
-            {% if attribution.license_url %}
-            <a href="{{ attribution.license_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
-                {{ attribution.license }}<span class="sr-only"> {{ 'PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t }}</span>
-            </a>
-            {% else %}
-            {{ attribution.license }}
-            {% endif %}
-        </p>
-        {% endif %}
-    </div>
-    {% endif %}
+    {# The course's OER attribution and license (its Attribution tab). The footer isn't re-rendered when readers move
+       between pages, so helios.js replaces this box's contents from the page's hch-attribution-template #}{# PLUGIN CHANGE 6 #}
+    <div class="hch-attribution-wrap">{% include 'partials/course-attribution.html.twig' %}</div>
 
     {# Creative Commons license for the site's content (the Display CC License setting) #}{# PLUGIN CHANGE 4 #}
     {% include 'partials/cc-license.html.twig' %}
