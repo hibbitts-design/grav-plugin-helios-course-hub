@@ -355,6 +355,14 @@ class HeliosCourseHubPlugin extends Plugin
         $twig->twig_vars['show_site_icon'] = $showSiteIcon;
         $twig->twig_vars['site_icon'] = $siteIcon;
         $twig->twig_vars['show_plugin_credits'] = $showPluginCredits;
+        // "This page as Markdown" link (as in Helios Open Reader): only offered when Grav serves pages as Markdown. The
+        // markdown_output service only exists in Grav 2.1 and later, so on Grav 1.7 the link is never shown
+        $markdownOutputAvailable = (bool) $this->config->get('system.pages.markdown_output.enabled', true)
+            && isset($this->grav['markdown_output']);
+        $twig->twig_vars['show_markdown_link'] = $markdownOutputAvailable
+            && $this->config->get('plugins.helios-course-hub.show_markdown_link', false);
+        $twig->twig_vars['markdown_link_label'] = $this->config->get('plugins.helios-course-hub.markdown_link_label', 'This page as Markdown (.md)');
+        $twig->twig_vars['markdown_link_icon'] = $this->config->get('plugins.helios-course-hub.markdown_link_icon', 'tabler/markdown.svg');
         $twig->twig_vars['course_label_icon'] = $courseLabelIcon;
         $twig->twig_vars['content_text_size'] = $contentTextSize;
         // Hide sidebar and header when ?embedded=true or ?chromeless=true is present in the URL
@@ -417,6 +425,7 @@ class HeliosCourseHubPlugin extends Plugin
             $twig->twig_vars['course_sidebar_image'] = null;
             $twig->twig_vars['course_side_box'] = null;
             $twig->twig_vars['course_card_image'] = null;
+            $twig->twig_vars['course_attribution'] = null;
             foreach ($filteredVersions as $version) {
                 $isCurrent = is_array($version) ? ($version['is_current'] ?? false) : ($version->is_current ?? false);
                 if ($isCurrent) {
@@ -459,6 +468,9 @@ class HeliosCourseHubPlugin extends Plugin
 
                             // the course's Side Box
                             $twig->twig_vars['course_side_box'] = $versionPage->header()->side_box ?? null;
+
+                            // the course's OER attribution and license (its Attribution tab)
+                            $twig->twig_vars['course_attribution'] = $this->courseAttribution((array) $versionPage->header());
                         }
                     }
                     break;
@@ -511,7 +523,28 @@ class HeliosCourseHubPlugin extends Plugin
             $twig->twig_vars['course_card_image'] = $this->rootCourseImage($rootCourseHeader);
             $twig->twig_vars['course_sidebar_image'] = ($rootCourseHeader['show_sidebar_image'] ?? 0) ? $twig->twig_vars['course_card_image'] : null;
             $twig->twig_vars['course_side_box'] = $rootCourseHeader['side_box'] ?? null;
+            $twig->twig_vars['course_attribution'] = $this->courseAttribution($rootCourseHeader);
         }
+    }
+
+    /**
+     * A course's OER attribution and license, from its course.md settings (the same fields as Grav Open Course Space
+     * and Helios Open Reader), or null when its Show OER Attribution Block setting is off or there's nothing to show.
+     */
+    private function courseAttribution(array $header): ?array
+    {
+        if (empty($header['show_oer_attribution'])) {
+            return null;
+        }
+        $attribution = [
+            'text' => (string) ($header['attribution_text'] ?? ''),
+            'license' => (string) ($header['license'] ?? ''),
+            'license_url' => (string) ($header['license_url'] ?? ''),
+        ];
+        if ($attribution['text'] === '' && $attribution['license'] === '') {
+            return null;
+        }
+        return $attribution;
     }
 
     /**

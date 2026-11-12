@@ -5,6 +5,8 @@
  #   2. Footer attribution text includes Helios Course Hub link, toggled by show_plugin_credits (search: PLUGIN CHANGE 2)
  #   3. Git edit link suppressed via ?edit_link=false or ?hidegitlink=true URL params (search: PLUGIN CHANGE 3)
  #   4. Creative Commons license above the credit line, from the Display CC License setting (search: PLUGIN CHANGE 4)
+ #   5. "This page as Markdown" link, updated by helios.js after an HTMX page swap, as in Helios Open Reader (PLUGIN ADDITION)
+ #   6. The course's OER attribution and license, from its Attribution tab (search: PLUGIN CHANGE 6)
  #}
 <footer class="mt-16 py-8 border-t border-gray-200 dark:border-gray-700">
 
@@ -26,6 +28,42 @@
             </a>
         </div>
         {% endif %}
+
+    {# "This page as Markdown" link: the footer isn't re-rendered when readers move between pages, so it's always here
+       when turned on (hidden where it doesn't apply), and helios.js updates its address from the
+       data-hch-markdown-url marker in each page's content #}{# PLUGIN ADDITION #}
+    {% if show_markdown_link %}
+    {% set hch_markdown_url = include('partials/markdown-url.html.twig')|trim %}
+    <aside class="hch-markdown-link-wrap mb-4 text-center text-sm text-gray-500 dark:text-gray-400" aria-label="{{ markdown_link_label }}"{% if not hch_markdown_url %} hidden{% endif %}>
+        {# the hover text shares a tip: any page's Markdown is at its address with .md added #}
+        <a href="{{ hch_markdown_url }}" title="{{ 'PLUGIN_HELIOS_COURSE_HUB.MARKDOWN_LINK_TITLE'|t|e('html_attr') }}" class="page-markdown-link inline-flex items-center gap-1 hover:underline">
+            {% if markdown_link_icon %}<span aria-hidden="true">{{ svg_icon(markdown_link_icon, 'w-4 h-4')|raw }}</span>{% endif %}
+            {{ markdown_link_label }}
+        </a>
+    </aside>
+    {% endif %}
+
+    {# The course's OER attribution and license (its Attribution tab), as in Helios Open Reader #}{# PLUGIN CHANGE 6 #}
+    {% set attribution = course_attribution ?? null %}
+    {% if attribution and not chromeless %}
+    <div class="hch-attribution mt-4 mb-4 text-center text-sm text-gray-500 dark:text-gray-400">
+        {% if attribution.text %}
+        <p>{{ attribution.text|raw }}</p>
+        {% endif %}
+        {# the license on its own line, unless the attribution text already names it (as in "licensed under CC BY 4.0") #}
+        {% if attribution.license and not (attribution.text and attribution.license in attribution.text) %}
+        <p class="mt-2">
+            {% if attribution.license_url %}
+            <a href="{{ attribution.license_url }}" target="_blank" rel="noopener noreferrer" class="hover:underline">
+                {{ attribution.license }}<span class="sr-only"> {{ 'PLUGIN_HELIOS_COURSE_HUB.OPENS_IN_NEW_TAB'|t }}</span>
+            </a>
+            {% else %}
+            {{ attribution.license }}
+            {% endif %}
+        </p>
+        {% endif %}
+    </div>
+    {% endif %}
 
     {# Creative Commons license for the site's content (the Display CC License setting) #}{# PLUGIN CHANGE 4 #}
     {% include 'partials/cc-license.html.twig' %}

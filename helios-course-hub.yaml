@@ -15,6 +15,9 @@ show_site_icon: true
 site_icon: tabler/hexagon.svg
 logo_link_target: single_course
 show_plugin_credits: true
+show_markdown_link: false
+markdown_link_label: 'This page as Markdown (.md)'
+markdown_link_icon: 'tabler/markdown.svg'
 cc_license:
   enabled: false
   type: ccby

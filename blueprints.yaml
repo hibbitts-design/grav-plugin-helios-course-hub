@@ -193,6 +193,31 @@ form:
       validate:
         type: bool
 
+    show_markdown_link:
+      type: toggle
+      label: 'Show This Page as Markdown Link in Footer'
+      help: 'A link to the current page as Markdown, ready to reuse. Needs Grav''s Serve Pages as Markdown setting.'
+      highlight: 0
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    markdown_link_label:
+      type: text
+      size: medium
+      label: 'This Page as Markdown Link Label'
+      placeholder: 'This page as Markdown (.md)'
+
+    markdown_link_icon:
+      type: text
+      size: medium
+      label: 'This Page as Markdown Link Icon'
+      help: 'Tabler icon path. Leave empty for no icon.'
+      placeholder: 'tabler/markdown.svg'
+
     cc_license.enabled:
       type: toggle
       label: 'Display CC License'

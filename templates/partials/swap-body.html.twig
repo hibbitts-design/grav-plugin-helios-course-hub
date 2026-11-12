@@ -7,6 +7,7 @@
  #   PLUGIN CHANGE 7 – Keep My Place: a page in a module list is remembered for its Modules page (search: PLUGIN CHANGE 7)
  #   PLUGIN CHANGE 8 – the page's Side Box, for the sidebar after an HTMX page swap (search: PLUGIN CHANGE 8)
  #   PLUGIN CHANGE 9 – Previous/Next bar on phones (search: PLUGIN CHANGE 9)
+ #   PLUGIN ADDITION – data-hch-markdown-url marker for the footer's "This page as Markdown" link
  #}
 
 {# Shared swap-target body — rendered both by base.html.twig (full page) and
@@ -125,6 +126,12 @@
 <div id="htmx-toc-template" style="display:none" x-ignore aria-hidden="true">
     {{ toc_html|raw }}
 </div>
+
+{# The page's Markdown address, read by helios.js to update the footer's "This page as Markdown" link after an
+   HTMX page swap (PLUGIN ADDITION) #}
+{% if show_markdown_link %}
+<div data-hch-markdown-url="{{ include('partials/markdown-url.html.twig')|trim }}" hidden></div>
+{% endif %}
 
 {# PLUGIN CHANGE 8 – the page's Side Box, copied into the sidebar by helios.js (HTMX doesn't redraw the sidebar) #}
 <template id="hor-side-box-template">{{ include('partials/side-box.html.twig')|trim|raw }}</template>

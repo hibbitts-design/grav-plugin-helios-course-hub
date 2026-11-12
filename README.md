@@ -320,6 +320,7 @@ Each course folder contains a `course.md` file with frontmatter that controls th
 | `show_sidebar_image` | Show the card image in the course sidebar when browsing within this course (default: No) |
 | `side_box` | Markdown shown under the navigation on every page of this course (a page's own `side_box` replaces it) |
 | `keep_my_place` | Set to `false` to turn off the "Continue where you left off" strip for this course (default: on) |
+| `show_oer_attribution`, `license`, `license_url`, `attribution_text` | The course's OER attribution and license, in the footer of its pages (its **Attribution** tab; the same fields as Grav Open Course Space and Helios Open Reader) |
 | `group` | Optional group label for organizing course cards on the Courses homepage into labeled sections; courses without a group appear first with no heading |
 
 ```yaml
@@ -442,6 +443,7 @@ The following settings are available in the Admin panel under **Plugins → Heli
 | Show Site Logo Icon | Enabled | Show or hide the icon square next to the Logo Text in the header when no logo image is set |
 | Site Logo Icon | _(empty)_ | Tabler icon path for the site logo icon square (e.g. `tabler/book.svg`). Leave empty to use the default icon. Only applies when Show Site Logo Icon is enabled |
 | Single Course Site Logo Link | First Page of Only Listed Course | Choose where the site Logo Text and icon link navigates: **Courses Home Page** or **First Page of Only Listed Course** (navigates to the first page of the course when only one course is active) |
+| Show This Page as Markdown Link in Footer | Disabled | A link to the current page as Markdown (its address with `.md` added), not on the Courses page or embedded pages; a page can hide it with `hide_markdown_link: true`. Needs Grav 2.1's Serve Pages as Markdown setting. The link's label and icon can be changed |
 | Show Plugin Credits | Enabled | Show or hide the "Built with Grav · Helios · Helios Course Hub" attribution line in the footer |
 | Keep My Place | Enabled | Show returning readers a "Continue where you left off" strip on a course's Modules page, linking to the last page they opened there (remembered in their browser) |
 | Previous/Next Bar on Phones | Disabled | On phones, a Previous/Next bar fixed to the bottom of the screen, in place of the page's Previous/Next boxes, as in Grav Helios Open Reader |

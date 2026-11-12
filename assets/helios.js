@@ -161,10 +161,29 @@
   }
 
   horInitSavePlace(document);
+
+  // "This page as Markdown" link in the footer: the footer isn't re-rendered on HTMX navigation, so update the
+  // link from the new page's data-hch-markdown-url marker, and hide it where the page has none (as in Helios Open Reader)
+  function hchUpdateMarkdownLink(root) {
+    var marker = root.querySelector('[data-hch-markdown-url]');
+    var wrap = document.querySelector('.hch-markdown-link-wrap');
+    if (!marker || !wrap) return;
+    // dataset.hchMarkdownUrl reads the marker's data-hch-markdown-url attribute (empty where there's no link)
+    var url = marker.dataset.hchMarkdownUrl;
+    var link = wrap.querySelector('a');
+    if (url) {
+      link.href = url;
+      wrap.hidden = false;
+    } else {
+      wrap.hidden = true;
+    }
+  }
+
   window.addEventListener('helios:content-loaded', function (evt) {
     var container = evt.detail && evt.detail.container;
     if (container) {
       horInitSavePlace(container);
+      hchUpdateMarkdownLink(container);
     }
   });
 })();
