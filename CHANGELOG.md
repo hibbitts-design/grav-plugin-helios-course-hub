@@ -1,3 +1,9 @@
+# v1.3.26
+## 11/16/2026
+
+1. [](#improved)
+    * README: Helios's own components, code blocks and search work alongside the plugin
+
 # v1.3.25
 ## 11/14/2026
 
