@@ -3,6 +3,7 @@
 
 1. [](#improved)
     * README: Helios's own components, code blocks and search work alongside the plugin
+    * README: opens with the Helios step up from Open Course Space, and a tagline matching the skeleton
 
 # v1.3.25
 ## 11/14/2026
