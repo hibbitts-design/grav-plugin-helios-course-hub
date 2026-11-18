@@ -75,6 +75,7 @@ class HeliosCourseHubPlugin extends Plugin
             'onTwigTemplatePaths' => ['onTwigTemplatePaths', 0],
             'onTwigSiteVariables' => ['onTwigSiteVariables', -100],
             'onOutputGenerated'   => ['onOutputGenerated', 0],
+            'onPageInitialized'   => ['onPageInitializedCourseDefaults', 0],
             // -10: after Shortcode Core registers its own sample shortcodes (such as a starter [badge]), so this plugin's
             // shortcodes with the same name replace them
             'onShortcodeHandlers' => ['onShortcodeHandlers', -10],
@@ -101,6 +102,41 @@ class HeliosCourseHubPlugin extends Plugin
                 $p->routable(true);
             }
         }
+    }
+
+    // A course's own pages (Home, Essentials, Schedule, Resources …) don't show Previous/Next or a table of
+    // contents, and nor does its Modules page – as in the skeleton's example courses. So a page copied from another
+    // course site, or a new one, looks right without adding these settings. A page's own navigation settings
+    // always win: set toc_position or prev_next on it to show them.
+    public function onPageInitializedCourseDefaults(): void
+    {
+        $page = $this->grav['page'] ?? null;
+        $parent = $page ? $page->parent() : null;
+        if (!$page || !$parent) {
+            return;
+        }
+        $isModulesPage = $page->template() === 'module';
+        // a page right inside the course folder – not a module, which sits inside the Modules page
+        $isCoursePage = $page->template() === 'course-page' && $this->isCourseFolder($parent);
+        if (!$isModulesPage && !$isCoursePage) {
+            return;
+        }
+        $navigation = (array)($page->header()->navigation ?? []);
+        $defaults = $isCoursePage ? ['prev_next' => false, 'toc_position' => 'hidden'] : ['toc_position' => 'hidden'];
+        $missing = array_diff_key($defaults, $navigation);
+        if (count($missing) > 0) {
+            $page->modifyHeader('navigation', array_merge($navigation, $missing));
+        }
+    }
+
+    // A course's folder: it has a course.md (the course template) – or, in a single-course site, the top of
+    // user/pages has one
+    private function isCourseFolder($page): bool
+    {
+        if ($page->template() === 'course') {
+            return true;
+        }
+        return $page->root() && is_file($this->grav['locator']->findResource('page://', true) . '/course.md');
     }
 
     private function isAdmin2Route(): bool
