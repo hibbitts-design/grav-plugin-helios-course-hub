@@ -1,3 +1,10 @@
+# v1.3.27
+## 11/18/2026
+
+1. [](#improved)
+    * A course's own pages (Home, Schedule, Resources …) and its Modules page hide Previous/Next and the table of contents unless they set them, so copied or new pages need no navigation settings
+    * README: Migrating to Helios Course Hub points to the skeleton's guide, which now starts with moving courses from Grav Open Course Space
+
 # v1.3.26
 ## 11/16/2026
 
