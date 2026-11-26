@@ -1,3 +1,9 @@
+# v1.3.28
+## XX/XX/2026
+
+1. [](#improved)
+    * Course cards show a portrait image, such as a book cover, whole instead of cropped, as in Helios Open Reader
+
 # v1.3.27
 ## 11/18/2026
 
